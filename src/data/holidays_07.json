@@ -1,0 +1,684 @@
+[
+  {
+    "month": 7,
+    "day": 1,
+    "holidays": [
+      {
+        "name": "Canada Day",
+        "description": "Canada Day celebrates the anniversary of Canadian Confederation on July 1, 1867, when Canada became a self governing dominion.",
+        "funFact": "Canada Day was originally called Dominion Day until 1982 when it was officially renamed Canada Day.",
+        "emoji": "🍁",
+        "category": "cultural",
+        "shareText": "Happy Canada Day! Celebrating the Great White North today! 🍁 #CanadaDay #CelebriDay"
+      },
+      {
+        "name": "National Gingersnap Day",
+        "description": "National Gingersnap Day honors the crispy, spicy ginger flavored cookie beloved by snack lovers everywhere.",
+        "funFact": "Gingersnaps get their name from their signature snap when broken, a result of their crispy baked texture.",
+        "emoji": "🍪",
+        "category": "food",
+        "shareText": "Snapping into National Gingersnap Day with the crunchiest cookie around! 🍪 #NationalGingersnapDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 2,
+    "holidays": [
+      {
+        "name": "World UFO Day",
+        "description": "World UFO Day encourages people to look up at the sky and ponder the possibility of extraterrestrial life and unidentified flying objects.",
+        "funFact": "The term UFO was coined by the U.S. Air Force in 1952 to describe any airborne object that could not be immediately identified.",
+        "emoji": "🛸",
+        "category": "fun",
+        "shareText": "The truth is out there! Happy World UFO Day! 🛸 #WorldUFODay #CelebriDay"
+      },
+      {
+        "name": "National Anisette Day",
+        "description": "National Anisette Day celebrates the sweet anise flavored liqueur enjoyed in cocktails and desserts around the world.",
+        "funFact": "Anisette has been produced for centuries and was historically used as a medicinal remedy for digestive ailments.",
+        "emoji": "🥃",
+        "category": "food",
+        "shareText": "Raising a glass to the sweet licorice taste of anisette today! 🥃 #NationalAnisetteDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 3,
+    "holidays": [
+      {
+        "name": "National Chocolate Wafer Day",
+        "description": "National Chocolate Wafer Day celebrates the thin, crispy chocolate wafer cookie that is a beloved snack and dessert ingredient.",
+        "funFact": "Chocolate wafers are a key ingredient in many classic no bake desserts, including the famous icebox cake.",
+        "emoji": "🍫",
+        "category": "food",
+        "shareText": "Crunching into National Chocolate Wafer Day with a stack of sweet, crispy goodness! 🍫 #NationalChocolateWaferDay #CelebriDay"
+      },
+      {
+        "name": "Stay Out of the Sun Day",
+        "description": "Stay Out of the Sun Day reminds us to protect our skin during the hottest part of summer by staying in the shade.",
+        "funFact": "UV radiation is strongest between 10 a.m. and 4 p.m., making midday the most important time to seek shade.",
+        "emoji": "🌂",
+        "category": "health",
+        "shareText": "Staying cool and protected today for Stay Out of the Sun Day! 🌂 #StayOutOfTheSunDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 4,
+    "holidays": [
+      {
+        "name": "Independence Day",
+        "description": "Independence Day commemorates the adoption of the Declaration of Independence on July 4, 1776, marking the birth of the United States of America.",
+        "funFact": "The tradition of fireworks on the Fourth of July dates back to the very first celebration in Philadelphia in 1777.",
+        "emoji": "🎆",
+        "category": "cultural",
+        "shareText": "Happy Fourth of July! Celebrating freedom and fireworks today! 🎆 #IndependenceDay #CelebriDay"
+      },
+      {
+        "name": "National Barbecue Day",
+        "description": "National Barbecue Day celebrates the beloved American tradition of grilling food outdoors with family and friends.",
+        "funFact": "The word barbecue is believed to derive from the Caribbean Taino word barabicu, meaning sacred fire pit.",
+        "emoji": "🍖",
+        "category": "food",
+        "shareText": "Firing up the grill for National Barbecue Day! Nothing says summer like BBQ! 🍖 #NationalBarbecueDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 5,
+    "holidays": [
+      {
+        "name": "National Apple Turnover Day",
+        "description": "National Apple Turnover Day celebrates the delicious pastry filled with spiced apple filling and wrapped in flaky dough.",
+        "funFact": "Apple turnovers are believed to have originated in England and became popular in the American colonies in the 1700s.",
+        "emoji": "🥐",
+        "category": "food",
+        "shareText": "Turning over a new (apple) leaf for National Apple Turnover Day! 🥐 #NationalAppleTurnoverDay #CelebriDay"
+      },
+      {
+        "name": "Workaholics Day",
+        "description": "Workaholics Day is a humorous holiday that acknowledges those who are dedicated to their work, perhaps a little too much.",
+        "funFact": "The term workaholic was coined in 1971 by psychologist Wayne Oates in his book Confessions of a Workaholic.",
+        "emoji": "💼",
+        "category": "fun",
+        "shareText": "Taking a break from being a workaholic to celebrate Workaholics Day! 💼 #WorkaholicsDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 6,
+    "holidays": [
+      {
+        "name": "National Fried Chicken Day",
+        "description": "National Fried Chicken Day celebrates one of America's most beloved comfort foods, golden, crispy, and delicious.",
+        "funFact": "The American South became famous for fried chicken after Scottish immigrants brought their frying techniques and enslaved African cooks added their own seasonings and spices.",
+        "emoji": "🍗",
+        "category": "food",
+        "shareText": "It is National Fried Chicken Day and I am absolutely here for it! 🍗 #NationalFriedChickenDay #CelebriDay"
+      },
+      {
+        "name": "International Kissing Day",
+        "description": "International Kissing Day celebrates the simple yet meaningful act of kissing and the joy it brings to relationships.",
+        "funFact": "Kissing is thought to have evolved from kiss feeding, the practice of mothers passing chewed food to their infants.",
+        "emoji": "💋",
+        "category": "fun",
+        "shareText": "Spreading love and kisses on International Kissing Day! 💋 #InternationalKissingDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 7,
+    "holidays": [
+      {
+        "name": "World Chocolate Day",
+        "description": "World Chocolate Day is a global celebration of one of humanity's most beloved treats, enjoyed in countless forms around the world.",
+        "funFact": "It takes approximately 400 cocoa beans to make one pound of chocolate, and each cacao tree produces only about 2,500 beans per year.",
+        "emoji": "🍫",
+        "category": "food",
+        "shareText": "Every day should be World Chocolate Day, but today it is official! 🍫 #WorldChocolateDay #CelebriDay"
+      },
+      {
+        "name": "National Strawberry Sundae Day",
+        "description": "National Strawberry Sundae Day celebrates the classic ice cream sundae topped with fresh strawberries and whipped cream.",
+        "funFact": "The ice cream sundae was invented in the late 1800s when laws in some U.S. towns prohibited selling soda water on Sundays, leading to sodaless ice cream dishes.",
+        "emoji": "🍓",
+        "category": "food",
+        "shareText": "Topping off my day with a strawberry sundae! 🍓 #NationalStrawberrySundaeDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 8,
+    "holidays": [
+      {
+        "name": "National Milk Chocolate with Almonds Day",
+        "description": "National Milk Chocolate with Almonds Day celebrates the perfect combination of creamy milk chocolate and crunchy roasted almonds.",
+        "funFact": "Almonds are one of the oldest and most widely cultivated nut crops, with evidence of almond cultivation dating back over 5,000 years.",
+        "emoji": "🍫",
+        "category": "food",
+        "shareText": "The best combo ever gets its own day! Happy National Milk Chocolate with Almonds Day! 🍫 #MilkChocolateWithAlmondsDay #CelebriDay"
+      },
+      {
+        "name": "Video Games Day",
+        "description": "Video Games Day celebrates the art of video gaming and the countless hours of joy, challenge, and adventure games have brought to people worldwide.",
+        "funFact": "The first commercially sold video game was Computer Space in 1971, though Pong in 1972 became the first commercially successful arcade game.",
+        "emoji": "🎮",
+        "category": "fun",
+        "shareText": "Player one has entered the game! Happy Video Games Day! 🎮 #VideoGamesDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 9,
+    "holidays": [
+      {
+        "name": "National Sugar Cookie Day",
+        "description": "National Sugar Cookie Day celebrates the simple, sweet, and endlessly versatile sugar cookie loved by bakers and dessert fans of all ages.",
+        "funFact": "Sugar cookies originated in the mid 1700s in Nazareth, Pennsylvania, where German Protestant settlers baked them in the shape of the keystone state symbol.",
+        "emoji": "🍪",
+        "category": "food",
+        "shareText": "Sweetening up my day with sugar cookies for National Sugar Cookie Day! 🍪 #NationalSugarCookieDay #CelebriDay"
+      },
+      {
+        "name": "Disco Day",
+        "description": "Disco Day celebrates the vibrant music genre and cultural movement that dominated the 1970s dance floors around the world.",
+        "funFact": "Disco music gets its name from discotheque, the French word for a dance club or nightclub that played recorded music.",
+        "emoji": "🪩",
+        "category": "arts",
+        "shareText": "Stayin alive and dancing all night for Disco Day! 🪩 #DiscoDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 10,
+    "holidays": [
+      {
+        "name": "National Pina Colada Day",
+        "description": "National Pina Colada Day celebrates the iconic tropical cocktail made with rum, coconut cream, and pineapple juice.",
+        "funFact": "The pina colada is the official drink of Puerto Rico and was reportedly invented at the Caribe Hilton hotel in San Juan in 1954.",
+        "emoji": "🍹",
+        "category": "food",
+        "shareText": "If you like pina coladas, today is YOUR day! 🍹 #NationalPinaColadaDay #CelebriDay"
+      },
+      {
+        "name": "Clerihew Day",
+        "description": "Clerihew Day celebrates the clerihew, a whimsical four line biographical poem with a specific rhyme scheme invented by Edmund Clerihew Bentley.",
+        "funFact": "Edmund Clerihew Bentley invented the clerihew form at age 16 while bored in a science class, writing his first poem about Sir Humphry Davy.",
+        "emoji": "📝",
+        "category": "arts",
+        "shareText": "Writing silly little poems about famous people for Clerihew Day! 📝 #ClerihewDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 11,
+    "holidays": [
+      {
+        "name": "World Population Day",
+        "description": "World Population Day is a United Nations observance that highlights the urgency and importance of population issues around the globe.",
+        "funFact": "World Population Day was established in 1989 after world population reached five billion people on July 11, 1987, a date known as Five Billion Day.",
+        "emoji": "🌍",
+        "category": "awareness",
+        "shareText": "Thinking globally on World Population Day and reflecting on our shared humanity. 🌍 #WorldPopulationDay #CelebriDay"
+      },
+      {
+        "name": "National Blueberry Muffin Day",
+        "description": "National Blueberry Muffin Day celebrates one of the most popular muffin flavors, bursting with fresh blueberries in every bite.",
+        "funFact": "The muffin tin was invented in the early 1800s, but blueberry muffins became especially popular in the United States after blueberries were successfully cultivated commercially in the early 1900s.",
+        "emoji": "🫐",
+        "category": "food",
+        "shareText": "Starting the morning right with a fresh blueberry muffin! 🫐 #NationalBlueberryMuffinDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 12,
+    "holidays": [
+      {
+        "name": "National Pecan Pie Day",
+        "description": "National Pecan Pie Day celebrates the rich, sweet Southern classic made with pecans, corn syrup, and a buttery crust.",
+        "funFact": "Pecans are the only major tree nut native to North America, and the pecan pie recipe first appeared in print in 1898.",
+        "emoji": "🥧",
+        "category": "food",
+        "shareText": "A slice of heaven for National Pecan Pie Day! 🥧 #NationalPecanPieDay #CelebriDay"
+      },
+      {
+        "name": "Different Colored Eyes Day",
+        "description": "Different Colored Eyes Day celebrates heterochromia, the fascinating genetic condition where a person has two different colored eyes.",
+        "funFact": "Heterochromia affects less than one percent of the human population, but is much more common in animals like huskies and cats.",
+        "emoji": "👁️",
+        "category": "fun",
+        "shareText": "Celebrating the rare beauty of two different colored eyes today! 👁️ #DifferentColoredEyesDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 13,
+    "holidays": [
+      {
+        "name": "National French Fries Day",
+        "description": "National French Fries Day celebrates one of the world's most beloved side dishes, golden and crispy potato sticks enjoyed in every corner of the globe.",
+        "funFact": "Despite their name, french fries are believed to have originated in Belgium, where villagers near the Meuse River were frying fish and turned to frying potatoes during winter when the river froze.",
+        "emoji": "🍟",
+        "category": "food",
+        "shareText": "Celebrating the most iconic side dish on National French Fries Day! 🍟 #NationalFrenchFriesDay #CelebriDay"
+      },
+      {
+        "name": "Gruntled Workers Day",
+        "description": "Gruntled Workers Day is a fun holiday that celebrates satisfied, happy, and content employees everywhere, playing on the word disgruntled.",
+        "funFact": "The word gruntled actually is a legitimate English word meaning pleased or satisfied, making it the positive opposite of disgruntled.",
+        "emoji": "😊",
+        "category": "fun",
+        "shareText": "Feeling fully gruntled at work today! Happy Gruntled Workers Day! 😊 #GruntledWorkersDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 14,
+    "holidays": [
+      {
+        "name": "Bastille Day",
+        "description": "Bastille Day is the French national holiday commemorating the storming of the Bastille prison in 1789, a pivotal event in the French Revolution.",
+        "funFact": "When the Bastille was stormed on July 14, 1789, only seven prisoners were actually found inside, but the event became a powerful symbol of the revolution.",
+        "emoji": "🇫🇷",
+        "category": "cultural",
+        "shareText": "Vive la France! Celebrating Bastille Day and the spirit of liberte, egalite, fraternite! 🇫🇷 #BastilleDay #CelebriDay"
+      },
+      {
+        "name": "National Grand Marnier Day",
+        "description": "National Grand Marnier Day celebrates the iconic French orange liqueur made from a blend of Cognac brandy and distilled essence of bitter orange.",
+        "funFact": "Grand Marnier was created in 1880 by Alexandre Marnier Lapostolle and named by his friend Cesar Ritz, the famous hotelier.",
+        "emoji": "🍊",
+        "category": "food",
+        "shareText": "Raising a glass of something grand on National Grand Marnier Day! 🍊 #NationalGrandMarnierDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 15,
+    "holidays": [
+      {
+        "name": "National Gummy Worm Day",
+        "description": "National Gummy Worm Day celebrates the wiggly, chewy, colorful candy worms that have been a childhood favorite for generations.",
+        "funFact": "Gummy worms were invented by the German candy company Trolli in 1981, building on the earlier success of gummy bears invented by Hans Riegel in 1922.",
+        "emoji": "🐛",
+        "category": "food",
+        "shareText": "Getting wiggly with it for National Gummy Worm Day! 🐛 #NationalGummyWormDay #CelebriDay"
+      },
+      {
+        "name": "Give Something Away Day",
+        "description": "Give Something Away Day encourages generosity and the joy of sharing by giving away something meaningful to someone else.",
+        "funFact": "Studies show that giving to others activates the same reward centers in the brain as receiving gifts, producing what scientists call a helper's high.",
+        "emoji": "🎁",
+        "category": "awareness",
+        "shareText": "Spreading joy today by giving something away! It feels amazing! 🎁 #GiveSomethingAwayDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 16,
+    "holidays": [
+      {
+        "name": "National Fresh Spinach Day",
+        "description": "National Fresh Spinach Day celebrates the leafy green vegetable packed with iron, vitamins, and nutrients that make it a superfood.",
+        "funFact": "Spinach is one of the most nutrient dense foods on earth and was used by the French to create a green coloring for pasta and other foods.",
+        "emoji": "🥬",
+        "category": "food",
+        "shareText": "Eating my greens and feeling strong on National Fresh Spinach Day! 🥬 #NationalFreshSpinachDay #CelebriDay"
+      },
+      {
+        "name": "Guinea Pig Appreciation Day",
+        "description": "Guinea Pig Appreciation Day celebrates the adorable and sociable small pets that have been beloved companions for centuries.",
+        "funFact": "Guinea pigs are not pigs and are not from Guinea. They are rodents native to the Andes of South America and were domesticated around 5000 BCE.",
+        "emoji": "🐹",
+        "category": "fun",
+        "shareText": "Showering these adorable little fluffballs with love on Guinea Pig Appreciation Day! 🐹 #GuineaPigAppreciationDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 17,
+    "holidays": [
+      {
+        "name": "National Peach Ice Cream Day",
+        "description": "National Peach Ice Cream Day celebrates the creamy, fruity frozen treat made with fresh peaches that is the taste of summer.",
+        "funFact": "Georgia is famously known as the Peach State, but California actually produces the most peaches in the United States.",
+        "emoji": "🍑",
+        "category": "food",
+        "shareText": "Nothing says summer like a scoop of peach ice cream! 🍑 #NationalPeachIceCreamDay #CelebriDay"
+      },
+      {
+        "name": "World Emoji Day",
+        "description": "World Emoji Day is an annual celebration of emoji and their impact on digital communication, observed on the date shown on the calendar emoji.",
+        "funFact": "The calendar emoji on most platforms shows July 17, which is why that date was chosen for World Emoji Day when it was created in 2014.",
+        "emoji": "😀",
+        "category": "fun",
+        "shareText": "Expressing all the feelings with emojis on World Emoji Day! 😀🎉🌟 #WorldEmojiDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 18,
+    "holidays": [
+      {
+        "name": "National Caviar Day",
+        "description": "National Caviar Day celebrates the luxurious delicacy of salt cured fish roe that has been considered a gourmet treat for centuries.",
+        "funFact": "Beluga caviar is the most expensive food in the world by weight, with some varieties selling for over $35,000 per kilogram.",
+        "emoji": "🐟",
+        "category": "food",
+        "shareText": "Living the fancy life for National Caviar Day! 🐟 #NationalCaviarDay #CelebriDay"
+      },
+      {
+        "name": "Nelson Mandela International Day",
+        "description": "Nelson Mandela International Day honors the life and legacy of the South African anti apartheid leader and Nobel Peace Prize winner.",
+        "funFact": "The United Nations designated July 18 as Nelson Mandela International Day in 2009, on what would have been his 91st birthday, calling for 67 minutes of community service.",
+        "emoji": "✊",
+        "category": "awareness",
+        "shareText": "Honoring the incredible legacy of Nelson Mandela today by making a difference. ✊ #MandelaDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 19,
+    "holidays": [
+      {
+        "name": "National Daiquiri Day",
+        "description": "National Daiquiri Day celebrates the classic rum based cocktail made with lime juice and sugar that is a staple of tropical summer drinking.",
+        "funFact": "The daiquiri is named after Daiquiri, a beach and iron mining town in Cuba, where American engineer Jennings Cox invented the drink in 1898.",
+        "emoji": "🍹",
+        "category": "food",
+        "shareText": "Sipping on something icy and refreshing for National Daiquiri Day! 🍹 #NationalDaiquiriDay #CelebriDay"
+      },
+      {
+        "name": "Flitch Day",
+        "description": "Flitch Day is an ancient tradition from Dunmow, England, where a couple proves they have not quarreled for a year and a day to win a side of bacon.",
+        "funFact": "The Dunmow Flitch Trials date back to at least 1104 and still take place every four years in Great Dunmow, Essex, England.",
+        "emoji": "🥓",
+        "category": "fun",
+        "shareText": "Celebrating wedded bliss and free bacon on Flitch Day! 🥓 #FlitchDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 20,
+    "holidays": [
+      {
+        "name": "National Moon Day",
+        "description": "National Moon Day commemorates the first time humans walked on the moon on July 20, 1969, when Apollo 11 astronauts Neil Armstrong and Buzz Aldrin landed on the lunar surface.",
+        "funFact": "Neil Armstrong's famous first words on the moon were: That is one small step for man, one giant leap for mankind, though he intended to say a man.",
+        "emoji": "🌕",
+        "category": "nature",
+        "shareText": "One giant leap for mankind happened on this day! Happy National Moon Day! 🌕 #NationalMoonDay #CelebriDay"
+      },
+      {
+        "name": "National Hot Dog Day",
+        "description": "National Hot Dog Day celebrates the iconic American food that is a staple of ballparks, backyard cookouts, and street vendors across the country.",
+        "funFact": "Americans consume an estimated 20 billion hot dogs per year, and baseball stadiums alone serve approximately 19 million hot dogs each season.",
+        "emoji": "🌭",
+        "category": "food",
+        "shareText": "It is National Hot Dog Day and I am absolutely relishing it! 🌭 #NationalHotDogDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 21,
+    "holidays": [
+      {
+        "name": "National Junk Food Day",
+        "description": "National Junk Food Day gives everyone permission to indulge in their favorite guilty pleasure snacks and treats without judgment.",
+        "funFact": "The term junk food was coined by consumer advocate Michael Jacobson of the Center for Science in the Public Interest in 1972.",
+        "emoji": "🍕",
+        "category": "food",
+        "shareText": "Giving myself full permission to indulge on National Junk Food Day! 🍕 #NationalJunkFoodDay #CelebriDay"
+      },
+      {
+        "name": "National Creme Brulee Day",
+        "description": "National Creme Brulee Day celebrates the elegant French dessert of rich custard topped with a layer of hardened caramelized sugar.",
+        "funFact": "The earliest known recipe for creme brulee appeared in a French cookbook in 1691, and the dessert name means burnt cream in French.",
+        "emoji": "🍮",
+        "category": "food",
+        "shareText": "Cracking into the perfect caramelized top for National Creme Brulee Day! 🍮 #NationalCremeBruleeDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 22,
+    "holidays": [
+      {
+        "name": "National Mango Day",
+        "description": "National Mango Day celebrates the king of fruits, the tropical mango, beloved worldwide for its sweet, juicy, and aromatic flesh.",
+        "funFact": "Mangoes have been cultivated in South Asia for over 4,000 years and are the national fruit of India, Pakistan, and the Philippines.",
+        "emoji": "🥭",
+        "category": "food",
+        "shareText": "The king of fruits deserves its own day! Happy National Mango Day! 🥭 #NationalMangoDay #CelebriDay"
+      },
+      {
+        "name": "National Hammock Day",
+        "description": "National Hammock Day celebrates the simple pleasure of relaxing in a hammock on a warm summer day, swaying gently in the breeze.",
+        "funFact": "The hammock was invented by the indigenous peoples of Central and South America and was adopted by European sailors in the 15th century because it kept them off the damp ship floors.",
+        "emoji": "🏖️",
+        "category": "fun",
+        "shareText": "Swinging into relaxation mode for National Hammock Day! 🏖️ #NationalHammockDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 23,
+    "holidays": [
+      {
+        "name": "National Vanilla Ice Cream Day",
+        "description": "National Vanilla Ice Cream Day celebrates the classic and most popular ice cream flavor in the world, beloved for its creamy simplicity.",
+        "funFact": "Vanilla is actually the second most expensive spice in the world after saffron because vanilla orchid flowers must be hand pollinated and the beans take months to cure.",
+        "emoji": "🍦",
+        "category": "food",
+        "shareText": "Classic, creamy, and absolutely perfect! Happy National Vanilla Ice Cream Day! 🍦 #NationalVanillaIceCreamDay #CelebriDay"
+      },
+      {
+        "name": "Hot Enough for Ya Day",
+        "description": "Hot Enough for Ya Day is a humorous holiday acknowledging the peak of summer heat and the universal conversation about how hot it is.",
+        "funFact": "The phrase hot enough for ya is one of the most commonly used small talk expressions in the United States during summer months.",
+        "emoji": "🌡️",
+        "category": "fun",
+        "shareText": "Is it hot enough for ya? Because today is the official day to complain about summer heat! 🌡️ #HotEnoughForYaDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 24,
+    "holidays": [
+      {
+        "name": "National Drive Thru Day",
+        "description": "National Drive Thru Day celebrates the convenience of drive through restaurants, a uniquely American invention that changed fast food culture.",
+        "funFact": "The first drive through restaurant is generally credited to Red's Giant Hamburg in Springfield, Missouri, which opened in 1947, though In N Out Burger claims to have opened the first intercom based drive through in 1948.",
+        "emoji": "🚗",
+        "category": "food",
+        "shareText": "Celebrating the greatest invention in fast food history on National Drive Thru Day! 🚗 #NationalDriveThruDay #CelebriDay"
+      },
+      {
+        "name": "National Tequila Day",
+        "description": "National Tequila Day celebrates Mexico's most iconic spirit, distilled from the blue agave plant in the region surrounding the city of Tequila.",
+        "funFact": "Tequila can only legally be produced in specific regions of Mexico, and the blue agave plant used to make it takes 8 to 12 years to mature before it can be harvested.",
+        "emoji": "🥃",
+        "category": "food",
+        "shareText": "Salt, lime, and good times for National Tequila Day! 🥃 #NationalTequilaDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 25,
+    "holidays": [
+      {
+        "name": "National Culinarians Day",
+        "description": "National Culinarians Day honors professional chefs, cooks, and all culinary artists who bring creativity and skill to the kitchen.",
+        "funFact": "The word culinarian comes from the Latin word culina, meaning kitchen, and the profession of chef dates back to ancient Rome.",
+        "emoji": "👨‍🍳",
+        "category": "food",
+        "shareText": "Raising a spatula to the talented culinary artists who feed the world! 👨‍🍳 #NationalCulinariansDay #CelebriDay"
+      },
+      {
+        "name": "Thread the Needle Day",
+        "description": "Thread the Needle Day celebrates the art of sewing, needlework, and embroidery, honoring crafters and seamstresses who create with thread.",
+        "funFact": "The oldest known sewing needles, carved from bone, date back approximately 50,000 years, making sewing one of humanity's oldest crafts.",
+        "emoji": "🧵",
+        "category": "arts",
+        "shareText": "Getting crafty and creative on Thread the Needle Day! 🧵 #ThreadTheNeedleDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 26,
+    "holidays": [
+      {
+        "name": "National Coffee Milkshake Day",
+        "description": "National Coffee Milkshake Day celebrates the delightful blend of creamy ice cream and rich coffee flavor in one indulgent frozen drink.",
+        "funFact": "Coffee milkshakes are sometimes called frappes in New England and coffee cabinets in Rhode Island, showcasing America's rich regional food culture.",
+        "emoji": "☕",
+        "category": "food",
+        "shareText": "The best of both worlds in one glass! Happy National Coffee Milkshake Day! ☕ #NationalCoffeeMilkshakeDay #CelebriDay"
+      },
+      {
+        "name": "Americans with Disabilities Act Day",
+        "description": "Americans with Disabilities Act Day marks the signing of the ADA on July 26, 1990, a landmark civil rights law prohibiting discrimination based on disability.",
+        "funFact": "The Americans with Disabilities Act was signed by President George H.W. Bush and covers employment, public services, public accommodations, and telecommunications for over 61 million Americans living with a disability.",
+        "emoji": "♿",
+        "category": "awareness",
+        "shareText": "Honoring the rights and dignity of all people on Americans with Disabilities Act Day. ♿ #ADADay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 27,
+    "holidays": [
+      {
+        "name": "National Scotch Day",
+        "description": "National Scotch Day celebrates Scotch whisky, the iconic distilled spirit from Scotland that has been crafted for centuries using traditional methods.",
+        "funFact": "To be called Scotch, whisky must be distilled and matured in Scotland for a minimum of three years in oak casks, and single malt Scotch must come from a single distillery.",
+        "emoji": "🥃",
+        "category": "food",
+        "shareText": "Savoring the smoky, complex flavors of a fine Scotch on National Scotch Day! 🥃 #NationalScotchDay #CelebriDay"
+      },
+      {
+        "name": "Walk on Stilts Day",
+        "description": "Walk on Stilts Day is a fun, whimsical holiday encouraging people to try the ancient art of stilt walking and see the world from a new height.",
+        "funFact": "Stilts have been used for centuries by fishermen in parts of France and Southeast Asia to walk into shallow water to fish, making them both practical and impressive.",
+        "emoji": "🎪",
+        "category": "fun",
+        "shareText": "Rising above the ordinary on Walk on Stilts Day! 🎪 #WalkOnStiltsDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 28,
+    "holidays": [
+      {
+        "name": "National Milk Chocolate Day",
+        "description": "National Milk Chocolate Day celebrates the smooth, creamy, and sweet variety of chocolate made with milk solids that is the world's most popular confection.",
+        "funFact": "Milk chocolate was invented in 1875 by Swiss chocolatier Daniel Peter, who partnered with his neighbor Henri Nestle to develop a method for adding condensed milk to chocolate.",
+        "emoji": "🍫",
+        "category": "food",
+        "shareText": "Melting for the creamy sweetness of milk chocolate on National Milk Chocolate Day! 🍫 #NationalMilkChocolateDay #CelebriDay"
+      },
+      {
+        "name": "World Hepatitis Day",
+        "description": "World Hepatitis Day is a World Health Organization global health campaign raising awareness about viral hepatitis and its impact on millions worldwide.",
+        "funFact": "Viral hepatitis infects approximately 354 million people worldwide and causes more than 1.1 million deaths per year, yet it remains one of the most underfunded infectious diseases.",
+        "emoji": "🎗️",
+        "category": "health",
+        "shareText": "Raising awareness about viral hepatitis today because knowledge saves lives. 🎗️ #WorldHepatitisDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 29,
+    "holidays": [
+      {
+        "name": "National Chicken Wing Day",
+        "description": "National Chicken Wing Day celebrates the beloved appetizer and snack food that has become a staple of American sports bar culture.",
+        "funFact": "The Buffalo wing was invented in 1964 at the Anchor Bar in Buffalo, New York, by Teressa Bellissimo, who cooked leftover wings in hot sauce as a late night snack.",
+        "emoji": "🍗",
+        "category": "food",
+        "shareText": "Getting saucy for National Chicken Wing Day! 🍗 #NationalChickenWingDay #CelebriDay"
+      },
+      {
+        "name": "NASA Day",
+        "description": "NASA Day celebrates the National Aeronautics and Space Administration and its decades of groundbreaking achievements in space exploration and scientific discovery.",
+        "funFact": "NASA was established on July 29, 1958, by President Dwight D. Eisenhower, and since its founding has achieved milestones including the moon landing, the Hubble Space Telescope, and the Mars rovers.",
+        "emoji": "🚀",
+        "category": "tech",
+        "shareText": "Celebrating the agency that reached for the stars and touched the moon on NASA Day! 🚀 #NASADay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 30,
+    "holidays": [
+      {
+        "name": "National Cheesecake Day",
+        "description": "National Cheesecake Day celebrates the rich, creamy dessert with a crumbly crust that has been enjoyed since ancient Greece.",
+        "funFact": "Cheesecake is believed to have originated in ancient Greece and was reportedly served to athletes at the first Olympic Games in 776 BCE as an energy booster.",
+        "emoji": "🍰",
+        "category": "food",
+        "shareText": "Every day should be National Cheesecake Day, but today it is official! 🍰 #NationalCheesecakeDay #CelebriDay"
+      },
+      {
+        "name": "International Friendship Day",
+        "description": "International Friendship Day celebrates the bonds of friendship and the joy that comes from meaningful connections with people around the world.",
+        "funFact": "International Friendship Day was proposed in 1958 in Paraguay and was officially recognized by the United Nations in 2011, though many countries celebrate it on different dates.",
+        "emoji": "🤝",
+        "category": "fun",
+        "shareText": "Celebrating the people who make life so much better on International Friendship Day! 🤝 #InternationalFriendshipDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 7,
+    "day": 31,
+    "holidays": [
+      {
+        "name": "National Mutt Day",
+        "description": "National Mutt Day celebrates mixed breed dogs and encourages the adoption of these lovable, unique companions from shelters.",
+        "funFact": "Mixed breed dogs, or mutts, often exhibit what is called hybrid vigor, a tendency to be healthier and live longer than purebred dogs due to their greater genetic diversity.",
+        "emoji": "🐕",
+        "category": "nature",
+        "shareText": "Celebrating every gloriously unique mixed breed pup on National Mutt Day! 🐕 #NationalMuttDay #CelebriDay"
+      },
+      {
+        "name": "Uncommon Instrument Awareness Day",
+        "description": "Uncommon Instrument Awareness Day celebrates the weird, wonderful, and rarely heard musical instruments that exist beyond the standard orchestra.",
+        "funFact": "Some of the world's most unusual instruments include the theremin, which is played without touching it, and the glass armonica, invented by Benjamin Franklin in 1761.",
+        "emoji": "🎵",
+        "category": "arts",
+        "shareText": "Celebrating the wonderfully weird world of unusual instruments today! 🎵 #UncommonInstrumentAwarenessDay #CelebriDay"
+      }
+    ]
+  }
+]

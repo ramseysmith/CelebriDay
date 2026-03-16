@@ -1,0 +1,662 @@
+[
+  {
+    "month": 9,
+    "day": 1,
+    "holidays": [
+      {
+        "name": "National Gyro Day",
+        "description": "A day to celebrate the delicious Greek sandwich filled with seasoned meat, fresh veggies, and creamy tzatziki sauce.",
+        "funFact": "The word gyro comes from the Greek word for turn, referring to the rotating spit the meat is cooked on.",
+        "emoji": "🥙",
+        "category": "food",
+        "shareText": "Spinning into September with a delicious gyro! Happy National Gyro Day! #NationalGyroDay #CelebriDay"
+      },
+      {
+        "name": "World Letter Writing Day",
+        "description": "A day dedicated to the timeless art of writing personal letters and reconnecting with loved ones through handwritten words.",
+        "funFact": "Before email existed, the average person sent around 40 personal letters per year.",
+        "emoji": "✉️",
+        "category": "arts",
+        "shareText": "Put pen to paper today and make someones day! Happy World Letter Writing Day! #WorldLetterWritingDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 2,
+    "holidays": [
+      {
+        "name": "National VJ Day",
+        "description": "Commemorating Victory over Japan Day, marking the end of World War II and honoring those who served.",
+        "funFact": "VJ Day on September 2, 1945 marked the formal surrender of Japan aboard the USS Missouri in Tokyo Bay.",
+        "emoji": "🕊️",
+        "category": "cultural",
+        "shareText": "Remembering and honoring the end of World War II on National VJ Day. #NationalVJDay #CelebriDay"
+      },
+      {
+        "name": "World Coconut Day",
+        "description": "A global celebration of the coconut, one of the most versatile and nutritious fruits found in tropical regions worldwide.",
+        "funFact": "Coconut water was used as an emergency intravenous hydration fluid during World War II when medical saline was scarce.",
+        "emoji": "🥥",
+        "category": "food",
+        "shareText": "Going nuts for coconuts today! Happy World Coconut Day! #WorldCoconutDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 3,
+    "holidays": [
+      {
+        "name": "National Welsh Rarebit Day",
+        "description": "A day to enjoy this classic British dish of a savory cheese sauce served hot over toasted bread.",
+        "funFact": "Despite the name, Welsh Rarebit contains no rabbit. The dish was historically a cheap alternative to meat for Welsh people.",
+        "emoji": "🧀",
+        "category": "food",
+        "shareText": "Toasting to a cheesy classic on National Welsh Rarebit Day! #NationalWelshRarebitDay #CelebriDay"
+      },
+      {
+        "name": "Skyscraper Day",
+        "description": "A day to marvel at the engineering feats of the worlds tallest buildings and the architects who designed them.",
+        "funFact": "The first skyscraper was the Home Insurance Building in Chicago, built in 1885, standing just 10 stories tall.",
+        "emoji": "🏙️",
+        "category": "cultural",
+        "shareText": "Looking up and dreaming big on Skyscraper Day! #SkyscraperDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 4,
+    "holidays": [
+      {
+        "name": "National Macadamia Nut Day",
+        "description": "A day to indulge in the rich, buttery flavor of macadamia nuts, native to Australia and beloved worldwide.",
+        "funFact": "Macadamia nuts are the most expensive nuts in the world, partly because the trees take 7 to 10 years to begin producing nuts.",
+        "emoji": "🌰",
+        "category": "food",
+        "shareText": "Treating myself to the king of nuts today! Happy National Macadamia Nut Day! #NationalMacadamiaNutDay #CelebriDay"
+      },
+      {
+        "name": "Newspaper Carrier Day",
+        "description": "A day honoring the hardworking newspaper carriers who deliver the news rain or shine to doorsteps everywhere.",
+        "funFact": "The first newspaper carrier was 10 year old Barney Flaherty, hired by the New York Sun in 1833.",
+        "emoji": "📰",
+        "category": "awareness",
+        "shareText": "Shoutout to every newspaper carrier out there keeping us informed! Happy Newspaper Carrier Day! #NewspaperCarrierDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 5,
+    "holidays": [
+      {
+        "name": "National Cheese Pizza Day",
+        "description": "A celebration of the most classic pizza of all, simple, gooey, and perfectly cheesy with just sauce and mozzarella.",
+        "funFact": "Americans consume approximately 3 billion pizzas per year, and cheese pizza remains the single most popular variety.",
+        "emoji": "🍕",
+        "category": "food",
+        "shareText": "Keeping it classic with a perfect slice of cheese pizza today! #NationalCheesePizzaDay #CelebriDay"
+      },
+      {
+        "name": "Be Late for Something Day",
+        "description": "A whimsical holiday giving everyone permission to slow down and not stress about being on time just for one day.",
+        "funFact": "The average American spends about 55 minutes per day waiting for things or people who are running late.",
+        "emoji": "⏰",
+        "category": "fun",
+        "shareText": "Running fashionably late today and loving every second! Happy Be Late for Something Day! #BeLateForSomethingDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 6,
+    "holidays": [
+      {
+        "name": "National Coffee Ice Cream Day",
+        "description": "A day to enjoy the perfect marriage of two beloved flavors, the bold kick of coffee blended into creamy frozen ice cream.",
+        "funFact": "Coffee ice cream was first commercially produced in the United States in the 1880s and has been popular ever since.",
+        "emoji": "☕",
+        "category": "food",
+        "shareText": "Two favorites in one glorious scoop! Happy National Coffee Ice Cream Day! #NationalCoffeeIceCreamDay #CelebriDay"
+      },
+      {
+        "name": "Read a Book Day",
+        "description": "A day encouraging everyone to pick up a book, explore new worlds, and enjoy the simple pleasure of reading.",
+        "funFact": "Reading for just six minutes can reduce stress levels by up to 68 percent, more than listening to music or taking a walk.",
+        "emoji": "📚",
+        "category": "arts",
+        "shareText": "Cracking open a good book and escaping into another world today! Happy Read a Book Day! #ReadABookDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 7,
+    "holidays": [
+      {
+        "name": "National Acorn Squash Day",
+        "description": "A day to celebrate the beloved acorn squash, a fall favorite with its sweet, nutty flesh and distinctive ridged shape.",
+        "funFact": "Acorn squash is technically a fruit, and one cup provides over 100 percent of your daily recommended vitamin C.",
+        "emoji": "🎃",
+        "category": "food",
+        "shareText": "Welcoming fall flavors with some delicious acorn squash! #NationalAcornSquashDay #CelebriDay"
+      },
+      {
+        "name": "National Neither Snow nor Rain Day",
+        "description": "A day honoring the unofficial motto of the US Postal Service and the dedicated letter carriers who deliver no matter the weather.",
+        "funFact": "The famous phrase neither snow nor rain is actually taken from a description of Persian postal couriers written by Herodotus around 500 BC.",
+        "emoji": "📬",
+        "category": "cultural",
+        "shareText": "Rain or shine, the mail gets through! Celebrating National Neither Snow nor Rain Day! #NeitherSnowNorRainDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 8,
+    "holidays": [
+      {
+        "name": "National Date Nut Bread Day",
+        "description": "A day to bake and enjoy a hearty loaf of date nut bread, a beloved classic packed with sweet dates and crunchy walnuts.",
+        "funFact": "Date palms are one of the oldest cultivated trees in the world, with evidence of date farming dating back over 7,000 years.",
+        "emoji": "🍞",
+        "category": "food",
+        "shareText": "Slicing into a warm loaf of date nut bread today! Happy National Date Nut Bread Day! #NationalDateNutBreadDay #CelebriDay"
+      },
+      {
+        "name": "International Literacy Day",
+        "description": "A UNESCO designated day highlighting the importance of literacy as a matter of dignity and human rights around the world.",
+        "funFact": "Today about 773 million adults worldwide lack basic literacy skills, and two thirds of them are women.",
+        "emoji": "📖",
+        "category": "awareness",
+        "shareText": "Every person deserves the power of literacy. Celebrating International Literacy Day! #InternationalLiteracyDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 9,
+    "holidays": [
+      {
+        "name": "National Teddy Bear Day",
+        "description": "A cuddly holiday celebrating the beloved stuffed toy that has brought comfort and joy to children and adults for over a century.",
+        "funFact": "The teddy bear was named after President Theodore Roosevelt, who famously refused to shoot a bear that had been tied to a tree during a hunt in 1902.",
+        "emoji": "🧸",
+        "category": "fun",
+        "shareText": "Giving my favorite stuffed companion a big squeeze today! Happy National Teddy Bear Day! #NationalTeddyBearDay #CelebriDay"
+      },
+      {
+        "name": "National Wiener Schnitzel Day",
+        "description": "A day to enjoy Austria's most famous dish, a thin, breaded, and pan fried veal or pork cutlet served with lemon.",
+        "funFact": "Authentic Wiener Schnitzel must be made with veal according to Austrian law. Versions made with pork must be labeled Schnitzel Wiener Art.",
+        "emoji": "🥩",
+        "category": "food",
+        "shareText": "Pounding, breading, and frying up something delicious! Happy National Wiener Schnitzel Day! #NationalWienerSchnitzelDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 10,
+    "holidays": [
+      {
+        "name": "National TV Dinner Day",
+        "description": "A nostalgic celebration of the frozen TV dinner, the iconic convenience food that changed American eating habits in the 1950s.",
+        "funFact": "The first Swanson TV dinner was sold in 1953 for 98 cents and contained turkey with cornbread dressing, sweet potatoes, and peas.",
+        "emoji": "📺",
+        "category": "food",
+        "shareText": "Kicking back with a classic TV dinner tonight! Happy National TV Dinner Day! #NationalTVDinnerDay #CelebriDay"
+      },
+      {
+        "name": "World Suicide Prevention Day",
+        "description": "A global day of awareness organized to provide commitment and action to prevent suicide and support those affected by it.",
+        "funFact": "Research shows that asking someone directly about suicide does not increase risk and can actually provide relief and open doors to help.",
+        "emoji": "💛",
+        "category": "health",
+        "shareText": "You are not alone. Reach out, listen, and be there for someone today. #WorldSuicidePreventionDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 11,
+    "holidays": [
+      {
+        "name": "Patriot Day",
+        "description": "A solemn day of remembrance honoring the nearly 3,000 people who lost their lives in the September 11, 2001 terrorist attacks.",
+        "funFact": "Congress designated September 11 as Patriot Day in 2001, and flags are flown at half staff across the country on this day.",
+        "emoji": "🇺🇸",
+        "category": "cultural",
+        "shareText": "Never forgetting. Honoring all those lost and the heroes who responded. #PatriotDay #CelebriDay"
+      },
+      {
+        "name": "National Hot Cross Bun Day",
+        "description": "A day to enjoy the sweet, spiced buns marked with a cross on top, traditionally eaten on Good Friday but beloved year round.",
+        "funFact": "Hot cross buns have been made since at least the 12th century, when a monk at St Albans Abbey is said to have distributed them to the poor.",
+        "emoji": "🍞",
+        "category": "food",
+        "shareText": "One a penny, two a penny, hot cross buns! Celebrating National Hot Cross Bun Day! #NationalHotCrossBunDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 12,
+    "holidays": [
+      {
+        "name": "National Chocolate Milkshake Day",
+        "description": "A delicious day to celebrate the thick, creamy, chocolate milkshake, one of Americas most beloved frozen treats.",
+        "funFact": "The first chocolate milkshake recipe appeared in 1885, but it contained whiskey. The non alcoholic version became popular in the early 1900s.",
+        "emoji": "🥤",
+        "category": "food",
+        "shareText": "Sipping on the most perfect chocolatey creation today! Happy National Chocolate Milkshake Day! #NationalChocolateMilkshakeDay #CelebriDay"
+      },
+      {
+        "name": "National Video Games Day",
+        "description": "A day for gamers everywhere to celebrate the art, culture, and pure joy of video games across all platforms and genres.",
+        "funFact": "The video game industry generates more revenue annually than the film and music industries combined.",
+        "emoji": "🎮",
+        "category": "fun",
+        "shareText": "Leveling up and celebrating the games we love! Happy National Video Games Day! #NationalVideoGamesDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 13,
+    "holidays": [
+      {
+        "name": "National Peanut Day",
+        "description": "A day to celebrate the humble peanut, technically a legume and the star ingredient in countless foods from peanut butter to trail mix.",
+        "funFact": "It takes about 540 peanuts to make one 12 ounce jar of peanut butter.",
+        "emoji": "🥜",
+        "category": "food",
+        "shareText": "Going nuts for peanuts today! Happy National Peanut Day! #NationalPeanutDay #CelebriDay"
+      },
+      {
+        "name": "International Programmers Day",
+        "description": "A day celebrated on the 256th day of the year honoring software developers and the code that powers our modern world.",
+        "funFact": "The number 256 was chosen because it is the highest power of two that is less than 365, representing the number of distinct values in one byte.",
+        "emoji": "💻",
+        "category": "tech",
+        "shareText": "Here is to the developers turning coffee into code! Happy International Programmers Day! #InternationalProgrammersDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 14,
+    "holidays": [
+      {
+        "name": "National Cream Filled Donut Day",
+        "description": "A decadent day celebrating the beloved cream filled donut, pillowy fried dough stuffed with rich, velvety cream.",
+        "funFact": "The cream filled donut is thought to have originated in Germany, where Bismarck donuts filled with jam or cream have been popular for centuries.",
+        "emoji": "🍩",
+        "category": "food",
+        "shareText": "Life is better with cream filled donuts. Happy National Cream Filled Donut Day! #NationalCreamFilledDonutDay #CelebriDay"
+      },
+      {
+        "name": "Eat a Hoagie Day",
+        "description": "A day to dig into a classic hoagie, the Philadelphia style submarine sandwich piled high with meats, cheese, and fresh toppings.",
+        "funFact": "The hoagie is believed to have originated in Philadelphia, where workers at the Hog Island shipyard were said to eat large meat sandwiches for lunch.",
+        "emoji": "🥖",
+        "category": "food",
+        "shareText": "Stacking it high and eating it proud on Eat a Hoagie Day! #EatAHogieDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 15,
+    "holidays": [
+      {
+        "name": "National Linguine Day",
+        "description": "A day to twirl up a fork of linguine, the flat, narrow pasta that is perfect with clam sauce, pesto, or any favorite topping.",
+        "funFact": "Linguine, meaning little tongues in Italian, originated in the Liguria region of Italy and is the traditional pasta for dishes like linguine alle vongole.",
+        "emoji": "🍝",
+        "category": "food",
+        "shareText": "Twirling into the perfect pasta day! Happy National Linguine Day! #NationalLinguineDay #CelebriDay"
+      },
+      {
+        "name": "International Day of Democracy",
+        "description": "A United Nations day to promote and uphold the principles of democracy and the importance of civic participation worldwide.",
+        "funFact": "As of today, about half of the worlds countries hold multiparty elections, yet only about 12 percent are considered full democracies.",
+        "emoji": "🗳️",
+        "category": "cultural",
+        "shareText": "Democracy is not a spectator sport. Engage, vote, and participate! #InternationalDayOfDemocracy #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 16,
+    "holidays": [
+      {
+        "name": "National Guacamole Day",
+        "description": "A day to celebrate the creamy, green perfection of guacamole, the beloved avocado based dip with roots in Aztec cuisine.",
+        "funFact": "Americans consume over 8 million pounds of guacamole on Super Bowl Sunday alone, enough to cover an entire football field 20 feet deep.",
+        "emoji": "🥑",
+        "category": "food",
+        "shareText": "Any day with guacamole is a great day! Happy National Guacamole Day! #NationalGuacamoleDay #CelebriDay"
+      },
+      {
+        "name": "Collect Rocks Day",
+        "description": "A day encouraging geology enthusiasts and curious minds of all ages to get outside and start or add to a rock collection.",
+        "funFact": "The oldest rocks ever found on Earth are the Acasta Gneisses in Canada, estimated to be about 4.03 billion years old.",
+        "emoji": "🪨",
+        "category": "nature",
+        "shareText": "Taking my geology curiosity outside today! Happy Collect Rocks Day! #CollectRocksDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 17,
+    "holidays": [
+      {
+        "name": "National Monte Cristo Sandwich Day",
+        "description": "A day for the indulgent Monte Cristo, a sandwich of ham, turkey, and cheese that is battered and fried to golden perfection.",
+        "funFact": "The Monte Cristo sandwich is believed to be an American variation of the French Croque Monsieur, popularized at California restaurants in the 1950s.",
+        "emoji": "🥪",
+        "category": "food",
+        "shareText": "Savoring every fried, powdered sugar dusted bite! Happy National Monte Cristo Sandwich Day! #NationalMonteCristoSandwichDay #CelebriDay"
+      },
+      {
+        "name": "Constitution Day",
+        "description": "A day commemorating the signing of the United States Constitution on September 17, 1787, the foundation of American government.",
+        "funFact": "The Constitution was written in just 100 days during the hot Philadelphia summer of 1787 and has only been amended 27 times in over 230 years.",
+        "emoji": "📜",
+        "category": "cultural",
+        "shareText": "We the People celebrate Constitution Day! #ConstitutionDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 18,
+    "holidays": [
+      {
+        "name": "National Cheeseburger Day",
+        "description": "A meaty celebration of one of Americas favorite foods, the classic cheeseburger with its juicy patty and melted cheese.",
+        "funFact": "The cheeseburger was reportedly invented in 1926 by a 16 year old named Lionel Sternberger who added a slice of cheese to a hamburger at his fathers California diner.",
+        "emoji": "🍔",
+        "category": "food",
+        "shareText": "Flipping and stacking the perfect cheeseburger today! Happy National Cheeseburger Day! #NationalCheeseburgerDay #CelebriDay"
+      },
+      {
+        "name": "World Water Monitoring Day",
+        "description": "A global educational outreach program that builds public awareness and involvement in protecting water resources worldwide.",
+        "funFact": "Only about 3 percent of the Earths water is fresh water, and less than 1 percent of that is accessible for human use.",
+        "emoji": "💧",
+        "category": "nature",
+        "shareText": "Every drop counts. Protect our water today and every day! #WorldWaterMonitoringDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 19,
+    "holidays": [
+      {
+        "name": "National Butterscotch Pudding Day",
+        "description": "A day to enjoy the warm, buttery sweetness of butterscotch pudding, a timeless dessert that brings comfort to every spoonful.",
+        "funFact": "Butterscotch gets its name from the process of scotching, an old word meaning to cut or score, referring to how the candy was traditionally cut into pieces.",
+        "emoji": "🍮",
+        "category": "food",
+        "shareText": "Indulging in a bowl of golden butterscotch perfection! Happy National Butterscotch Pudding Day! #NationalButterscotchPuddingDay #CelebriDay"
+      },
+      {
+        "name": "Talk Like a Pirate Day",
+        "description": "A fun and silly holiday encouraging everyone to sprinkle their conversations with pirate lingo, arrs, and shiver me timbers.",
+        "funFact": "International Talk Like a Pirate Day was created in 1995 as a joke by two friends and became globally popular after humor columnist Dave Barry wrote about it in 2002.",
+        "emoji": "🏴‍☠️",
+        "category": "fun",
+        "shareText": "Arrr, shiver me timbers! It be Talk Like a Pirate Day! #TalkLikeAPirateDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 20,
+    "holidays": [
+      {
+        "name": "National Pepperoni Pizza Day",
+        "description": "A day dedicated to Americas most popular pizza topping, the bold and spicy pepperoni that crowns a perfect pizza pie.",
+        "funFact": "Pepperoni is the most popular pizza topping in the United States, appearing on about 36 percent of all pizzas ordered.",
+        "emoji": "🍕",
+        "category": "food",
+        "shareText": "Piling on the pepperoni today! Happy National Pepperoni Pizza Day! #NationalPepperoniPizzaDay #CelebriDay"
+      },
+      {
+        "name": "National String Cheese Day",
+        "description": "A fun day celebrating string cheese, the snackable, peel able dairy treat loved by kids and adults alike.",
+        "funFact": "String cheese gets its distinctive stringy texture from the way the mozzarella is heated and stretched, aligning the proteins in one direction.",
+        "emoji": "🧀",
+        "category": "food",
+        "shareText": "Peeling and snacking on string cheese the only correct way! Happy National String Cheese Day! #NationalStringCheeseDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 21,
+    "holidays": [
+      {
+        "name": "World Gratitude Day",
+        "description": "A day to pause, reflect, and express genuine appreciation for the people, experiences, and blessings in your life.",
+        "funFact": "Studies show that regularly practicing gratitude can increase happiness by up to 25 percent and improve sleep quality.",
+        "emoji": "🙏",
+        "category": "awareness",
+        "shareText": "Taking a moment to count my blessings and share some gratitude today! #WorldGratitudeDay #CelebriDay"
+      },
+      {
+        "name": "National Pecan Cookie Day",
+        "description": "A sweet day to bake and enjoy pecan cookies, featuring the rich, buttery southern nut nestled in chewy, golden cookie dough.",
+        "funFact": "Pecans are the only major tree nut that is native to North America, and the United States produces about 80 percent of the worlds supply.",
+        "emoji": "🍪",
+        "category": "food",
+        "shareText": "Baking up a batch of buttery pecan perfection! Happy National Pecan Cookie Day! #NationalPecanCookieDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 22,
+    "holidays": [
+      {
+        "name": "National White Chocolate Day",
+        "description": "A day to savor white chocolate, the creamy, sweet confection made from cocoa butter without the cocoa solids of traditional chocolate.",
+        "funFact": "White chocolate is technically not real chocolate according to the FDA because it contains no cocoa solids, only cocoa butter, sugar, and milk.",
+        "emoji": "🍫",
+        "category": "food",
+        "shareText": "Letting white chocolate steal the spotlight today! Happy National White Chocolate Day! #NationalWhiteChocolateDay #CelebriDay"
+      },
+      {
+        "name": "Business Womens Day",
+        "description": "A day honoring the achievements, leadership, and contributions of women in business and entrepreneurship around the world.",
+        "funFact": "Women owned businesses in the United States generate over 1.8 trillion dollars in revenue annually and employ nearly 10 million people.",
+        "emoji": "💼",
+        "category": "awareness",
+        "shareText": "Celebrating the brilliant women leading and building businesses every day! #BusinessWomensDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 23,
+    "holidays": [
+      {
+        "name": "National Great American Pot Pie Day",
+        "description": "A cozy day to celebrate the classic pot pie, a hearty comfort food filled with vegetables and meat beneath a golden flaky crust.",
+        "funFact": "Pot pies have a history stretching back to ancient Rome, where they were considered a luxury dish served at banquets and filled with oysters and mussels.",
+        "emoji": "🥧",
+        "category": "food",
+        "shareText": "Nothing says comfort food like a golden, flaky pot pie! Happy National Great American Pot Pie Day! #NationalPotPieDay #CelebriDay"
+      },
+      {
+        "name": "First Day of Autumn",
+        "description": "The autumnal equinox marks the official start of fall in the Northern Hemisphere, bringing cooler days, colorful leaves, and cozy vibes.",
+        "funFact": "On the autumnal equinox, the sun rises due east and sets due west, and day and night are nearly equal in length all over the world.",
+        "emoji": "🍂",
+        "category": "nature",
+        "shareText": "Sweater weather, pumpkins, and falling leaves are finally here! Happy First Day of Autumn! #FirstDayOfAutumn #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 24,
+    "holidays": [
+      {
+        "name": "National Cherries Jubilee Day",
+        "description": "A day to enjoy cherries jubilee, the classic flambeed dessert of cherries in a warm brandy sauce served over vanilla ice cream.",
+        "funFact": "Cherries jubilee was created by the legendary French chef Auguste Escoffier in honor of Queen Victorias Diamond Jubilee in 1897.",
+        "emoji": "🍒",
+        "category": "food",
+        "shareText": "Lighting up dessert time with a classic cherries jubilee! Happy National Cherries Jubilee Day! #NationalCherriesJubileeDay #CelebriDay"
+      },
+      {
+        "name": "National Punctuation Day",
+        "description": "A day celebrating the importance of proper punctuation and its role in making written communication clear, precise, and effective.",
+        "funFact": "The most commonly misused punctuation mark is the apostrophe, which is frequently confused for possession versus contractions.",
+        "emoji": "✏️",
+        "category": "arts",
+        "shareText": "Lets eat Grandma vs. Lets eat, Grandma. Punctuation saves lives! Happy National Punctuation Day! #NationalPunctuationDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 25,
+    "holidays": [
+      {
+        "name": "National Lobster Day",
+        "description": "A day to celebrate the king of seafood, the magnificent lobster, enjoyed steamed, grilled, or as the star of a rich bisque.",
+        "funFact": "Lobsters were once so abundant in North America that they were considered poor mans food and fed to prisoners, apprentices, and servants.",
+        "emoji": "🦞",
+        "category": "food",
+        "shareText": "Cracking into the king of the sea today! Happy National Lobster Day! #NationalLobsterDay #CelebriDay"
+      },
+      {
+        "name": "World Dream Day",
+        "description": "A global day inspiring people everywhere to pursue their dreams, share their visions, and take action toward a better future.",
+        "funFact": "Research suggests that people who write down their dreams and goals are 42 percent more likely to achieve them than those who do not.",
+        "emoji": "🌟",
+        "category": "awareness",
+        "shareText": "What is your dream? Today is the day to say it out loud and start chasing it! #WorldDreamDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 26,
+    "holidays": [
+      {
+        "name": "National Pancake Day",
+        "description": "A delicious day to celebrate the fluffy, golden, stack worthy pancake in all its delightful forms and toppings.",
+        "funFact": "The oldest known pancake recipe dates back to ancient Greece and Rome, and pancake remains have even been found preserved in the stomach of Otzi the Iceman.",
+        "emoji": "🥞",
+        "category": "food",
+        "shareText": "Stack them high and pour on the syrup! Happy National Pancake Day! #NationalPancakeDay #CelebriDay"
+      },
+      {
+        "name": "Lumberjack Day",
+        "description": "A fun day celebrating the rugged skill and culture of lumberjacks, complete with flannel, axes, and the great outdoors.",
+        "funFact": "Professional lumberjack competitions, known as timber sports, include events like log rolling, speed climbing, and ax throwing and have been held since 1872.",
+        "emoji": "🪓",
+        "category": "fun",
+        "shareText": "Channeling my inner lumberjack today! Happy Lumberjack Day! #LumberjackDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 27,
+    "holidays": [
+      {
+        "name": "National Chocolate Milk Day",
+        "description": "A day to pour a tall, cold glass of chocolate milk and enjoy one of the worlds most universally beloved drinks.",
+        "funFact": "Chocolate milk was invented by Irish botanist Hans Sloane in Jamaica in the 1680s, who mixed cocoa with milk and brought the recipe back to England.",
+        "emoji": "🍫",
+        "category": "food",
+        "shareText": "Pouring a cold glass of pure childhood joy! Happy National Chocolate Milk Day! #NationalChocolateMilkDay #CelebriDay"
+      },
+      {
+        "name": "World Tourism Day",
+        "description": "A United Nations day celebrating travel and tourism as a force for cultural understanding, economic growth, and global connection.",
+        "funFact": "Tourism directly or indirectly accounts for about 10 percent of global GDP and supports 1 in 10 jobs worldwide.",
+        "emoji": "✈️",
+        "category": "cultural",
+        "shareText": "The world is calling! Celebrate travel and exploration on World Tourism Day! #WorldTourismDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 28,
+    "holidays": [
+      {
+        "name": "National Strawberry Cream Pie Day",
+        "description": "A sweet day to celebrate the gorgeous strawberry cream pie, with its buttery crust, silky cream filling, and fresh berry topping.",
+        "funFact": "Strawberries are the first fruit to ripen each spring, and they are the only fruit that wears its seeds on the outside, with about 200 seeds per berry.",
+        "emoji": "🍓",
+        "category": "food",
+        "shareText": "A slice of strawberry cream pie makes everything better! Happy National Strawberry Cream Pie Day! #NationalStrawberryCreamPieDay #CelebriDay"
+      },
+      {
+        "name": "Ask a Stupid Question Day",
+        "description": "A lighthearted holiday encouraging everyone to ask those questions they have been too embarrassed to ask, because there are no stupid questions.",
+        "funFact": "The holiday was created by American teachers in the 1980s to encourage students to speak up in class and not be afraid of asking questions.",
+        "emoji": "🤔",
+        "category": "fun",
+        "shareText": "No question is too silly today! Ask away! Happy Ask a Stupid Question Day! #AskAStupidQuestionDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 29,
+    "holidays": [
+      {
+        "name": "National Coffee Day",
+        "description": "A beloved annual celebration of coffees rich history, culture, and the millions of cups that fuel mornings around the world.",
+        "funFact": "Coffee is the second most traded commodity in the world after oil, and over 2.25 billion cups of coffee are consumed globally every single day.",
+        "emoji": "☕",
+        "category": "food",
+        "shareText": "Today is basically a holiday for my entire personality. Happy National Coffee Day! #NationalCoffeeDay #CelebriDay"
+      },
+      {
+        "name": "World Heart Day",
+        "description": "A World Heart Federation initiative raising awareness about cardiovascular disease prevention and the importance of heart health.",
+        "funFact": "Cardiovascular disease is the worlds leading cause of death, responsible for over 18 million lives each year, yet up to 80 percent of premature deaths are preventable.",
+        "emoji": "❤️",
+        "category": "health",
+        "shareText": "Take care of your heart today and every day! Happy World Heart Day! #WorldHeartDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 9,
+    "day": 30,
+    "holidays": [
+      {
+        "name": "National Chewing Gum Day",
+        "description": "A chewy celebration of chewing gum, one of the worlds most popular confections enjoyed by billions across the globe.",
+        "funFact": "Ancient people chewed on tree resin and other natural substances thousands of years ago. The Mayans and Aztecs chewed chicle, a natural tree gum.",
+        "emoji": "🫧",
+        "category": "food",
+        "shareText": "Chewing my way through the last day of September! Happy National Chewing Gum Day! #NationalChewingGumDay #CelebriDay"
+      },
+      {
+        "name": "International Podcast Day",
+        "description": "A global celebration of the podcast medium and the storytellers, educators, and entertainers who create audio content for millions of listeners.",
+        "funFact": "There are currently over 4 million podcasts available worldwide with more than 70 million individual episodes, covering virtually every topic imaginable.",
+        "emoji": "🎙️",
+        "category": "tech",
+        "shareText": "Hit play on your favorite show and celebrate the art of audio storytelling! Happy International Podcast Day! #InternationalPodcastDay #CelebriDay"
+      }
+    ]
+  }
+]

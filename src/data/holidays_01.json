@@ -1,0 +1,684 @@
+[
+  {
+    "month": 1,
+    "day": 1,
+    "holidays": [
+      {
+        "name": "New Year's Day",
+        "description": "The first day of the calendar year, celebrated around the world with fireworks, gatherings, and fresh starts.",
+        "funFact": "The tradition of making New Year's resolutions dates back over 4000 years to ancient Babylon.",
+        "emoji": "🎉",
+        "category": "cultural",
+        "shareText": "Happy New Year! A brand new year full of possibilities starts today! #NewYearsDay #CelebriDay"
+      },
+      {
+        "name": "First Foot Day",
+        "description": "A Scottish tradition where the first person to enter a home after midnight on New Year's brings gifts for good luck.",
+        "funFact": "According to Scottish tradition, a tall dark haired man as the first footer brings the best luck for the new year.",
+        "emoji": "🚪",
+        "category": "cultural",
+        "shareText": "Be the first foot at a friend's door today for good luck all year! #FirstFootDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 2,
+    "holidays": [
+      {
+        "name": "Science Fiction Day",
+        "description": "A day to celebrate science fiction literature, film, and the visionaries who imagined the future.",
+        "funFact": "The date was chosen to honor Isaac Asimov, one of the most prolific science fiction authors in history, born on January 2, 1920.",
+        "emoji": "🚀",
+        "category": "fun",
+        "shareText": "Beam me up! Today we celebrate the genre that dares to imagine tomorrow. #ScienceFictionDay #CelebriDay"
+      },
+      {
+        "name": "World Introvert Day",
+        "description": "A day to recognize and celebrate introverts and the unique strengths they bring to the world.",
+        "funFact": "Research suggests that roughly one third to one half of all people identify as introverts, including many famous leaders and innovators.",
+        "emoji": "📚",
+        "category": "awareness",
+        "shareText": "Celebrating the quiet power of introverts everywhere today! #WorldIntrovertDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 3,
+    "holidays": [
+      {
+        "name": "Festival of Sleep Day",
+        "description": "A lighthearted holiday encouraging people to catch up on rest after the busy holiday season.",
+        "funFact": "Adults need 7 to 9 hours of sleep per night, but studies show that over a third of Americans regularly get less than that.",
+        "emoji": "😴",
+        "category": "fun",
+        "shareText": "Today's agenda: sleep, nap, repeat. Happy Festival of Sleep Day! #FestivalOfSleepDay #CelebriDay"
+      },
+      {
+        "name": "Fruitcake Toss Day",
+        "description": "A humorous holiday where people toss or dispose of the fruitcakes they received over the holidays.",
+        "funFact": "Manitou Springs, Colorado hosts an annual Fruitcake Toss event where participants use catapults and other contraptions to launch fruitcakes as far as possible.",
+        "emoji": "🎂",
+        "category": "fun",
+        "shareText": "Finally, a use for that holiday fruitcake. Ready, aim, toss! #FruitcakeTossDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 4,
+    "holidays": [
+      {
+        "name": "Trivia Day",
+        "description": "A day dedicated to celebrating obscure knowledge and fun facts across every subject imaginable.",
+        "funFact": "The word trivia comes from the Latin word trivium, meaning the place where three roads meet, historically where people gathered to share news and gossip.",
+        "emoji": "🧠",
+        "category": "fun",
+        "shareText": "How much do you know? Test your trivia skills today! #TriviaDay #CelebriDay"
+      },
+      {
+        "name": "World Braille Day",
+        "description": "An international day honoring Louis Braille and the written language system he created for people who are visually impaired.",
+        "funFact": "Louis Braille was only 15 years old when he invented the Braille system, which uses a series of raised dots to represent letters and numbers.",
+        "emoji": "✋",
+        "category": "awareness",
+        "shareText": "Honoring Louis Braille and the millions whose lives his invention transformed. #WorldBrailleDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 5,
+    "holidays": [
+      {
+        "name": "National Bird Day",
+        "description": "A day to appreciate and raise awareness about the welfare of birds, both in the wild and in captivity.",
+        "funFact": "There are approximately 10,000 known species of birds on Earth, and they inhabit every continent including Antarctica.",
+        "emoji": "🐦",
+        "category": "nature",
+        "shareText": "Take a moment to appreciate our feathered friends today! #NationalBirdDay #CelebriDay"
+      },
+      {
+        "name": "Twelfth Night",
+        "description": "The evening before Epiphany, marking the end of the twelve days of Christmas in Western Christian tradition.",
+        "funFact": "Shakespeare's famous play Twelfth Night was written to be performed as entertainment during the Twelfth Night celebrations.",
+        "emoji": "🌟",
+        "category": "cultural",
+        "shareText": "The twelve days of Christmas come to a close tonight. Happy Twelfth Night! #TwelfthNight #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 6,
+    "holidays": [
+      {
+        "name": "Epiphany",
+        "description": "A Christian feast day commemorating the visit of the Magi to the baby Jesus and the baptism of Jesus.",
+        "funFact": "In many Spanish speaking countries, Epiphany rather than Christmas Day is when children receive their gifts, delivered by the Three Kings.",
+        "emoji": "✨",
+        "category": "cultural",
+        "shareText": "Celebrating the arrival of the Three Kings and the light they represent. #Epiphany #CelebriDay"
+      },
+      {
+        "name": "Bean Day",
+        "description": "A fun food holiday celebrating beans in all their many varieties and delicious preparations.",
+        "funFact": "Beans are one of the oldest cultivated crops, with evidence of bean farming dating back more than 7,000 years in Mexico and Peru.",
+        "emoji": "🫘",
+        "category": "food",
+        "shareText": "Beans, beans, the magical fruit! Celebrate Bean Day with your favorite legume dish. #BeanDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 7,
+    "holidays": [
+      {
+        "name": "Orthodox Christmas",
+        "description": "Christmas Day as observed by Eastern Orthodox Christians, following the Julian calendar.",
+        "funFact": "Orthodox Christmas is celebrated by hundreds of millions of Christians across Russia, Serbia, Ethiopia, Egypt, and many other countries.",
+        "emoji": "⭐",
+        "category": "cultural",
+        "shareText": "Wishing joy and peace to all celebrating Orthodox Christmas today! #OrthodoxChristmas #CelebriDay"
+      },
+      {
+        "name": "Old Rock Day",
+        "description": "A day to appreciate rocks, minerals, fossils, and the geological history they represent.",
+        "funFact": "The oldest known rocks on Earth are found in Canada and are estimated to be about 4.03 billion years old.",
+        "emoji": "🪨",
+        "category": "nature",
+        "shareText": "Rock on! Today we appreciate the ancient stories written in stone. #OldRockDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 8,
+    "holidays": [
+      {
+        "name": "Elvis Presley Day",
+        "description": "A day celebrating the birthday of Elvis Presley, the King of Rock and Roll, born January 8, 1935.",
+        "funFact": "Elvis Presley sold over one billion records worldwide, making him one of the best selling music artists of all time.",
+        "emoji": "🎸",
+        "category": "cultural",
+        "shareText": "Thank you, thank you very much! Celebrating the King of Rock and Roll today. #ElvisPresleyDay #CelebriDay"
+      },
+      {
+        "name": "Earth Rotation Day",
+        "description": "A day to commemorate Leon Foucault's 1851 demonstration of Earth's rotation using his famous pendulum.",
+        "funFact": "Earth completes one full rotation approximately every 23 hours, 56 minutes, and 4 seconds, not exactly 24 hours.",
+        "emoji": "🌍",
+        "category": "nature",
+        "shareText": "The world keeps spinning and today we celebrate that! #EarthRotationDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 9,
+    "holidays": [
+      {
+        "name": "National Apricot Day",
+        "description": "A day to enjoy and appreciate the sweet, golden apricot in all its forms, fresh, dried, or preserved.",
+        "funFact": "Apricots have been cultivated in China for over 4,000 years and were brought to the Americas by Spanish explorers in the 1700s.",
+        "emoji": "🍑",
+        "category": "food",
+        "shareText": "Sweet, golden, and delicious! Grab an apricot today and enjoy. #NationalApricotDay #CelebriDay"
+      },
+      {
+        "name": "Static Electricity Day",
+        "description": "A fun day to learn about and experiment with static electricity, one of the most fascinating forces in nature.",
+        "funFact": "Lightning is one of the most powerful forms of static electricity, with a single bolt carrying up to one billion volts of electricity.",
+        "emoji": "⚡",
+        "category": "fun",
+        "shareText": "Shocking! Today we celebrate the sparky science of static electricity. #StaticElectricityDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 10,
+    "holidays": [
+      {
+        "name": "Houseplant Appreciation Day",
+        "description": "A day to show love to the indoor plants that brighten our homes and purify the air we breathe.",
+        "funFact": "NASA research has found that certain houseplants can remove up to 87% of air toxins in just 24 hours.",
+        "emoji": "🪴",
+        "category": "nature",
+        "shareText": "Give your leafy friends some extra love today! #HouseplantAppreciationDay #CelebriDay"
+      },
+      {
+        "name": "Bittersweet Chocolate Day",
+        "description": "A day to savor bittersweet chocolate, celebrated for its rich flavor and health benefits.",
+        "funFact": "Bittersweet chocolate must contain at least 35% cacao by FDA standards, though most quality bittersweet bars contain 60 to 85% cacao.",
+        "emoji": "🍫",
+        "category": "food",
+        "shareText": "Rich, dark, and oh so satisfying. Today belongs to bittersweet chocolate! #BittersweetChocolateDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 11,
+    "holidays": [
+      {
+        "name": "National Milk Day",
+        "description": "A day commemorating the first delivery of milk in glass bottles in the United States on January 11, 1878.",
+        "funFact": "Cows produce about 6 to 7 gallons of milk per day on average, and it takes about 350 squirts from a cow's udder to make one gallon of milk.",
+        "emoji": "🥛",
+        "category": "food",
+        "shareText": "Got milk? Raise a glass and celebrate National Milk Day! #NationalMilkDay #CelebriDay"
+      },
+      {
+        "name": "Step in a Puddle and Splash Your Friends Day",
+        "description": "A delightfully silly holiday encouraging everyone to find a puddle and splash their friends for pure fun.",
+        "funFact": "The holiday was created to bring some childlike joy to the cold January days when puddles from rain and melting snow are plentiful.",
+        "emoji": "💦",
+        "category": "fun",
+        "shareText": "Find a puddle. Find a friend. Go wild! #StepInAPuddleDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 12,
+    "holidays": [
+      {
+        "name": "National Marzipan Day",
+        "description": "A day to enjoy marzipan, the sweet almond paste confection loved across Europe and beyond.",
+        "funFact": "The city of Lubeck in Germany is considered the marzipan capital of the world and has been producing it since at least the 1400s.",
+        "emoji": "🍬",
+        "category": "food",
+        "shareText": "Almond sweetness in every bite! Treat yourself to marzipan today. #NationalMarzipanDay #CelebriDay"
+      },
+      {
+        "name": "Work Harder Day",
+        "description": "A motivational holiday encouraging people to put in extra effort and push toward their goals.",
+        "funFact": "Studies show that taking short breaks actually improves productivity, meaning working smarter and harder are not mutually exclusive.",
+        "emoji": "💪",
+        "category": "fun",
+        "shareText": "Roll up your sleeves and give it your all today! #WorkHarderDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 13,
+    "holidays": [
+      {
+        "name": "National Rubber Ducky Day",
+        "description": "A whimsical day celebrating the beloved rubber duck toy that has been a bath time staple for generations.",
+        "funFact": "The rubber duck was patented in the late 1800s, but it became a bath toy icon after Ernie from Sesame Street sang about his rubber duckie in 1970.",
+        "emoji": "🐥",
+        "category": "fun",
+        "shareText": "Rubber duckie, you're the one! Happy National Rubber Ducky Day! #NationalRubberDuckyDay #CelebriDay"
+      },
+      {
+        "name": "Korean American Day",
+        "description": "A day commemorating the arrival of the first Korean immigrants to the United States on January 13, 1903.",
+        "funFact": "The first group of Korean immigrants arrived in Hawaii aboard the SS Gaelic in 1903 to work on sugar plantations, marking the beginning of a rich cultural legacy.",
+        "emoji": "🇰🇷",
+        "category": "cultural",
+        "shareText": "Celebrating the contributions and culture of Korean Americans! #KoreanAmericanDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 14,
+    "holidays": [
+      {
+        "name": "Organize Your Home Day",
+        "description": "A day dedicated to decluttering and organizing your living space for a fresh and functional start to the year.",
+        "funFact": "Studies show that a clean and organized environment can reduce cortisol levels and significantly lower stress and anxiety.",
+        "emoji": "🏠",
+        "category": "fun",
+        "shareText": "A tidy home is a happy home. Let's get organized today! #OrganizeYourHomeDay #CelebriDay"
+      },
+      {
+        "name": "Hot Pastrami Sandwich Day",
+        "description": "A delicious holiday honoring the classic hot pastrami sandwich, a cornerstone of deli culture.",
+        "funFact": "Pastrami originated in Romania and was brought to New York City by Jewish immigrants in the late 19th century, where it became a deli staple.",
+        "emoji": "🥪",
+        "category": "food",
+        "shareText": "Piled high and steaming hot! Today is all about the legendary pastrami sandwich. #HotPastramiSandwichDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 15,
+    "holidays": [
+      {
+        "name": "Martin Luther King Jr. Day",
+        "description": "A federal holiday honoring the life and legacy of Dr. Martin Luther King Jr., civil rights leader and advocate for equality.",
+        "funFact": "Dr. King delivered his iconic \"I Have a Dream\" speech to over 250,000 people at the March on Washington in 1963.",
+        "emoji": "✊",
+        "category": "awareness",
+        "shareText": "Honoring the dream and the man who dared to speak it. #MLKDay #CelebriDay"
+      },
+      {
+        "name": "Strawberry Ice Cream Day",
+        "description": "A sweet day celebrating strawberry ice cream, one of the most popular ice cream flavors of all time.",
+        "funFact": "Strawberry ice cream is consistently ranked as the third most popular ice cream flavor in the United States after vanilla and chocolate.",
+        "emoji": "🍓",
+        "category": "food",
+        "shareText": "Scoop up some strawberry sweetness today! #StrawberryIceCreamDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 16,
+    "holidays": [
+      {
+        "name": "National Nothing Day",
+        "description": "A deliberately uneventful holiday created in 1973 as a day with no purpose, no celebration, and no agenda.",
+        "funFact": "National Nothing Day was created by newspaper columnist Harold Pullman Coffin, who wanted to give Americans a day with no celebrations, observances, or demands.",
+        "emoji": "🫥",
+        "category": "fun",
+        "shareText": "Today's plan: absolutely nothing. And that's perfectly fine! #NationalNothingDay #CelebriDay"
+      },
+      {
+        "name": "Fig Newton Day",
+        "description": "A day celebrating the beloved Fig Newton cookie, one of America's oldest and most iconic packaged cookies.",
+        "funFact": "Fig Newtons were first produced by the Kennedy Biscuit Company in 1891 and are named after the city of Newton, Massachusetts, not the scientist Isaac Newton.",
+        "emoji": "🍪",
+        "category": "food",
+        "shareText": "Soft, chewy, and full of figgy goodness! Celebrate Fig Newton Day today. #FigNewtonDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 17,
+    "holidays": [
+      {
+        "name": "Benjamin Franklin Day",
+        "description": "A day honoring Benjamin Franklin, one of America's Founding Fathers, on his birthday, January 17, 1706.",
+        "funFact": "Benjamin Franklin never received a formal patent for any of his inventions, including bifocals and the lightning rod, because he believed his discoveries should benefit all of humanity freely.",
+        "emoji": "🦅",
+        "category": "cultural",
+        "shareText": "Celebrating the wit, wisdom, and inventions of Benjamin Franklin! #BenjaminFranklinDay #CelebriDay"
+      },
+      {
+        "name": "National Maple Syrup Day",
+        "description": "A sweet day celebrating the golden nectar tapped from maple trees, a beloved staple of North American cuisine.",
+        "funFact": "It takes approximately 40 gallons of maple sap to produce just one gallon of maple syrup, making it one of the most labor intensive natural sweeteners.",
+        "emoji": "🍁",
+        "category": "food",
+        "shareText": "Pour it on thick! Today we celebrate the liquid gold of breakfast. #NationalMapleSyrupDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 18,
+    "holidays": [
+      {
+        "name": "Winnie the Pooh Day",
+        "description": "A day celebrating the beloved bear of very little brain, honoring A.A. Milne's birthday on January 18, 1882.",
+        "funFact": "A.A. Milne based the character of Winnie the Pooh on a real bear named Winnie who lived at the London Zoo, visited by his son Christopher Robin.",
+        "emoji": "🍯",
+        "category": "fun",
+        "shareText": "Oh bother, it's a wonderful day! Happy Winnie the Pooh Day! #WinnieThePoohDay #CelebriDay"
+      },
+      {
+        "name": "Thesaurus Day",
+        "description": "A day celebrating the thesaurus and the joy of expanding vocabulary, honoring Peter Mark Roget's birthday.",
+        "funFact": "Peter Mark Roget published the first edition of his famous Thesaurus in 1852 at the age of 73, after spending over 50 years compiling it.",
+        "emoji": "📖",
+        "category": "arts",
+        "shareText": "Expand your lexicon today! Happy Thesaurus Day, you magnificent wordsmith. #ThesaurusDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 19,
+    "holidays": [
+      {
+        "name": "National Popcorn Day",
+        "description": "A crunchy celebration of popcorn, America's favorite snack, enjoyed at movies, carnivals, and at home.",
+        "funFact": "Americans consume approximately 17 billion quarts of popcorn every year, which is enough to fill the Empire State Building 18 times over.",
+        "emoji": "🍿",
+        "category": "food",
+        "shareText": "Grab a big bowl and get popping! Happy National Popcorn Day! #NationalPopcornDay #CelebriDay"
+      },
+      {
+        "name": "Tin Can Day",
+        "description": "A day commemorating the January 19, 1825 patent of the tin can by Ezra Daggett and Thomas Kensett.",
+        "funFact": "When tin cans were first invented, there were no can openers, so people had to use knives and hammers to open them. The can opener wasn't invented until nearly 50 years later.",
+        "emoji": "🥫",
+        "category": "other",
+        "shareText": "The humble tin can changed the world. Celebrate this unsung hero of food storage! #TinCanDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 20,
+    "holidays": [
+      {
+        "name": "National Cheese Lovers Day",
+        "description": "A day to indulge in all things cheese, from sharp cheddars to creamy bries and tangy blue cheeses.",
+        "funFact": "There are over 1,800 varieties of cheese in the world, and France alone produces more than 400 different types.",
+        "emoji": "🧀",
+        "category": "food",
+        "shareText": "Life is better with cheese. Say it loud and say it proud today! #NationalCheeseLoversDay #CelebriDay"
+      },
+      {
+        "name": "Penguin Awareness Day",
+        "description": "A day to learn about and raise awareness for penguins and the threats they face in a changing climate.",
+        "funFact": "Penguins are found exclusively in the Southern Hemisphere, and some species like the African penguin live in warm climates rather than icy environments.",
+        "emoji": "🐧",
+        "category": "nature",
+        "shareText": "Waddling in solidarity with our tuxedoed friends! #PenguinAwarenessDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 21,
+    "holidays": [
+      {
+        "name": "National Hugging Day",
+        "description": "A day promoting the health benefits and emotional warmth of hugging the people you care about.",
+        "funFact": "Research shows that receiving a hug can lower blood pressure, reduce stress hormones, and even boost the immune system.",
+        "emoji": "🤗",
+        "category": "fun",
+        "shareText": "Arms wide open today! Go give someone a great big hug. #NationalHuggingDay #CelebriDay"
+      },
+      {
+        "name": "Squirrel Appreciation Day",
+        "description": "A day created in 2001 to celebrate the important role squirrels play in ecosystems, especially as seed spreaders.",
+        "funFact": "Squirrels are responsible for planting millions of trees each year because they bury nuts for winter and forget where they hid them.",
+        "emoji": "🐿️",
+        "category": "nature",
+        "shareText": "Cheers to the bushy tailed gardeners of the forest! #SquirrelAppreciationDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 22,
+    "holidays": [
+      {
+        "name": "National Blonde Brownie Day",
+        "description": "A day to enjoy the blondie, a delicious butterscotch flavored cousin of the traditional chocolate brownie.",
+        "funFact": "Blondies actually predate chocolate brownies in American baking history, appearing in cookbooks before chocolate brownies became popular.",
+        "emoji": "🍪",
+        "category": "food",
+        "shareText": "Golden, buttery, and irresistible! Today belongs to the blondie brownie. #NationalBlondeBrownieDay #CelebriDay"
+      },
+      {
+        "name": "Answer Your Cat's Questions Day",
+        "description": "A whimsical holiday inviting cat owners to imagine what their feline friends might be curious about and answer their unspoken questions.",
+        "funFact": "Cats have about 300 million neurons in their cerebral cortex compared to about 160 million in dogs, suggesting they are highly capable of complex thought.",
+        "emoji": "🐱",
+        "category": "fun",
+        "shareText": "Yes, the red dot is real. I promise. #AnswerYourCatsQuestionsDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 23,
+    "holidays": [
+      {
+        "name": "National Pie Day",
+        "description": "A day to celebrate pie in all its glorious forms, from apple and cherry to pot pie and quiche.",
+        "funFact": "The American Pie Council estimates that Americans eat around 186 million pies per year, averaging nearly one pie per person annually.",
+        "emoji": "🥧",
+        "category": "food",
+        "shareText": "Slice into something delicious today! Happy National Pie Day! #NationalPieDay #CelebriDay"
+      },
+      {
+        "name": "Handwriting Day",
+        "description": "A day celebrating the art of handwriting and encouraging people to pick up a pen in our increasingly digital world.",
+        "funFact": "National Handwriting Day is celebrated on January 23rd to honor John Hancock, whose famous bold signature on the Declaration of Independence was made on this date.",
+        "emoji": "✍️",
+        "category": "arts",
+        "shareText": "Put pen to paper today and write something beautiful! #HandwritingDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 24,
+    "holidays": [
+      {
+        "name": "National Compliment Day",
+        "description": "A day dedicated to brightening someone's day with a genuine, heartfelt compliment.",
+        "funFact": "Giving compliments is scientifically proven to boost the mood of both the giver and the receiver by triggering the release of serotonin in both brains.",
+        "emoji": "😊",
+        "category": "fun",
+        "shareText": "Say something wonderful to someone today! You are amazing for doing it. #NationalComplimentDay #CelebriDay"
+      },
+      {
+        "name": "Beer Can Appreciation Day",
+        "description": "A day honoring the invention of the beer can, first sold on January 24, 1935, which revolutionized how people enjoyed beer.",
+        "funFact": "The first canned beer was sold by the Gottfried Krueger Brewing Company in Richmond, Virginia on January 24, 1935, and was an immediate success.",
+        "emoji": "🍺",
+        "category": "food",
+        "shareText": "Raising a can to one of history's greatest packaging innovations! #BeerCanAppreciationDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 25,
+    "holidays": [
+      {
+        "name": "Opposite Day",
+        "description": "A playful day where everything is said or done in reverse, turning the world upside down for fun.",
+        "funFact": "No one knows exactly when or how Opposite Day began, but it has been a popular childhood game in the United States for well over a century.",
+        "emoji": "🔄",
+        "category": "fun",
+        "shareText": "Today is terrible and nobody should celebrate. (Happy Opposite Day!) #OppositeDay #CelebriDay"
+      },
+      {
+        "name": "Burns Night",
+        "description": "A Scottish cultural celebration honoring poet Robert Burns on his birthday with haggis, whisky, and poetry.",
+        "funFact": "Burns Night has been celebrated since 1801, just five years after Robert Burns died, and is now observed by Scottish communities around the entire world.",
+        "emoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+        "category": "cultural",
+        "shareText": "Address the haggis and raise a dram! Happy Burns Night! #BurnsNight #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 26,
+    "holidays": [
+      {
+        "name": "Australia Day",
+        "description": "Australia's national day, marking the anniversary of the 1788 arrival of the First Fleet at Port Jackson.",
+        "funFact": "Australia is the only country in the world that occupies an entire continent, and it is home to more than 80% of its plant and animal species found nowhere else on Earth.",
+        "emoji": "🦘",
+        "category": "cultural",
+        "shareText": "G'day! Celebrating the incredible land and spirit of Australia today. #AustraliaDay #CelebriDay"
+      },
+      {
+        "name": "National Peanut Brittle Day",
+        "description": "A day honoring the satisfyingly crunchy, sweet, and nutty candy that has been a treat for generations.",
+        "funFact": "Peanut brittle has been made in the United States since at least the mid 1800s and was often sold door to door by candy peddlers in the early 20th century.",
+        "emoji": "🥜",
+        "category": "food",
+        "shareText": "Crunch into something sweet today! Happy National Peanut Brittle Day! #NationalPeanutBrittleDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 27,
+    "holidays": [
+      {
+        "name": "Holocaust Remembrance Day",
+        "description": "An international day of commemoration in memory of the victims of the Holocaust, observed on the anniversary of the liberation of Auschwitz.",
+        "funFact": "International Holocaust Remembrance Day was established by the United Nations General Assembly in 2005, with January 27 chosen because Auschwitz was liberated on that date in 1945.",
+        "emoji": "🕯️",
+        "category": "awareness",
+        "shareText": "We remember. We must never forget. #HolocaustRemembranceDay #CelebriDay"
+      },
+      {
+        "name": "Chocolate Cake Day",
+        "description": "A decadent day dedicated to one of the world's most beloved desserts: the chocolate cake.",
+        "funFact": "The first chocolate cake recipe appeared in a cookbook in 1764 after Dr. James Baker discovered how to manufacture chocolate by grinding cacao beans.",
+        "emoji": "🎂",
+        "category": "food",
+        "shareText": "Every day deserves a slice of chocolate cake, but today we make it official! #ChocolateCakeDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 28,
+    "holidays": [
+      {
+        "name": "National Blueberry Pancake Day",
+        "description": "A breakfast lover's dream day celebrating the perfect combination of fluffy pancakes and fresh blueberries.",
+        "funFact": "Blueberries are one of the only naturally blue foods in the world, and their distinctive color comes from powerful antioxidants called anthocyanins.",
+        "emoji": "🫐",
+        "category": "food",
+        "shareText": "Stack them high and drizzle with syrup! Happy National Blueberry Pancake Day! #BlueberryPancakeDay #CelebriDay"
+      },
+      {
+        "name": "Data Privacy Day",
+        "description": "An international event focused on raising awareness about the importance of protecting personal data and privacy online.",
+        "funFact": "Data Privacy Day was established in the United States in 2008 and is now observed in over 50 countries to promote responsible data handling.",
+        "emoji": "🔒",
+        "category": "tech",
+        "shareText": "Your data, your rights. Take a moment to review your privacy settings today! #DataPrivacyDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 29,
+    "holidays": [
+      {
+        "name": "National Puzzle Day",
+        "description": "A day celebrating jigsaw puzzles, crosswords, brain teasers, and all the satisfying mental challenges that come with puzzling.",
+        "funFact": "The first jigsaw puzzle was created around 1760 by British engraver John Spilsbury, who mounted a map on wood and cut it into pieces as a geography teaching tool.",
+        "emoji": "🧩",
+        "category": "fun",
+        "shareText": "Every piece has its place! Happy National Puzzle Day! #NationalPuzzleDay #CelebriDay"
+      },
+      {
+        "name": "Corn Chip Day",
+        "description": "A crunchy day of appreciation for the humble corn chip, a snack staple at parties and gatherings everywhere.",
+        "funFact": "Fritos, one of the first commercial corn chips, was invented by Charles Elmer Doolin in San Antonio, Texas in 1932 after he purchased a recipe for 100 dollars.",
+        "emoji": "🌽",
+        "category": "food",
+        "shareText": "Crunchy, salty, and completely addictive. Happy Corn Chip Day! #CornChipDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 30,
+    "holidays": [
+      {
+        "name": "Croissant Day",
+        "description": "A buttery, flaky celebration of the iconic French pastry that has become a beloved breakfast staple worldwide.",
+        "funFact": "Despite being associated with France, the croissant actually originated in Austria. It was brought to Paris in the early 1800s and later refined into the buttery layered pastry we know today.",
+        "emoji": "🥐",
+        "category": "food",
+        "shareText": "Flaky, buttery perfection. Today we honor the magnificent croissant! #CroissantDay #CelebriDay"
+      },
+      {
+        "name": "National Inane Answering Message Day",
+        "description": "A humorous holiday poking fun at overly creative, long, or bizarre voicemail greeting messages.",
+        "funFact": "The first commercial answering machine was introduced in 1935 by inventor Willy Muller, and creative voicemail greetings became popular in the 1980s as answering machines entered homes.",
+        "emoji": "📞",
+        "category": "fun",
+        "shareText": "You have reached today's holiday. Please leave a funny message after the beep. Beep! #InanAnsweringMessageDay #CelebriDay"
+      }
+    ]
+  },
+  {
+    "month": 1,
+    "day": 31,
+    "holidays": [
+      {
+        "name": "Backwards Day",
+        "description": "A topsy turvy holiday where everything is done in reverse, from wearing clothes backwards to reading words right to left.",
+        "funFact": "Backwards Day is thought to have been invented by elementary school children as a way to have fun and break the routine of everyday life.",
+        "emoji": "🔃",
+        "category": "fun",
+        "shareText": "!yaD sdrawkcaB yppaH Today we do everything in reverse! #BackwardsDay #CelebriDay"
+      },
+      {
+        "name": "Inspire Your Heart with Art Day",
+        "description": "A day encouraging people to connect with art in any form and let it move, uplift, and inspire their hearts.",
+        "funFact": "Studies in neuroaesthetics show that looking at beautiful art activates the same reward circuits in the brain as falling in love, producing measurable feelings of joy.",
+        "emoji": "🎨",
+        "category": "arts",
+        "shareText": "Let art move you today. Visit a gallery, read a poem, or make something beautiful! #InspireYourHeartWithArtDay #CelebriDay"
+      }
+    ]
+  }
+]
