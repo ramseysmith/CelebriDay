@@ -1,10 +1,20 @@
-import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import React, { useState, useCallback } from "react";
+import {
+  View,
+  Text,
+  FlatList,
+  RefreshControl,
+  StyleSheet,
+} from "react-native";
+import * as Haptics from "expo-haptics";
 import { HolidayService } from "../services/HolidayService";
-import { CATEGORY_COLORS } from "../constants/colors";
+import { HolidayCard } from "../components/HolidayCard";
+import { Holiday } from "../types/holiday";
 
 export function TodayScreen() {
-  const todayEntry = HolidayService.getTodaysHolidays();
+  const [refreshing, setRefreshing] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+
   const today = new Date();
   const dateLabel = today.toLocaleDateString("en-US", {
     weekday: "long",
@@ -12,98 +22,96 @@ export function TodayScreen() {
     day: "numeric",
   });
 
-  return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.dateLabel}>{dateLabel}</Text>
-      <Text style={styles.heading}>Today's Holidays</Text>
+  const todayEntry = HolidayService.getTodaysHolidays();
+  const holidays: Holiday[] = todayEntry?.holidays ?? [];
 
-      {!todayEntry || todayEntry.holidays.length === 0 ? (
-        <Text style={styles.empty}>No holidays found for today.</Text>
-      ) : (
-        todayEntry.holidays.map((holiday, idx) => {
-          const color = CATEGORY_COLORS[holiday.category];
-          return (
-            <View key={idx} style={[styles.card, { borderLeftColor: color }]}>
-              <Text style={styles.emoji}>{holiday.emoji}</Text>
-              <Text style={styles.name}>{holiday.name}</Text>
-              <Text style={styles.category}>{holiday.category.toUpperCase()}</Text>
-              <Text style={styles.description}>{holiday.description}</Text>
-              <Text style={styles.funFact}>Fun fact: {holiday.funFact}</Text>
-            </View>
-          );
-        })
+  const onRefresh = useCallback(async () => {
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshKey((k) => k + 1);
+      setRefreshing(false);
+    }, 600);
+  }, []);
+
+  const renderHeader = () => (
+    <View style={styles.header}>
+      <Text style={styles.dateLabel}>{dateLabel}</Text>
+      <Text style={styles.subtitle}>Today's Celebrations</Text>
+    </View>
+  );
+
+  const renderEmpty = () => (
+    <View style={styles.emptyState}>
+      <Text style={styles.emptyEmoji}>🎉</Text>
+      <Text style={styles.emptyText}>
+        No celebrations found for today. Check back tomorrow!
+      </Text>
+    </View>
+  );
+
+  return (
+    <FlatList
+      key={refreshKey}
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      data={holidays}
+      keyExtractor={(_, idx) => String(idx)}
+      renderItem={({ item, index }) => (
+        <HolidayCard holiday={item} index={index} />
       )}
-    </ScrollView>
+      ListHeaderComponent={renderHeader}
+      ListEmptyComponent={renderEmpty}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          tintColor="#FF6B35"
+          colors={["#FF6B35"]}
+        />
+      }
+      showsVerticalScrollIndicator={false}
+    />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F9FAFB",
+    backgroundColor: "#FAFAFA",
   },
   content: {
-    padding: 20,
+    paddingHorizontal: 20,
     paddingBottom: 40,
   },
-  dateLabel: {
-    fontSize: 14,
-    color: "#6B7280",
-    marginBottom: 4,
-    textTransform: "uppercase",
-    letterSpacing: 1,
+  header: {
+    paddingTop: 20,
+    paddingBottom: 8,
   },
-  heading: {
+  dateLabel: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#111827",
+    color: "#1F2937",
+    marginBottom: 4,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#6B7280",
     marginBottom: 20,
   },
-  empty: {
+  emptyState: {
+    alignItems: "center",
+    paddingVertical: 60,
+    paddingHorizontal: 20,
+  },
+  emptyEmoji: {
+    fontSize: 48,
+    marginBottom: 16,
+  },
+  emptyText: {
     fontSize: 16,
     color: "#6B7280",
     textAlign: "center",
-    marginTop: 40,
-  },
-  card: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 16,
-    borderLeftWidth: 4,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-  emoji: {
-    fontSize: 36,
-    marginBottom: 8,
-  },
-  name: {
-    fontSize: 20,
-    fontWeight: "700",
-    color: "#111827",
-    marginBottom: 4,
-  },
-  category: {
-    fontSize: 11,
-    fontWeight: "600",
-    color: "#9CA3AF",
-    letterSpacing: 1.5,
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 15,
-    color: "#374151",
-    lineHeight: 22,
-    marginBottom: 10,
-  },
-  funFact: {
-    fontSize: 13,
-    color: "#6B7280",
-    fontStyle: "italic",
-    lineHeight: 19,
+    lineHeight: 24,
   },
 });
