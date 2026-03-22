@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import {
   View,
   Text,
@@ -9,17 +9,31 @@ import {
 } from "react-native";
 import * as Haptics from "expo-haptics";
 import * as Notifications from "expo-notifications";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { HolidayService } from "../services/HolidayService";
 import { HolidayCard } from "../components/HolidayCard";
 import { Holiday } from "../types/holiday";
+import { usePremium } from "../hooks/usePremium";
+import { useFavorites } from "../hooks/useFavorites";
+import { useSessionAd } from "../hooks/useSessionAd";
+import { RootStackParamList } from "../types/navigation";
+
+type NavProp = NativeStackNavigationProp<RootStackParamList>;
 
 export function TodayScreen() {
+  const navigation = useNavigation<NavProp>();
+  const { isPremium } = usePremium();
+  const { isFavorite, toggleFavorite } = useFavorites();
   const [refreshing, setRefreshing] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const [bannerDismissed, setBannerDismissed] = useState(false);
+  const [premiumBannerDismissed, setPremiumBannerDismissed] = useState(false);
   const [notificationsGranted, setNotificationsGranted] = useState(true);
 
-  useEffect(() => {
+  useSessionAd();
+
+  React.useEffect(() => {
     Notifications.getPermissionsAsync().then(({ status }) => {
       setNotificationsGranted(status === "granted");
     });
@@ -34,6 +48,8 @@ export function TodayScreen() {
 
   const todayEntry = HolidayService.getTodaysHolidays();
   const holidays: Holiday[] = todayEntry?.holidays ?? [];
+  const todayMonth = todayEntry?.month ?? today.getMonth() + 1;
+  const todayDay = todayEntry?.day ?? today.getDate();
 
   const onRefresh = useCallback(async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -44,11 +60,12 @@ export function TodayScreen() {
     }, 600);
   }, []);
 
-  const showBanner = !notificationsGranted && !bannerDismissed;
+  const showNotifBanner = !notificationsGranted && !bannerDismissed;
+  const showPremiumBanner = !isPremium && !premiumBannerDismissed;
 
   const renderHeader = () => (
     <View>
-      {showBanner && (
+      {showNotifBanner && (
         <View style={styles.banner}>
           <View style={styles.bannerContent}>
             <Text style={styles.bannerText}>
@@ -88,6 +105,33 @@ export function TodayScreen() {
     </View>
   );
 
+  const renderFooter = () => {
+    if (!showPremiumBanner) return null;
+    return (
+      <View style={styles.premiumBanner}>
+        <View style={styles.premiumBannerContent}>
+          <Text style={styles.premiumBannerText}>
+            Remove ads and unlock favorites with CelebriDay Premium
+          </Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Paywall")}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.premiumBannerLink}>Learn More</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity
+          style={styles.bannerDismiss}
+          onPress={() => setPremiumBannerDismissed(true)}
+          activeOpacity={0.7}
+          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+        >
+          <Text style={styles.bannerDismissText}>✕</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
   const renderEmpty = () => (
     <View style={styles.emptyState}>
       <Text style={styles.emptyEmoji}>🎉</Text>
@@ -105,9 +149,20 @@ export function TodayScreen() {
       data={holidays}
       keyExtractor={(_, idx) => String(idx)}
       renderItem={({ item, index }) => (
-        <HolidayCard holiday={item} index={index} />
+        <HolidayCard
+          holiday={item}
+          index={index}
+          month={todayMonth}
+          day={todayDay}
+          isFavorited={isFavorite(todayMonth, todayDay, item.name)}
+          onToggleFavorite={() =>
+            toggleFavorite(todayMonth, todayDay, item.name)
+          }
+          onOpenPaywall={() => navigation.navigate("Paywall")}
+        />
       )}
       ListHeaderComponent={renderHeader}
+      ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
       refreshControl={
         <RefreshControl
@@ -187,6 +242,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#6B7280",
     marginBottom: 20,
+  },
+  premiumBanner: {
+    backgroundColor: "#FFF7F4",
+    borderRadius: 12,
+    padding: 14,
+    marginTop: 8,
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#FECDB0",
+  },
+  premiumBannerContent: {
+    flex: 1,
+    marginRight: 8,
+  },
+  premiumBannerText: {
+    fontSize: 13,
+    color: "#92400E",
+    lineHeight: 18,
+    marginBottom: 4,
+  },
+  premiumBannerLink: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "#FF6B35",
   },
   emptyState: {
     alignItems: "center",

@@ -1,5 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, Share, StyleSheet } from "react-native";
+import React, { useEffect } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Share,
+  StyleSheet,
+  Linking,
+} from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -11,16 +18,28 @@ import { Ionicons } from "@expo/vector-icons";
 import { Holiday } from "../types/holiday";
 import { CATEGORY_COLORS } from "../constants/colors";
 import { CategoryBadge } from "./CategoryBadge";
+import { usePremium } from "../hooks/usePremium";
 
 interface Props {
   holiday: Holiday;
   index: number;
+  month?: number;
+  day?: number;
+  isFavorited?: boolean;
+  onToggleFavorite?: () => void;
+  onOpenPaywall?: () => void;
   onShare?: () => void;
-  onFavorite?: () => void;
 }
 
-export function HolidayCard({ holiday, index, onShare, onFavorite }: Props) {
-  const [isFavorite, setIsFavorite] = useState(false);
+export function HolidayCard({
+  holiday,
+  index,
+  isFavorited = false,
+  onToggleFavorite,
+  onOpenPaywall,
+  onShare,
+}: Props) {
+  const { isPremium } = usePremium();
   const color = CATEGORY_COLORS[holiday.category];
 
   const opacity = useSharedValue(0);
@@ -49,17 +68,46 @@ export function HolidayCard({ holiday, index, onShare, onFavorite }: Props) {
 
   const handleFavorite = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    setIsFavorite((prev) => !prev);
-    onFavorite?.();
+    if (isPremium) {
+      onToggleFavorite?.();
+    } else {
+      onOpenPaywall?.();
+    }
   };
 
+  const handleAffiliate = async () => {
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    console.log("Affiliate tap:", holiday.name, holiday.affiliateUrl);
+    if (holiday.affiliateUrl) {
+      Linking.openURL(holiday.affiliateUrl).catch(() => {});
+    }
+  };
+
+  const showAffiliateButton =
+    !!holiday.affiliateUrl &&
+    holiday.affiliateUrl !== "#" &&
+    holiday.affiliateUrl.length > 0;
+
   return (
-    <Animated.View style={[styles.card, { borderLeftColor: color }, animatedStyle]}>
+    <Animated.View
+      style={[styles.card, { borderLeftColor: color }, animatedStyle]}
+    >
       <Text style={styles.emoji}>{holiday.emoji}</Text>
       <Text style={styles.name}>{holiday.name}</Text>
       <CategoryBadge category={holiday.category} />
       <Text style={styles.description}>{holiday.description}</Text>
       <Text style={styles.funFact}>💡 {holiday.funFact}</Text>
+
+      {showAffiliateButton && (
+        <TouchableOpacity
+          style={styles.affiliateBtn}
+          onPress={handleAffiliate}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.affiliateBtnText}>Celebrate This Holiday 🎁</Text>
+        </TouchableOpacity>
+      )}
+
       <View style={styles.actions}>
         <TouchableOpacity
           style={styles.actionBtn}
@@ -75,12 +123,17 @@ export function HolidayCard({ holiday, index, onShare, onFavorite }: Props) {
           activeOpacity={0.7}
         >
           <Ionicons
-            name={isFavorite ? "heart" : "heart-outline"}
+            name={isPremium && isFavorited ? "heart" : "heart-outline"}
             size={20}
-            color={isFavorite ? "#EF4444" : "#6B7280"}
+            color={isPremium && isFavorited ? "#EF4444" : "#6B7280"}
           />
-          <Text style={[styles.actionLabel, isFavorite && styles.favoriteLabel]}>
-            {isFavorite ? "Saved" : "Save"}
+          <Text
+            style={[
+              styles.actionLabel,
+              isPremium && isFavorited && styles.favoriteLabel,
+            ]}
+          >
+            {isPremium && isFavorited ? "Saved" : "Save"}
           </Text>
         </TouchableOpacity>
       </View>
@@ -124,6 +177,20 @@ const styles = StyleSheet.create({
     color: "#6B7280",
     lineHeight: 21,
     marginBottom: 16,
+  },
+  affiliateBtn: {
+    borderWidth: 1.5,
+    borderColor: "#FF6B35",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    alignItems: "center",
+    marginBottom: 12,
+  },
+  affiliateBtnText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#FF6B35",
   },
   actions: {
     flexDirection: "row",

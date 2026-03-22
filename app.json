@@ -28,12 +28,25 @@
     },
     "plugins": [
       "expo-sharing",
+      [
+        "expo-tracking-transparency",
+        {
+          "userTrackingPermission": "This helps us show you relevant ads and support the free version of CelebriDay."
+        }
+      ],
       "@react-native-community/datetimepicker",
       [
         "expo-notifications",
         {
           "icon": "./assets/icon.png",
           "color": "#FF6B35"
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511"
         }
       ]
     ]

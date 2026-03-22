@@ -97,7 +97,8 @@
         "funFact": "There are approximately 10,000 known species of birds on Earth, and they inhabit every continent including Antarctica.",
         "emoji": "🐦",
         "category": "nature",
-        "shareText": "Take a moment to appreciate our feathered friends today! #NationalBirdDay #CelebriDay"
+        "shareText": "Take a moment to appreciate our feathered friends today! #NationalBirdDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Twelfth Night",
@@ -127,7 +128,8 @@
         "funFact": "Beans are one of the oldest cultivated crops, with evidence of bean farming dating back more than 7,000 years in Mexico and Peru.",
         "emoji": "🫘",
         "category": "food",
-        "shareText": "Beans, beans, the magical fruit! Celebrate Bean Day with your favorite legume dish. #BeanDay #CelebriDay"
+        "shareText": "Beans, beans, the magical fruit! Celebrate Bean Day with your favorite legume dish. #BeanDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -149,7 +151,8 @@
         "funFact": "The oldest known rocks on Earth are found in Canada and are estimated to be about 4.03 billion years old.",
         "emoji": "🪨",
         "category": "nature",
-        "shareText": "Rock on! Today we appreciate the ancient stories written in stone. #OldRockDay #CelebriDay"
+        "shareText": "Rock on! Today we appreciate the ancient stories written in stone. #OldRockDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -171,7 +174,8 @@
         "funFact": "Earth completes one full rotation approximately every 23 hours, 56 minutes, and 4 seconds, not exactly 24 hours.",
         "emoji": "🌍",
         "category": "nature",
-        "shareText": "The world keeps spinning and today we celebrate that! #EarthRotationDay #CelebriDay"
+        "shareText": "The world keeps spinning and today we celebrate that! #EarthRotationDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -185,7 +189,8 @@
         "funFact": "Apricots have been cultivated in China for over 4,000 years and were brought to the Americas by Spanish explorers in the 1700s.",
         "emoji": "🍑",
         "category": "food",
-        "shareText": "Sweet, golden, and delicious! Grab an apricot today and enjoy. #NationalApricotDay #CelebriDay"
+        "shareText": "Sweet, golden, and delicious! Grab an apricot today and enjoy. #NationalApricotDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Static Electricity Day",
@@ -207,7 +212,8 @@
         "funFact": "NASA research has found that certain houseplants can remove up to 87% of air toxins in just 24 hours.",
         "emoji": "🪴",
         "category": "nature",
-        "shareText": "Give your leafy friends some extra love today! #HouseplantAppreciationDay #CelebriDay"
+        "shareText": "Give your leafy friends some extra love today! #HouseplantAppreciationDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Bittersweet Chocolate Day",
@@ -215,7 +221,8 @@
         "funFact": "Bittersweet chocolate must contain at least 35% cacao by FDA standards, though most quality bittersweet bars contain 60 to 85% cacao.",
         "emoji": "🍫",
         "category": "food",
-        "shareText": "Rich, dark, and oh so satisfying. Today belongs to bittersweet chocolate! #BittersweetChocolateDay #CelebriDay"
+        "shareText": "Rich, dark, and oh so satisfying. Today belongs to bittersweet chocolate! #BittersweetChocolateDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -229,7 +236,8 @@
         "funFact": "Cows produce about 6 to 7 gallons of milk per day on average, and it takes about 350 squirts from a cow's udder to make one gallon of milk.",
         "emoji": "🥛",
         "category": "food",
-        "shareText": "Got milk? Raise a glass and celebrate National Milk Day! #NationalMilkDay #CelebriDay"
+        "shareText": "Got milk? Raise a glass and celebrate National Milk Day! #NationalMilkDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Step in a Puddle and Splash Your Friends Day",
@@ -251,7 +259,8 @@
         "funFact": "The city of Lubeck in Germany is considered the marzipan capital of the world and has been producing it since at least the 1400s.",
         "emoji": "🍬",
         "category": "food",
-        "shareText": "Almond sweetness in every bite! Treat yourself to marzipan today. #NationalMarzipanDay #CelebriDay"
+        "shareText": "Almond sweetness in every bite! Treat yourself to marzipan today. #NationalMarzipanDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Work Harder Day",
@@ -303,7 +312,8 @@
         "funFact": "Pastrami originated in Romania and was brought to New York City by Jewish immigrants in the late 19th century, where it became a deli staple.",
         "emoji": "🥪",
         "category": "food",
-        "shareText": "Piled high and steaming hot! Today is all about the legendary pastrami sandwich. #HotPastramiSandwichDay #CelebriDay"
+        "shareText": "Piled high and steaming hot! Today is all about the legendary pastrami sandwich. #HotPastramiSandwichDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -325,7 +335,8 @@
         "funFact": "Strawberry ice cream is consistently ranked as the third most popular ice cream flavor in the United States after vanilla and chocolate.",
         "emoji": "🍓",
         "category": "food",
-        "shareText": "Scoop up some strawberry sweetness today! #StrawberryIceCreamDay #CelebriDay"
+        "shareText": "Scoop up some strawberry sweetness today! #StrawberryIceCreamDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -347,7 +358,8 @@
         "funFact": "Fig Newtons were first produced by the Kennedy Biscuit Company in 1891 and are named after the city of Newton, Massachusetts, not the scientist Isaac Newton.",
         "emoji": "🍪",
         "category": "food",
-        "shareText": "Soft, chewy, and full of figgy goodness! Celebrate Fig Newton Day today. #FigNewtonDay #CelebriDay"
+        "shareText": "Soft, chewy, and full of figgy goodness! Celebrate Fig Newton Day today. #FigNewtonDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -369,7 +381,8 @@
         "funFact": "It takes approximately 40 gallons of maple sap to produce just one gallon of maple syrup, making it one of the most labor intensive natural sweeteners.",
         "emoji": "🍁",
         "category": "food",
-        "shareText": "Pour it on thick! Today we celebrate the liquid gold of breakfast. #NationalMapleSyrupDay #CelebriDay"
+        "shareText": "Pour it on thick! Today we celebrate the liquid gold of breakfast. #NationalMapleSyrupDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -391,7 +404,8 @@
         "funFact": "Peter Mark Roget published the first edition of his famous Thesaurus in 1852 at the age of 73, after spending over 50 years compiling it.",
         "emoji": "📖",
         "category": "arts",
-        "shareText": "Expand your lexicon today! Happy Thesaurus Day, you magnificent wordsmith. #ThesaurusDay #CelebriDay"
+        "shareText": "Expand your lexicon today! Happy Thesaurus Day, you magnificent wordsmith. #ThesaurusDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -405,7 +419,8 @@
         "funFact": "Americans consume approximately 17 billion quarts of popcorn every year, which is enough to fill the Empire State Building 18 times over.",
         "emoji": "🍿",
         "category": "food",
-        "shareText": "Grab a big bowl and get popping! Happy National Popcorn Day! #NationalPopcornDay #CelebriDay"
+        "shareText": "Grab a big bowl and get popping! Happy National Popcorn Day! #NationalPopcornDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Tin Can Day",
@@ -427,7 +442,8 @@
         "funFact": "There are over 1,800 varieties of cheese in the world, and France alone produces more than 400 different types.",
         "emoji": "🧀",
         "category": "food",
-        "shareText": "Life is better with cheese. Say it loud and say it proud today! #NationalCheeseLoversDay #CelebriDay"
+        "shareText": "Life is better with cheese. Say it loud and say it proud today! #NationalCheeseLoversDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Penguin Awareness Day",
@@ -435,7 +451,8 @@
         "funFact": "Penguins are found exclusively in the Southern Hemisphere, and some species like the African penguin live in warm climates rather than icy environments.",
         "emoji": "🐧",
         "category": "nature",
-        "shareText": "Waddling in solidarity with our tuxedoed friends! #PenguinAwarenessDay #CelebriDay"
+        "shareText": "Waddling in solidarity with our tuxedoed friends! #PenguinAwarenessDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -457,7 +474,8 @@
         "funFact": "Squirrels are responsible for planting millions of trees each year because they bury nuts for winter and forget where they hid them.",
         "emoji": "🐿️",
         "category": "nature",
-        "shareText": "Cheers to the bushy tailed gardeners of the forest! #SquirrelAppreciationDay #CelebriDay"
+        "shareText": "Cheers to the bushy tailed gardeners of the forest! #SquirrelAppreciationDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -471,7 +489,8 @@
         "funFact": "Blondies actually predate chocolate brownies in American baking history, appearing in cookbooks before chocolate brownies became popular.",
         "emoji": "🍪",
         "category": "food",
-        "shareText": "Golden, buttery, and irresistible! Today belongs to the blondie brownie. #NationalBlondeBrownieDay #CelebriDay"
+        "shareText": "Golden, buttery, and irresistible! Today belongs to the blondie brownie. #NationalBlondeBrownieDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Answer Your Cat's Questions Day",
@@ -493,7 +512,8 @@
         "funFact": "The American Pie Council estimates that Americans eat around 186 million pies per year, averaging nearly one pie per person annually.",
         "emoji": "🥧",
         "category": "food",
-        "shareText": "Slice into something delicious today! Happy National Pie Day! #NationalPieDay #CelebriDay"
+        "shareText": "Slice into something delicious today! Happy National Pie Day! #NationalPieDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Handwriting Day",
@@ -501,7 +521,8 @@
         "funFact": "National Handwriting Day is celebrated on January 23rd to honor John Hancock, whose famous bold signature on the Declaration of Independence was made on this date.",
         "emoji": "✍️",
         "category": "arts",
-        "shareText": "Put pen to paper today and write something beautiful! #HandwritingDay #CelebriDay"
+        "shareText": "Put pen to paper today and write something beautiful! #HandwritingDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -523,7 +544,8 @@
         "funFact": "The first canned beer was sold by the Gottfried Krueger Brewing Company in Richmond, Virginia on January 24, 1935, and was an immediate success.",
         "emoji": "🍺",
         "category": "food",
-        "shareText": "Raising a can to one of history's greatest packaging innovations! #BeerCanAppreciationDay #CelebriDay"
+        "shareText": "Raising a can to one of history's greatest packaging innovations! #BeerCanAppreciationDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -567,7 +589,8 @@
         "funFact": "Peanut brittle has been made in the United States since at least the mid 1800s and was often sold door to door by candy peddlers in the early 20th century.",
         "emoji": "🥜",
         "category": "food",
-        "shareText": "Crunch into something sweet today! Happy National Peanut Brittle Day! #NationalPeanutBrittleDay #CelebriDay"
+        "shareText": "Crunch into something sweet today! Happy National Peanut Brittle Day! #NationalPeanutBrittleDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -589,7 +612,8 @@
         "funFact": "The first chocolate cake recipe appeared in a cookbook in 1764 after Dr. James Baker discovered how to manufacture chocolate by grinding cacao beans.",
         "emoji": "🎂",
         "category": "food",
-        "shareText": "Every day deserves a slice of chocolate cake, but today we make it official! #ChocolateCakeDay #CelebriDay"
+        "shareText": "Every day deserves a slice of chocolate cake, but today we make it official! #ChocolateCakeDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -603,7 +627,8 @@
         "funFact": "Blueberries are one of the only naturally blue foods in the world, and their distinctive color comes from powerful antioxidants called anthocyanins.",
         "emoji": "🫐",
         "category": "food",
-        "shareText": "Stack them high and drizzle with syrup! Happy National Blueberry Pancake Day! #BlueberryPancakeDay #CelebriDay"
+        "shareText": "Stack them high and drizzle with syrup! Happy National Blueberry Pancake Day! #BlueberryPancakeDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Data Privacy Day",
@@ -611,7 +636,8 @@
         "funFact": "Data Privacy Day was established in the United States in 2008 and is now observed in over 50 countries to promote responsible data handling.",
         "emoji": "🔒",
         "category": "tech",
-        "shareText": "Your data, your rights. Take a moment to review your privacy settings today! #DataPrivacyDay #CelebriDay"
+        "shareText": "Your data, your rights. Take a moment to review your privacy settings today! #DataPrivacyDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -633,7 +659,8 @@
         "funFact": "Fritos, one of the first commercial corn chips, was invented by Charles Elmer Doolin in San Antonio, Texas in 1932 after he purchased a recipe for 100 dollars.",
         "emoji": "🌽",
         "category": "food",
-        "shareText": "Crunchy, salty, and completely addictive. Happy Corn Chip Day! #CornChipDay #CelebriDay"
+        "shareText": "Crunchy, salty, and completely addictive. Happy Corn Chip Day! #CornChipDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -647,7 +674,8 @@
         "funFact": "Despite being associated with France, the croissant actually originated in Austria. It was brought to Paris in the early 1800s and later refined into the buttery layered pastry we know today.",
         "emoji": "🥐",
         "category": "food",
-        "shareText": "Flaky, buttery perfection. Today we honor the magnificent croissant! #CroissantDay #CelebriDay"
+        "shareText": "Flaky, buttery perfection. Today we honor the magnificent croissant! #CroissantDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "National Inane Answering Message Day",
@@ -677,7 +705,8 @@
         "funFact": "Studies in neuroaesthetics show that looking at beautiful art activates the same reward circuits in the brain as falling in love, producing measurable feelings of joy.",
         "emoji": "🎨",
         "category": "arts",
-        "shareText": "Let art move you today. Visit a gallery, read a poem, or make something beautiful! #InspireYourHeartWithArtDay #CelebriDay"
+        "shareText": "Let art move you today. Visit a gallery, read a poem, or make something beautiful! #InspireYourHeartWithArtDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -699,7 +728,8 @@
         "funFact": "There are over 3,700 species of snakes in the world, and only about 600 of them are venomous.",
         "emoji": "🐍",
         "category": "nature",
-        "shareText": "Slithering into February with some serpent love on Serpent Day! #SerpentDay #CelebriDay"
+        "shareText": "Slithering into February with some serpent love on Serpent Day! #SerpentDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -735,7 +765,8 @@
         "funFact": "Carrot cake is believed to have evolved from medieval carrot puddings in Europe, where sugar was scarce and carrots were used as a sweetener.",
         "emoji": "🥕",
         "category": "food",
-        "shareText": "Treating myself to a slice of heaven on National Carrot Cake Day! #NationalCarrotCakeDay #CelebriDay"
+        "shareText": "Treating myself to a slice of heaven on National Carrot Cake Day! #NationalCarrotCakeDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "World Speech Day",
@@ -765,7 +796,8 @@
         "funFact": "Liberace was so famous at his peak that he was the highest paid entertainer in the world, earning over $5 million per year in the 1950s.",
         "emoji": "🎹",
         "category": "arts",
-        "shareText": "Celebrating the glitter, glamour, and incredible talent of Liberace on his special day! #LiberaceDay #CelebriDay"
+        "shareText": "Celebrating the glitter, glamour, and incredible talent of Liberace on his special day! #LiberaceDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -779,7 +811,8 @@
         "funFact": "Nutella was created in the 1940s by Pietro Ferrero in Italy as a way to stretch chocolate supplies by adding hazelnuts. About 365,000 tons are produced every year.",
         "emoji": "🍫",
         "category": "food",
-        "shareText": "Spreading the love one jar at a time on World Nutella Day! #WorldNutellaDay #CelebriDay"
+        "shareText": "Spreading the love one jar at a time on World Nutella Day! #WorldNutellaDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "National Weatherpersons Day",
@@ -801,7 +834,8 @@
         "funFact": "Frozen yogurt was first introduced in the United States in the 1970s under the name Frogurt. The froyo craze exploded in the 1980s and again in the 2000s.",
         "emoji": "🍦",
         "category": "food",
-        "shareText": "Celebrating the coolest dessert around on National Frozen Yogurt Day! #NationalFrozenYogurtDay #CelebriDay"
+        "shareText": "Celebrating the coolest dessert around on National Frozen Yogurt Day! #NationalFrozenYogurtDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Lame Duck Day",
@@ -867,7 +901,8 @@
         "funFact": "Americans consume approximately 3 billion pizzas per year, which works out to about 23 pounds of pizza per person annually.",
         "emoji": "🍕",
         "category": "food",
-        "shareText": "Every day is a good day for pizza but today is the BEST day! Happy National Pizza Day! #NationalPizzaDay #CelebriDay"
+        "shareText": "Every day is a good day for pizza but today is the BEST day! Happy National Pizza Day! #NationalPizzaDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Toothache Day",
@@ -889,7 +924,8 @@
         "funFact": "Pulses are one of the most sustainable protein sources available, using up to 10 times less water than meat and naturally enriching soil with nitrogen.",
         "emoji": "🫘",
         "category": "food",
-        "shareText": "Celebrating the mighty pulse today! Nutritious, sustainable, and delicious! #WorldPulsesDay #CelebriDay"
+        "shareText": "Celebrating the mighty pulse today! Nutritious, sustainable, and delicious! #WorldPulsesDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Umbrella Day",
@@ -911,7 +947,8 @@
         "funFact": "Thomas Edison held 1,093 US patents, more than any other person at the time. He famously said genius is one percent inspiration and ninety nine percent perspiration.",
         "emoji": "💡",
         "category": "tech",
-        "shareText": "Celebrating the brilliant minds who change the world one invention at a time! #NationalInventorsDay #CelebriDay"
+        "shareText": "Celebrating the brilliant minds who change the world one invention at a time! #NationalInventorsDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Do Not Cry Over Spilled Milk Day",
@@ -933,7 +970,8 @@
         "funFact": "Charles Darwin was born on February 12, 1809, the same day as Abraham Lincoln. His landmark book On the Origin of Species was published in 1859.",
         "emoji": "🦎",
         "category": "nature",
-        "shareText": "Celebrating curiosity, science, and the beautiful diversity of life on Darwin Day! #DarwinDay #CelebriDay"
+        "shareText": "Celebrating curiosity, science, and the beautiful diversity of life on Darwin Day! #DarwinDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "National Plum Pudding Day",
@@ -941,7 +979,8 @@
         "funFact": "Despite being called plum pudding, the dish rarely contains plums. In older English, the word plum referred to raisins or other dried fruits.",
         "emoji": "🍮",
         "category": "food",
-        "shareText": "Digging into a classic on National Plum Pudding Day! #NationalPlumPuddingDay #CelebriDay"
+        "shareText": "Digging into a classic on National Plum Pudding Day! #NationalPlumPuddingDay #CelebriDay",
+        "affiliateUrl": "#"
       }
     ]
   },
@@ -955,7 +994,8 @@
         "funFact": "Radio reaches over 95 percent of the world's population every week, making it the most widespread communications medium in the world.",
         "emoji": "📻",
         "category": "arts",
-        "shareText": "Tuning in and turning up the celebration on World Radio Day! #WorldRadioDay #CelebriDay"
+        "shareText": "Tuning in and turning up the celebration on World Radio Day! #WorldRadioDay #CelebriDay",
+        "affiliateUrl": "#"
       },
       {
         "name": "Galentines Day",

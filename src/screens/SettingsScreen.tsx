@@ -9,12 +9,20 @@ import {
   Alert,
   Linking,
   Platform,
+  ActivityIndicator,
 } from "react-native";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useSettings } from "../hooks/useSettings";
+import { usePremium } from "../hooks/usePremium";
+import { SubscriptionService } from "../services/SubscriptionService";
 import { HolidayService } from "../services/HolidayService";
+import { RootStackParamList } from "../types/navigation";
+
+type NavProp = NativeStackNavigationProp<RootStackParamList>;
 
 function formatTime(hour: number, minute: number): string {
   const h = hour % 12 === 0 ? 12 : hour % 12;
@@ -32,9 +40,12 @@ function getTomorrow() {
 }
 
 export function SettingsScreen() {
+  const navigation = useNavigation<NavProp>();
   const { settings, isLoaded, updateNotificationsEnabled, updateNotificationTime } =
     useSettings();
+  const { isPremium, refresh: refreshPremium } = usePremium();
   const [showTimePicker, setShowTimePicker] = useState(false);
+  const [restoring, setRestoring] = useState(false);
 
   const tomorrow = getTomorrow();
   const tomorrowHoliday = tomorrow?.holidays[0] ?? null;
@@ -71,6 +82,52 @@ export function SettingsScreen() {
     await updateNotificationTime(hour, minute);
   };
 
+  const handleTimeRowPress = () => {
+    if (!isPremium) {
+      navigation.navigate("Paywall");
+      return;
+    }
+    if (Platform.OS === "android") {
+      setShowTimePicker(true);
+    }
+  };
+
+  const handleRestorePurchases = async () => {
+    if (restoring) return;
+    setRestoring(true);
+    try {
+      const active = await SubscriptionService.restorePurchases();
+      await refreshPremium();
+      if (active) {
+        Alert.alert(
+          "Restored",
+          "Your premium subscription has been restored.",
+          [{ text: "OK" }]
+        );
+      } else {
+        Alert.alert(
+          "Nothing to Restore",
+          "No active subscription was found for your account.",
+          [{ text: "OK" }]
+        );
+      }
+    } catch {
+      Alert.alert("Restore Failed", "Please try again later.", [
+        { text: "OK" },
+      ]);
+    } finally {
+      setRestoring(false);
+    }
+  };
+
+  const handleManageSubscription = () => {
+    const url =
+      Platform.OS === "ios"
+        ? "itms-apps://apps.apple.com/account/subscriptions"
+        : "https://play.google.com/store/account/subscriptions";
+    Linking.openURL(url).catch(() => {});
+  };
+
   if (!isLoaded) {
     return <View style={styles.container} />;
   }
@@ -81,6 +138,44 @@ export function SettingsScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
+      {/* Premium Section */}
+      <Text style={styles.sectionHeader}>PREMIUM</Text>
+      <View style={styles.card}>
+        {isPremium ? (
+          <>
+            <View style={styles.row}>
+              <Text style={styles.rowLabel}>✨ CelebriDay Premium</Text>
+              <View style={styles.activeBadge}>
+                <Text style={styles.activeBadgeText}>Active</Text>
+              </View>
+            </View>
+            <View style={styles.separator} />
+            <TouchableOpacity
+              style={styles.row}
+              onPress={handleManageSubscription}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.rowLabel}>Manage Subscription</Text>
+              <Text style={styles.rowChevron}>›</Text>
+            </TouchableOpacity>
+          </>
+        ) : (
+          <TouchableOpacity
+            style={styles.row}
+            onPress={() => navigation.navigate("Paywall")}
+            activeOpacity={0.7}
+          >
+            <View style={styles.premiumRowContent}>
+              <Text style={styles.premiumRowTitle}>✨ Go Premium</Text>
+              <Text style={styles.premiumRowSubtitle}>
+                Remove ads, unlock favorites, and more
+              </Text>
+            </View>
+            <Text style={styles.premiumChevron}>›</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+
       {/* Notifications Section */}
       <Text style={styles.sectionHeader}>NOTIFICATIONS</Text>
       <View style={styles.card}>
@@ -100,33 +195,54 @@ export function SettingsScreen() {
           <>
             <View style={styles.separator} />
             {Platform.OS === "ios" ? (
-              <View style={styles.row}>
-                <Text style={styles.rowLabel}>Notification Time</Text>
-                <DateTimePicker
-                  value={timeDate}
-                  mode="time"
-                  display="compact"
-                  onChange={handleTimeChange}
-                  themeVariant="light"
-                  accentColor="#FF6B35"
-                />
-              </View>
+              isPremium ? (
+                <View style={styles.row}>
+                  <Text style={styles.rowLabel}>Notification Time</Text>
+                  <DateTimePicker
+                    value={timeDate}
+                    mode="time"
+                    display="compact"
+                    onChange={handleTimeChange}
+                    themeVariant="light"
+                    accentColor="#FF6B35"
+                  />
+                </View>
+              ) : (
+                <TouchableOpacity
+                  style={styles.row}
+                  onPress={() => navigation.navigate("Paywall")}
+                  activeOpacity={0.7}
+                >
+                  <Text style={styles.rowLabel}>Notification Time</Text>
+                  <View style={styles.lockedRow}>
+                    <Text style={styles.rowValue}>8:00 AM</Text>
+                    <Text style={styles.lockIcon}>🔒</Text>
+                  </View>
+                </TouchableOpacity>
+              )
             ) : (
               <>
                 <TouchableOpacity
                   style={styles.row}
-                  onPress={() => setShowTimePicker(true)}
+                  onPress={handleTimeRowPress}
                   activeOpacity={0.7}
                 >
                   <Text style={styles.rowLabel}>Notification Time</Text>
-                  <Text style={styles.rowValue}>
-                    {formatTime(
-                      settings.notificationHour,
-                      settings.notificationMinute
-                    )}
-                  </Text>
+                  {isPremium ? (
+                    <Text style={styles.rowValue}>
+                      {formatTime(
+                        settings.notificationHour,
+                        settings.notificationMinute
+                      )}
+                    </Text>
+                  ) : (
+                    <View style={styles.lockedRow}>
+                      <Text style={styles.rowValue}>8:00 AM</Text>
+                      <Text style={styles.lockIcon}>🔒</Text>
+                    </View>
+                  )}
                 </TouchableOpacity>
-                {showTimePicker && (
+                {showTimePicker && isPremium && (
                   <DateTimePicker
                     value={timeDate}
                     mode="time"
@@ -175,6 +291,21 @@ export function SettingsScreen() {
         >
           <Text style={styles.rowLabel}>Rate CelebriDay</Text>
           <Text style={styles.rowChevron}>›</Text>
+        </TouchableOpacity>
+
+        <View style={styles.separator} />
+
+        <TouchableOpacity
+          style={styles.row}
+          onPress={handleRestorePurchases}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.rowLabel}>Restore Purchases</Text>
+          {restoring ? (
+            <ActivityIndicator size="small" color="#9CA3AF" />
+          ) : (
+            <Text style={styles.rowChevron}>›</Text>
+          )}
         </TouchableOpacity>
 
         <View style={styles.separator} />
@@ -252,6 +383,14 @@ const styles = StyleSheet.create({
     color: "#D1D5DB",
     marginLeft: 8,
   },
+  lockedRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  lockIcon: {
+    fontSize: 14,
+  },
   separator: {
     height: 1,
     backgroundColor: "#F3F4F6",
@@ -277,5 +416,34 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "#6B7280",
     lineHeight: 18,
+  },
+  activeBadge: {
+    backgroundColor: "#D1FAE5",
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  activeBadgeText: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "#065F46",
+  },
+  premiumRowContent: {
+    flex: 1,
+  },
+  premiumRowTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#FF6B35",
+    marginBottom: 2,
+  },
+  premiumRowSubtitle: {
+    fontSize: 13,
+    color: "#6B7280",
+  },
+  premiumChevron: {
+    fontSize: 20,
+    color: "#FF6B35",
+    marginLeft: 8,
   },
 });

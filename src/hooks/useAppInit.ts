@@ -2,6 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notifications from "expo-notifications";
 import { NotificationService } from "../services/NotificationService";
+import { AdService } from "../services/AdService";
+import { SubscriptionService } from "../services/SubscriptionService";
+
+const REVENUECAT_API_KEY = "PLACEHOLDER_REVENUECAT_API_KEY";
 
 export function useAppInit() {
   const [isReady, setIsReady] = useState(false);
@@ -10,6 +14,8 @@ export function useAppInit() {
 
   useEffect(() => {
     async function init() {
+      SubscriptionService.initialize(REVENUECAT_API_KEY);
+      await AdService.initialize();
       await NotificationService.initialize();
 
       const hasCompleted = await AsyncStorage.getItem("hasCompletedOnboarding");
