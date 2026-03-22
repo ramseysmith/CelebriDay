@@ -1,18 +1,28 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
   ScrollView,
   PanResponder,
+  Platform,
   StyleSheet,
 } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withRepeat,
+  withSequence,
+  Easing,
+} from "react-native-reanimated";
 import * as Haptics from "expo-haptics";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { CalendarGrid } from "../components/CalendarGrid";
 import { HolidayCard } from "../components/HolidayCard";
+import { HolidayBottomSheet } from "../components/HolidayBottomSheet";
 import { HolidayService } from "../services/HolidayService";
 import { useFavorites } from "../hooks/useFavorites";
 import { useTheme } from "../hooks/useTheme";
@@ -36,6 +46,36 @@ export function CalendarScreen() {
     month: number;
     day: number;
   } | null>({ month: today.getMonth() + 1, day: today.getDate() });
+  const [sheetVisible, setSheetVisible] = useState(false);
+  const [hintDismissed, setHintDismissed] = useState(false);
+  const isIPad = Platform.OS === "ios" && Platform.isPad;
+
+  // Hint animation: float up/down + fade in on mount
+  const hintOpacity = useSharedValue(0);
+  const hintFloat = useSharedValue(0);
+
+  useEffect(() => {
+    if (isIPad) return;
+    hintOpacity.value = withTiming(1, { duration: 600 });
+    hintFloat.value = withRepeat(
+      withSequence(
+        withTiming(-6, { duration: 900, easing: Easing.inOut(Easing.quad) }),
+        withTiming(0, { duration: 900, easing: Easing.inOut(Easing.quad) })
+      ),
+      -1,
+      false
+    );
+  }, []);
+
+  const hintStyle = useAnimatedStyle(() => ({
+    opacity: hintOpacity.value,
+    transform: [{ translateY: hintFloat.value }],
+  }));
+
+  const dismissHint = () => {
+    hintOpacity.value = withTiming(0, { duration: 300 });
+    setTimeout(() => setHintDismissed(true), 300);
+  };
 
   const goToPrevMonth = () => {
     setMonth((m) => {
@@ -74,6 +114,10 @@ export function CalendarScreen() {
   const handleDayPress = (m: number, d: number) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     setSelectedDate({ month: m, day: d });
+    if (!isIPad) {
+      setSheetVisible(true);
+      if (!hintDismissed) dismissHint();
+    }
   };
 
   const entry = selectedDate
@@ -117,50 +161,71 @@ export function CalendarScreen() {
         </View>
       </View>
 
-      {/* Static holiday panel */}
-      <View style={[styles.panel, { backgroundColor: panelBg, borderTopColor: theme.border }]}>
-        {selectedDate ? (
-          <>
-            <Text style={[styles.panelDateLabel, { color: theme.textPrimary }]}>
-              {MONTH_NAMES[selectedDate.month - 1]} {selectedDate.day}
-            </Text>
-            <ScrollView
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={styles.panelScroll}
-            >
-              {entry && entry.holidays.length > 0 ? (
-                entry.holidays.map((holiday, idx) => (
-                  <HolidayCard
-                    key={idx}
-                    holiday={holiday}
-                    index={idx}
-                    month={selectedDate.month}
-                    day={selectedDate.day}
-                    isFavorited={isFavorite(selectedDate.month, selectedDate.day, holiday.name)}
-                    onToggleFavorite={() =>
-                      toggleFavorite(selectedDate.month, selectedDate.day, holiday.name)
-                    }
-                    onOpenPaywall={() => navigation.navigate("Paywall")}
-                  />
-                ))
-              ) : (
-                <View style={styles.emptyState}>
-                  <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
-                    No celebrations found for this day.
-                  </Text>
-                </View>
-              )}
-            </ScrollView>
-          </>
-        ) : (
-          <View style={styles.emptyState}>
-            <Text style={styles.emptyEmoji}>👆</Text>
-            <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
-              Tap a day to see its celebrations
-            </Text>
-          </View>
-        )}
-      </View>
+      {/* iPhone tap hint */}
+      {!isIPad && !hintDismissed && (
+        <Animated.View pointerEvents="none" style={[styles.hint, { backgroundColor: theme.isDark ? "#1F2937" : "#FFF7ED", borderColor: theme.isDark ? "#374151" : "#FED7AA" }, hintStyle]}>
+          <Text style={styles.hintEmoji}>👆</Text>
+          <Text style={[styles.hintText, { color: theme.isDark ? "#FCD34D" : "#92400E" }]}>
+            Tap any date to see its holidays
+          </Text>
+        </Animated.View>
+      )}
+
+      {/* iPad: static panel */}
+      {isIPad && (
+        <View style={[styles.panel, { backgroundColor: panelBg, borderTopColor: theme.border }]}>
+          {selectedDate ? (
+            <>
+              <Text style={[styles.panelDateLabel, { color: theme.textPrimary }]}>
+                {MONTH_NAMES[selectedDate.month - 1]} {selectedDate.day}
+              </Text>
+              <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={styles.panelScroll}
+              >
+                {entry && entry.holidays.length > 0 ? (
+                  entry.holidays.map((holiday, idx) => (
+                    <HolidayCard
+                      key={idx}
+                      holiday={holiday}
+                      index={idx}
+                      month={selectedDate.month}
+                      day={selectedDate.day}
+                      isFavorited={isFavorite(selectedDate.month, selectedDate.day, holiday.name)}
+                      onToggleFavorite={() =>
+                        toggleFavorite(selectedDate.month, selectedDate.day, holiday.name)
+                      }
+                      onOpenPaywall={() => navigation.navigate("Paywall")}
+                    />
+                  ))
+                ) : (
+                  <View style={styles.emptyState}>
+                    <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
+                      No celebrations found for this day.
+                    </Text>
+                  </View>
+                )}
+              </ScrollView>
+            </>
+          ) : (
+            <View style={styles.emptyState}>
+              <Text style={styles.emptyEmoji}>👆</Text>
+              <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
+                Tap a day to see its celebrations
+              </Text>
+            </View>
+          )}
+        </View>
+      )}
+
+      {/* iPhone: swipeable bottom sheet */}
+      {!isIPad && (
+        <HolidayBottomSheet
+          visible={sheetVisible}
+          date={selectedDate}
+          onClose={() => setSheetVisible(false)}
+        />
+      )}
     </View>
   );
 }
@@ -221,5 +286,23 @@ const styles = StyleSheet.create({
   emptyText: {
     fontSize: 15,
     textAlign: "center",
+  },
+  hint: {
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginTop: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 32,
+    borderWidth: 1,
+  },
+  hintEmoji: {
+    fontSize: 18,
+  },
+  hintText: {
+    fontSize: 14,
+    fontWeight: "600",
   },
 });

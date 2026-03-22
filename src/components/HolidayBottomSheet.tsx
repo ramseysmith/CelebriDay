@@ -33,11 +33,12 @@ export function HolidayBottomSheet({ visible, date, onClose }: Props) {
 
   useEffect(() => {
     if (visible) {
-      sheetRef.current?.expand();
+      const t = setTimeout(() => sheetRef.current?.snapToIndex(0), 50);
+      return () => clearTimeout(t);
     } else {
       sheetRef.current?.close();
     }
-  }, [visible]);
+  }, [visible, date?.month, date?.day]);
 
   const handleChange = useCallback(
     (index: number) => {

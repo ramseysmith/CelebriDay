@@ -25,7 +25,7 @@ export class NotificationService {
 
   static async requestPermissions(): Promise<boolean> {
     if (!Device.isDevice) {
-      return false;
+      return true;
     }
 
     const { status: existingStatus } =
