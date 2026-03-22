@@ -24,10 +24,8 @@
       "package": "com.ramseysmith.celebriday",
       "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#FF6B35",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#FF6B35"
       },
       "predictiveBackGestureEnabled": false
     },
