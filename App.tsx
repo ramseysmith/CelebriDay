@@ -1,5 +1,6 @@
 import "react-native-gesture-handler";
 import React from "react";
+import { View, ActivityIndicator } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -7,10 +8,30 @@ import { Ionicons } from "@expo/vector-icons";
 import { TodayScreen } from "./src/screens/TodayScreen";
 import { CalendarScreen } from "./src/screens/CalendarScreen";
 import { SettingsScreen } from "./src/screens/SettingsScreen";
+import { OnboardingScreen } from "./src/screens/OnboardingScreen";
+import { useAppInit } from "./src/hooks/useAppInit";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const { isReady, showOnboarding, completeOnboarding } = useAppInit();
+
+  if (!isReady) {
+    return (
+      <View style={{ flex: 1, backgroundColor: "#FFFFFF", alignItems: "center", justifyContent: "center" }}>
+        <ActivityIndicator color="#FF6B35" size="large" />
+      </View>
+    );
+  }
+
+  if (showOnboarding) {
+    return (
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <OnboardingScreen onComplete={completeOnboarding} />
+      </GestureHandlerRootView>
+    );
+  }
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
