@@ -53,9 +53,7 @@ export const SubscriptionService = {
   async purchaseAnnual(): Promise<boolean> {
     try {
       const offering = await SubscriptionService.getOfferings();
-      const pkg = offering?.availablePackages.find(
-        (p) => p.identifier === "yearly"
-      );
+      const pkg = offering?.annual;
       if (!pkg) return false;
       await Purchases.purchasePackage(pkg);
       cachedIsPremium = true;
