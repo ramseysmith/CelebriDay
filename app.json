@@ -13,7 +13,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.celebriday",
+      "bundleIdentifier": "com.ramseysmith.celebriday",
       "buildNumber": "1",
       "icon": "./assets/icon.png",
       "infoPlist": {
@@ -21,7 +21,7 @@
       }
     },
     "android": {
-      "package": "com.yourname.celebriday",
+      "package": "com.ramseysmith.celebriday",
       "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#FF6B35",
