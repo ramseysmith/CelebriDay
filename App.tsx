@@ -1,6 +1,7 @@
 import "react-native-gesture-handler";
-import React from "react";
-import { View } from "react-native";
+import React, { useEffect, useState, useCallback } from "react";
+import { View, StyleSheet } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer, DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -15,8 +16,12 @@ import { PaywallScreen } from "./src/screens/PaywallScreen";
 import { PremiumProvider } from "./src/hooks/usePremium";
 import { useAppInit } from "./src/hooks/useAppInit";
 import { useTheme } from "./src/hooks/useTheme";
-import { SkeletonLoader } from "./src/components/SkeletonLoader";
+import AnimatedSplash from "./src/components/AnimatedSplash";
 import { RootStackParamList } from "./src/types/navigation";
+
+// Must be called at module level — prevents the native static splash from
+// auto-hiding before our animated version is ready to take over.
+SplashScreen.preventAutoHideAsync();
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -62,68 +67,93 @@ function MainTabs() {
         name="Today"
         component={TodayScreen}
         options={{ title: "CelebriDay" }}
-        listeners={{
-          tabPress: () => {
-            Haptics.selectionAsync();
-          },
-        }}
+        listeners={{ tabPress: () => { Haptics.selectionAsync(); } }}
       />
       <Tab.Screen
         name="Calendar"
         component={CalendarScreen}
-        listeners={{
-          tabPress: () => {
-            Haptics.selectionAsync();
-          },
-        }}
+        listeners={{ tabPress: () => { Haptics.selectionAsync(); } }}
       />
       <Tab.Screen
         name="Settings"
         component={SettingsScreen}
-        listeners={{
-          tabPress: () => {
-            Haptics.selectionAsync();
-          },
-        }}
+        listeners={{ tabPress: () => { Haptics.selectionAsync(); } }}
       />
     </Tab.Navigator>
   );
 }
 
-export default function App() {
+function AppContent() {
   const { isReady, showOnboarding, completeOnboarding } = useAppInit();
   const theme = useTheme();
 
-  if (!isReady) {
-    return (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <SkeletonLoader />
-      </GestureHandlerRootView>
-    );
-  }
+  if (!isReady) return null;
 
   if (showOnboarding) {
-    return (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <OnboardingScreen onComplete={completeOnboarding} />
-      </GestureHandlerRootView>
-    );
+    return <OnboardingScreen onComplete={completeOnboarding} />;
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <PremiumProvider>
-        <NavigationContainer theme={theme.isDark ? DarkTheme : DefaultTheme}>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Main" component={MainTabs} />
-            <Stack.Screen
-              name="Paywall"
-              component={PaywallScreen}
-              options={{ presentation: "modal" }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </PremiumProvider>
+    <PremiumProvider>
+      <NavigationContainer theme={theme.isDark ? DarkTheme : DefaultTheme}>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Main" component={MainTabs} />
+          <Stack.Screen
+            name="Paywall"
+            component={PaywallScreen}
+            options={{ presentation: "modal" }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PremiumProvider>
+  );
+}
+
+export default function App() {
+  const [splashFinished, setSplashFinished] = useState(false);
+  const [appReady, setAppReady] = useState(false);
+
+  // Hide the native static splash immediately — our animated version
+  // takes over seamlessly because both use #FF6B35 as background.
+  useEffect(() => {
+    SplashScreen.hideAsync();
+  }, []);
+
+  // Signal appReady after a short tick so the animated splash can mount
+  // first. Heavy init (RevenueCat, AdMob, AsyncStorage) happens inside
+  // AppContent via useAppInit — the splash holds until isReady anyway.
+  useEffect(() => {
+    const timer = setTimeout(() => setAppReady(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleSplashFinish = useCallback(() => {
+    setSplashFinished(true);
+  }, []);
+
+  return (
+    <GestureHandlerRootView style={styles.root}>
+      {/* App content renders underneath, invisible until splash exits */}
+      <View style={[styles.appContainer, !splashFinished && styles.hidden]}>
+        <AppContent />
+      </View>
+
+      {/* Animated splash sits on top and unmounts when done */}
+      {!splashFinished && (
+        <AnimatedSplash isReady={appReady} onFinish={handleSplashFinish} />
+      )}
     </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+  appContainer: {
+    flex: 1,
+  },
+  hidden: {
+    opacity: 0,
+  },
+});
