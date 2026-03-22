@@ -18,9 +18,10 @@ interface Props {
   month: number; // 1-indexed
   year: number;
   onDayPress: (month: number, day: number) => void;
+  selectedDay?: { month: number; day: number } | null;
 }
 
-export function CalendarGrid({ month, year, onDayPress }: Props) {
+export function CalendarGrid({ month, year, onDayPress, selectedDay }: Props) {
   const theme = useTheme();
   const today = new Date();
   const todayMonth = today.getMonth() + 1;
@@ -85,12 +86,18 @@ export function CalendarGrid({ month, year, onDayPress }: Props) {
               cell.day === todayDay &&
               cell.month === todayMonth &&
               cell.year === todayYear;
+            const isSelected =
+              !!selectedDay &&
+              cell.isCurrentMonth &&
+              cell.day === selectedDay.day &&
+              cell.month === selectedDay.month;
 
             return (
               <CalendarDayCell
                 key={cellIdx}
                 day={cell.day}
                 isToday={isToday}
+                isSelected={isSelected}
                 isCurrentMonth={cell.isCurrentMonth}
                 primaryCategory={primaryCategory}
                 onPress={() => onDayPress(cell.month, cell.day)}

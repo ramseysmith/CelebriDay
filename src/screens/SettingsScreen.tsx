@@ -122,12 +122,17 @@ export function SettingsScreen() {
     }
   };
 
-  const handleManageSubscription = () => {
-    const url =
-      Platform.OS === "ios"
-        ? "itms-apps://apps.apple.com/account/subscriptions"
-        : "https://play.google.com/store/account/subscriptions";
-    Linking.openURL(url).catch(() => {});
+  const handleManageSubscription = async () => {
+    try {
+      await SubscriptionService.manageSubscriptions();
+    } catch {
+      // Fallback for simulator / edge cases
+      const url =
+        Platform.OS === "ios"
+          ? "https://apps.apple.com/account/subscriptions"
+          : "https://play.google.com/store/account/subscriptions";
+      Linking.openURL(url).catch(() => {});
+    }
   };
 
   if (!isLoaded) {
@@ -160,6 +165,19 @@ export function SettingsScreen() {
                 <Text style={styles.activeBadgeText}>Active</Text>
               </View>
             </View>
+            <View style={[styles.separator, { backgroundColor: separatorColor }]} />
+            <TouchableOpacity
+              style={styles.row}
+              onPress={() => navigation.navigate("Favorites")}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+                Saved Holidays
+              </Text>
+              <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>
+                ›
+              </Text>
+            </TouchableOpacity>
             <View style={[styles.separator, { backgroundColor: separatorColor }]} />
             <TouchableOpacity
               style={styles.row}

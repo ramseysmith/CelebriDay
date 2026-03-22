@@ -77,6 +77,10 @@ export const SubscriptionService = {
     }
   },
 
+  async manageSubscriptions(): Promise<void> {
+    await Purchases.showManageSubscriptions();
+  },
+
   invalidateCache(): void {
     cachedIsPremium = null;
   },

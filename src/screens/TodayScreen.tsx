@@ -17,7 +17,6 @@ import { ConfettiOverlay } from "../components/ConfettiOverlay";
 import { Holiday } from "../types/holiday";
 import { usePremium } from "../hooks/usePremium";
 import { useFavorites } from "../hooks/useFavorites";
-import { useSessionAd } from "../hooks/useSessionAd";
 import { useTheme } from "../hooks/useTheme";
 import { RootStackParamList } from "../types/navigation";
 
@@ -47,8 +46,6 @@ export function TodayScreen() {
   const [premiumBannerDismissed, setPremiumBannerDismissed] = useState(false);
   const [notificationsGranted, setNotificationsGranted] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
-
-  useSessionAd();
 
   React.useEffect(() => {
     Notifications.getPermissionsAsync().then(({ status }) => {

@@ -13,7 +13,10 @@ import { CalendarScreen } from "./src/screens/CalendarScreen";
 import { SettingsScreen } from "./src/screens/SettingsScreen";
 import { OnboardingScreen } from "./src/screens/OnboardingScreen";
 import { PaywallScreen } from "./src/screens/PaywallScreen";
+import { FavoritesScreen } from "./src/screens/FavoritesScreen";
+import { DailyRevealScreen } from "./src/screens/DailyRevealScreen";
 import { PremiumProvider } from "./src/hooks/usePremium";
+import { FavoritesProvider } from "./src/hooks/useFavorites";
 import { useAppInit } from "./src/hooks/useAppInit";
 import { useTheme } from "./src/hooks/useTheme";
 import AnimatedSplash from "./src/components/AnimatedSplash";
@@ -25,6 +28,9 @@ SplashScreen.preventAutoHideAsync();
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+// Module-level flag so the reveal only shows once per app session
+let sessionRevealDone = false;
 
 function MainTabs() {
   const theme = useTheme();
@@ -85,6 +91,7 @@ function MainTabs() {
 
 function AppContent() {
   const { isReady, showOnboarding, completeOnboarding } = useAppInit();
+  const [revealDone, setRevealDone] = useState(sessionRevealDone);
   const theme = useTheme();
 
   if (!isReady) return null;
@@ -95,16 +102,34 @@ function AppContent() {
 
   return (
     <PremiumProvider>
-      <NavigationContainer theme={theme.isDark ? DarkTheme : DefaultTheme}>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Main" component={MainTabs} />
-          <Stack.Screen
-            name="Paywall"
-            component={PaywallScreen}
-            options={{ presentation: "modal" }}
+      <FavoritesProvider>
+        <NavigationContainer theme={theme.isDark ? DarkTheme : DefaultTheme}>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Main" component={MainTabs} />
+            <Stack.Screen
+              name="Paywall"
+              component={PaywallScreen}
+              options={{ presentation: "modal" }}
+            />
+            <Stack.Screen
+              name="Favorites"
+              component={FavoritesScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+
+        {/* Reveal overlay inside PremiumProvider so usePremium() works.
+            Home screen renders underneath for a seamless transition. */}
+        {!revealDone && (
+          <DailyRevealScreen
+            onComplete={() => {
+              sessionRevealDone = true;
+              setRevealDone(true);
+            }}
           />
-        </Stack.Navigator>
-      </NavigationContainer>
+        )}
+      </FavoritesProvider>
     </PremiumProvider>
   );
 }

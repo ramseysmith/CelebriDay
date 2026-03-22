@@ -3,9 +3,15 @@ import { View, Text, StyleSheet } from "react-native";
 import BottomSheet, {
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { HolidayService } from "../services/HolidayService";
 import { HolidayCard } from "./HolidayCard";
+import { useFavorites } from "../hooks/useFavorites";
 import { useTheme } from "../hooks/useTheme";
+import { RootStackParamList } from "../types/navigation";
+
+type NavProp = NativeStackNavigationProp<RootStackParamList>;
 
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
@@ -19,6 +25,8 @@ interface Props {
 }
 
 export function HolidayBottomSheet({ visible, date, onClose }: Props) {
+  const navigation = useNavigation<NavProp>();
+  const { isFavorite, toggleFavorite } = useFavorites();
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ["55%", "90%"], []);
@@ -71,7 +79,21 @@ export function HolidayBottomSheet({ visible, date, onClose }: Props) {
         ) : null}
         {entry && entry.holidays.length > 0 ? (
           entry.holidays.map((holiday, idx) => (
-            <HolidayCard key={idx} holiday={holiday} index={idx} />
+            <HolidayCard
+              key={idx}
+              holiday={holiday}
+              index={idx}
+              month={date!.month}
+              day={date!.day}
+              isFavorited={isFavorite(date!.month, date!.day, holiday.name)}
+              onToggleFavorite={() =>
+                toggleFavorite(date!.month, date!.day, holiday.name)
+              }
+              onOpenPaywall={() => {
+                sheetRef.current?.close();
+                navigation.navigate("Paywall");
+              }}
+            />
           ))
         ) : (
           <View style={styles.empty}>

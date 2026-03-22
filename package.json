@@ -4,8 +4,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -19,9 +19,9 @@
     "date-fns": "^4.1.0",
     "expo": "~55.0.6",
     "expo-device": "~55.0.10",
-    "expo-haptics": "~55.0.8",
+    "expo-haptics": "~55.0.9",
     "expo-notifications": "~55.0.13",
-    "expo-sharing": "~55.0.11",
+    "expo-sharing": "~55.0.14",
     "expo-splash-screen": "~55.0.12",
     "expo-status-bar": "~55.0.4",
     "expo-tracking-transparency": "~55.0.9",

@@ -38,4 +38,18 @@ export const AdService = {
       ad.show();
     }
   },
+
+  showAndWaitForClose(ad: InterstitialAd): Promise<void> {
+    return new Promise((resolve) => {
+      if (!ad.loaded) {
+        resolve();
+        return;
+      }
+      const unsub = ad.addAdEventListener(AdEventType.CLOSED, () => {
+        unsub();
+        resolve();
+      });
+      ad.show();
+    });
+  },
 };

@@ -17,7 +17,8 @@
       "buildNumber": "1",
       "icon": "./assets/icon.png",
       "infoPlist": {
-        "NSUserTrackingUsageDescription": "CelebriDay uses this to show you relevant ads. You can change this anytime in Settings."
+        "NSUserTrackingUsageDescription": "CelebriDay uses this to show you relevant ads. You can change this anytime in Settings.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -27,7 +28,10 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FF6B35"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "com.google.android.gms.permission.AD_ID"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -55,6 +59,11 @@
           "iosAppId": "ca-app-pub-3940256099942544~1458002511"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2ab5debe-6b66-430a-9152-e8d3e74ca2a2"
+      }
+    }
   }
 }

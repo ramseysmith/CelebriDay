@@ -1,4 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Holiday } from "../types/holiday";
 import { HolidayService } from "../services/HolidayService";
@@ -9,7 +15,21 @@ function makeId(month: number, day: number, name: string): string {
   return `${month}-${day}-${name}`;
 }
 
-export function useFavorites() {
+interface FavoritesContextType {
+  favorites: string[];
+  isFavorite: (month: number, day: number, name: string) => boolean;
+  toggleFavorite: (month: number, day: number, name: string) => Promise<void>;
+  getFavoriteHolidays: () => Array<{ holiday: Holiday; month: number; day: number }>;
+}
+
+const FavoritesContext = createContext<FavoritesContextType>({
+  favorites: [],
+  isFavorite: () => false,
+  toggleFavorite: async () => {},
+  getFavoriteHolidays: () => [],
+});
+
+export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<string[]>([]);
 
   useEffect(() => {
@@ -66,5 +86,13 @@ export function useFavorites() {
     });
   }, [favorites]);
 
-  return { favorites, isFavorite, toggleFavorite, getFavoriteHolidays };
+  return React.createElement(
+    FavoritesContext.Provider,
+    { value: { favorites, isFavorite, toggleFavorite, getFavoriteHolidays } },
+    children
+  );
+}
+
+export function useFavorites() {
+  return useContext(FavoritesContext);
 }

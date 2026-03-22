@@ -13,6 +13,7 @@ import { useTheme } from "../hooks/useTheme";
 interface Props {
   day: number;
   isToday: boolean;
+  isSelected: boolean;
   isCurrentMonth: boolean;
   primaryCategory: HolidayCategory | null;
   onPress: () => void;
@@ -21,6 +22,7 @@ interface Props {
 export function CalendarDayCell({
   day,
   isToday,
+  isSelected,
   isCurrentMonth,
   primaryCategory,
   onPress,
@@ -49,6 +51,8 @@ export function CalendarDayCell({
       : "#D1D5DB"
     : isToday
     ? "#FFFFFF"
+    : isSelected
+    ? "#FF6B35"
     : theme.textPrimary;
 
   return (
@@ -57,6 +61,7 @@ export function CalendarDayCell({
         style={[
           styles.circle,
           isToday && styles.todayCircle,
+          isSelected && !isToday && styles.selectedCircle,
           pulseStyle,
         ]}
       >
@@ -89,6 +94,10 @@ const styles = StyleSheet.create({
   },
   todayCircle: {
     backgroundColor: "#FF6B35",
+  },
+  selectedCircle: {
+    borderWidth: 2,
+    borderColor: "#FF6B35",
   },
   dayText: {
     fontSize: 15,
