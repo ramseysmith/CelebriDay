@@ -18,7 +18,7 @@ export const SubscriptionService = {
     if (cachedIsPremium !== null) return cachedIsPremium;
     try {
       const info: CustomerInfo = await Purchases.getCustomerInfo();
-      const active = info.entitlements.active["premium"] !== undefined;
+      const active = info.entitlements.active["CelebriDay Premium"] !== undefined;
       cachedIsPremium = active;
       return active;
     } catch {
@@ -53,7 +53,7 @@ export const SubscriptionService = {
   async purchaseAnnual(): Promise<boolean> {
     try {
       const offering = await SubscriptionService.getOfferings();
-      const pkg = offering?.annual;
+      const pkg = offering?.yearly;
       if (!pkg) return false;
       await Purchases.purchasePackage(pkg);
       cachedIsPremium = true;
@@ -67,7 +67,7 @@ export const SubscriptionService = {
   async restorePurchases(): Promise<boolean> {
     try {
       const info: CustomerInfo = await Purchases.restorePurchases();
-      const active = info.entitlements.active["premium"] !== undefined;
+      const active = info.entitlements.active["CelebriDay Premium"] !== undefined;
       cachedIsPremium = active;
       return active;
     } catch {

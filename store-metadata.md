@@ -106,7 +106,7 @@ File location: assets/splash-icon.png
 ## Pre-Submission Checklist
 
 ### Before Submitting
-- [ ] Replace PLACEHOLDER_REVENUECAT_API_KEY in useAppInit.ts with real RevenueCat API key
+- [ ] Swap test RevenueCat API key in useAppInit.ts for the production key before submitting
 - [ ] Replace test AdMob app IDs in app.json with real AdMob app IDs (and update ad unit IDs in useSessionAd.ts)
 - [ ] Create and export 1024x1024 icon PNG at assets/icon.png
 - [ ] Create splash screen image at assets/splash-icon.png with #FF6B35 background
