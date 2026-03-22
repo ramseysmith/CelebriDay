@@ -109,7 +109,6 @@ File location: assets/splash-icon.png
 - [ ] Replace PLACEHOLDER_REVENUECAT_API_KEY in useAppInit.ts with real RevenueCat API key
 - [ ] Replace test AdMob app IDs in app.json with real AdMob app IDs (and update ad unit IDs in useSessionAd.ts)
 - [ ] Replace com.yourname.celebriday in app.json with your actual bundle identifier
-- [ ] Replace support@celebriday.app with your real support email in HTML pages
 - [ ] Create and export 1024x1024 icon PNG at assets/icon.png
 - [ ] Create splash screen image at assets/splash-icon.png with #FF6B35 background
 - [ ] Run eas build to generate production builds
