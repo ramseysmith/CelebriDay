@@ -18,6 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useSettings } from "../hooks/useSettings";
 import { usePremium } from "../hooks/usePremium";
+import { useTheme } from "../hooks/useTheme";
 import { SubscriptionService } from "../services/SubscriptionService";
 import { HolidayService } from "../services/HolidayService";
 import { RootStackParamList } from "../types/navigation";
@@ -44,6 +45,7 @@ export function SettingsScreen() {
   const { settings, isLoaded, updateNotificationsEnabled, updateNotificationTime } =
     useSettings();
   const { isPremium, refresh: refreshPremium } = usePremium();
+  const theme = useTheme();
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [restoring, setRestoring] = useState(false);
 
@@ -129,35 +131,57 @@ export function SettingsScreen() {
   };
 
   if (!isLoaded) {
-    return <View style={styles.container} />;
+    return <View style={[styles.container, { backgroundColor: theme.background }]} />;
   }
+
+  const sectionHeaderColor = theme.textTertiary;
+  const cardBg = theme.cardBackground;
+  const separatorColor = theme.isDark ? "#374151" : "#F3F4F6";
+  const previewBg = theme.isDark ? "#111827" : "#FFF7ED";
 
   return (
     <ScrollView
-      style={styles.container}
+      style={[styles.container, { backgroundColor: theme.background }]}
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
       {/* Premium Section */}
-      <Text style={styles.sectionHeader}>PREMIUM</Text>
-      <View style={styles.card}>
+      <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
+        PREMIUM
+      </Text>
+      <View style={[styles.card, { backgroundColor: cardBg }]}>
         {isPremium ? (
           <>
             <View style={styles.row}>
-              <Text style={styles.rowLabel}>✨ CelebriDay Premium</Text>
+              <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+                ✨ CelebriDay Premium
+              </Text>
               <View style={styles.activeBadge}>
                 <Text style={styles.activeBadgeText}>Active</Text>
               </View>
             </View>
-            <View style={styles.separator} />
+            <View style={[styles.separator, { backgroundColor: separatorColor }]} />
             <TouchableOpacity
               style={styles.row}
               onPress={handleManageSubscription}
               activeOpacity={0.7}
             >
-              <Text style={styles.rowLabel}>Manage Subscription</Text>
-              <Text style={styles.rowChevron}>›</Text>
+              <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+                Manage Subscription
+              </Text>
+              <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>
+                ›
+              </Text>
             </TouchableOpacity>
+            <View style={[styles.separator, { backgroundColor: separatorColor }]} />
+            <View style={styles.row}>
+              <Text style={[styles.rowLabel, { color: theme.textTertiary }]}>
+                🎨 Widget
+              </Text>
+              <View style={styles.comingSoonBadge}>
+                <Text style={styles.comingSoonText}>Coming Soon</Text>
+              </View>
+            </View>
           </>
         ) : (
           <TouchableOpacity
@@ -167,7 +191,7 @@ export function SettingsScreen() {
           >
             <View style={styles.premiumRowContent}>
               <Text style={styles.premiumRowTitle}>✨ Go Premium</Text>
-              <Text style={styles.premiumRowSubtitle}>
+              <Text style={[styles.premiumRowSubtitle, { color: theme.textSecondary }]}>
                 Remove ads, unlock favorites, and more
               </Text>
             </View>
@@ -177,33 +201,37 @@ export function SettingsScreen() {
       </View>
 
       {/* Notifications Section */}
-      <Text style={styles.sectionHeader}>NOTIFICATIONS</Text>
-      <View style={styles.card}>
-        {/* Toggle */}
+      <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
+        NOTIFICATIONS
+      </Text>
+      <View style={[styles.card, { backgroundColor: cardBg }]}>
         <View style={styles.row}>
-          <Text style={styles.rowLabel}>Daily Notifications</Text>
+          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+            Daily Notifications
+          </Text>
           <Switch
             value={settings.notificationsEnabled}
             onValueChange={handleToggle}
-            trackColor={{ false: "#E5E7EB", true: "#FF6B35" }}
+            trackColor={{ false: theme.border, true: "#FF6B35" }}
             thumbColor={Platform.OS === "android" ? "#FFFFFF" : undefined}
           />
         </View>
 
-        {/* Time Picker Row */}
         {settings.notificationsEnabled && (
           <>
-            <View style={styles.separator} />
+            <View style={[styles.separator, { backgroundColor: separatorColor }]} />
             {Platform.OS === "ios" ? (
               isPremium ? (
                 <View style={styles.row}>
-                  <Text style={styles.rowLabel}>Notification Time</Text>
+                  <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+                    Notification Time
+                  </Text>
                   <DateTimePicker
                     value={timeDate}
                     mode="time"
                     display="compact"
                     onChange={handleTimeChange}
-                    themeVariant="light"
+                    themeVariant={theme.isDark ? "dark" : "light"}
                     accentColor="#FF6B35"
                   />
                 </View>
@@ -213,9 +241,13 @@ export function SettingsScreen() {
                   onPress={() => navigation.navigate("Paywall")}
                   activeOpacity={0.7}
                 >
-                  <Text style={styles.rowLabel}>Notification Time</Text>
+                  <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+                    Notification Time
+                  </Text>
                   <View style={styles.lockedRow}>
-                    <Text style={styles.rowValue}>8:00 AM</Text>
+                    <Text style={[styles.rowValue, { color: theme.textTertiary }]}>
+                      8:00 AM
+                    </Text>
                     <Text style={styles.lockIcon}>🔒</Text>
                   </View>
                 </TouchableOpacity>
@@ -227,9 +259,11 @@ export function SettingsScreen() {
                   onPress={handleTimeRowPress}
                   activeOpacity={0.7}
                 >
-                  <Text style={styles.rowLabel}>Notification Time</Text>
+                  <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+                    Notification Time
+                  </Text>
                   {isPremium ? (
-                    <Text style={styles.rowValue}>
+                    <Text style={[styles.rowValue, { color: theme.textTertiary }]}>
                       {formatTime(
                         settings.notificationHour,
                         settings.notificationMinute
@@ -237,7 +271,9 @@ export function SettingsScreen() {
                     </Text>
                   ) : (
                     <View style={styles.lockedRow}>
-                      <Text style={styles.rowValue}>8:00 AM</Text>
+                      <Text style={[styles.rowValue, { color: theme.textTertiary }]}>
+                        8:00 AM
+                      </Text>
                       <Text style={styles.lockIcon}>🔒</Text>
                     </View>
                   )}
@@ -255,17 +291,21 @@ export function SettingsScreen() {
           </>
         )}
 
-        {/* Tomorrow's Preview */}
         {settings.notificationsEnabled && tomorrowHoliday && (
           <>
-            <View style={styles.separator} />
+            <View style={[styles.separator, { backgroundColor: separatorColor }]} />
             <View style={styles.previewContainer}>
-              <Text style={styles.rowLabel}>Tomorrow's Notification</Text>
-              <View style={styles.previewCard}>
-                <Text style={styles.previewTitle}>
+              <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+                Tomorrow's Notification
+              </Text>
+              <View style={[styles.previewCard, { backgroundColor: previewBg }]}>
+                <Text style={[styles.previewTitle, { color: theme.textPrimary }]}>
                   {tomorrowHoliday.emoji} {tomorrowHoliday.name}
                 </Text>
-                <Text style={styles.previewFact} numberOfLines={2}>
+                <Text
+                  style={[styles.previewFact, { color: theme.textSecondary }]}
+                  numberOfLines={2}
+                >
                   {tomorrowHoliday.funFact}
                 </Text>
               </View>
@@ -275,59 +315,73 @@ export function SettingsScreen() {
       </View>
 
       {/* About Section */}
-      <Text style={styles.sectionHeader}>ABOUT</Text>
-      <View style={styles.card}>
+      <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
+        ABOUT
+      </Text>
+      <View style={[styles.card, { backgroundColor: cardBg }]}>
         <View style={styles.row}>
-          <Text style={styles.rowLabel}>Version</Text>
-          <Text style={styles.rowValue}>1.0.0</Text>
+          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+            Version
+          </Text>
+          <Text style={[styles.rowValue, { color: theme.textTertiary }]}>
+            1.0.0
+          </Text>
         </View>
 
-        <View style={styles.separator} />
+        <View style={[styles.separator, { backgroundColor: separatorColor }]} />
 
         <TouchableOpacity
           style={styles.row}
           onPress={() => Alert.alert("Thanks!", "Rate us coming soon.")}
           activeOpacity={0.7}
         >
-          <Text style={styles.rowLabel}>Rate CelebriDay</Text>
-          <Text style={styles.rowChevron}>›</Text>
+          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+            Rate CelebriDay
+          </Text>
+          <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>›</Text>
         </TouchableOpacity>
 
-        <View style={styles.separator} />
+        <View style={[styles.separator, { backgroundColor: separatorColor }]} />
 
         <TouchableOpacity
           style={styles.row}
           onPress={handleRestorePurchases}
           activeOpacity={0.7}
         >
-          <Text style={styles.rowLabel}>Restore Purchases</Text>
+          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+            Restore Purchases
+          </Text>
           {restoring ? (
-            <ActivityIndicator size="small" color="#9CA3AF" />
+            <ActivityIndicator size="small" color={theme.textTertiary} />
           ) : (
-            <Text style={styles.rowChevron}>›</Text>
+            <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>›</Text>
           )}
         </TouchableOpacity>
 
-        <View style={styles.separator} />
+        <View style={[styles.separator, { backgroundColor: separatorColor }]} />
 
         <TouchableOpacity
           style={styles.row}
           onPress={() => Alert.alert("Privacy Policy", "Coming soon.")}
           activeOpacity={0.7}
         >
-          <Text style={styles.rowLabel}>Privacy Policy</Text>
-          <Text style={styles.rowChevron}>›</Text>
+          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+            Privacy Policy
+          </Text>
+          <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>›</Text>
         </TouchableOpacity>
 
-        <View style={styles.separator} />
+        <View style={[styles.separator, { backgroundColor: separatorColor }]} />
 
         <TouchableOpacity
           style={styles.row}
           onPress={() => Alert.alert("Terms of Service", "Coming soon.")}
           activeOpacity={0.7}
         >
-          <Text style={styles.rowLabel}>Terms of Service</Text>
-          <Text style={styles.rowChevron}>›</Text>
+          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+            Terms of Service
+          </Text>
+          <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>›</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -337,7 +391,6 @@ export function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F3F4F6",
   },
   content: {
     paddingHorizontal: 20,
@@ -347,14 +400,12 @@ const styles = StyleSheet.create({
   sectionHeader: {
     fontSize: 12,
     fontWeight: "600",
-    color: "#9CA3AF",
     letterSpacing: 0.8,
     marginBottom: 8,
     marginLeft: 4,
     marginTop: 8,
   },
   card: {
-    backgroundColor: "#FFFFFF",
     borderRadius: 16,
     marginBottom: 24,
     overflow: "hidden",
@@ -369,18 +420,15 @@ const styles = StyleSheet.create({
   },
   rowLabel: {
     fontSize: 16,
-    color: "#111827",
     fontWeight: "500",
     flex: 1,
   },
   rowValue: {
     fontSize: 16,
-    color: "#9CA3AF",
     marginLeft: 8,
   },
   rowChevron: {
     fontSize: 20,
-    color: "#D1D5DB",
     marginLeft: 8,
   },
   lockedRow: {
@@ -393,7 +441,6 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: "#F3F4F6",
     marginLeft: 16,
   },
   previewContainer: {
@@ -401,7 +448,6 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   previewCard: {
-    backgroundColor: "#FFF7ED",
     borderRadius: 12,
     padding: 12,
     marginTop: 10,
@@ -409,12 +455,10 @@ const styles = StyleSheet.create({
   previewTitle: {
     fontSize: 15,
     fontWeight: "600",
-    color: "#111827",
     marginBottom: 4,
   },
   previewFact: {
     fontSize: 13,
-    color: "#6B7280",
     lineHeight: 18,
   },
   activeBadge: {
@@ -428,6 +472,17 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#065F46",
   },
+  comingSoonBadge: {
+    backgroundColor: "#EDE9FE",
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  comingSoonText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#7C3AED",
+  },
   premiumRowContent: {
     flex: 1,
   },
@@ -439,7 +494,6 @@ const styles = StyleSheet.create({
   },
   premiumRowSubtitle: {
     fontSize: 13,
-    color: "#6B7280",
   },
   premiumChevron: {
     fontSize: 20,

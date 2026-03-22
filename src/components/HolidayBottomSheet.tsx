@@ -5,6 +5,7 @@ import BottomSheet, {
 } from "@gorhom/bottom-sheet";
 import { HolidayService } from "../services/HolidayService";
 import { HolidayCard } from "./HolidayCard";
+import { useTheme } from "../hooks/useTheme";
 
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export function HolidayBottomSheet({ visible, date, onClose }: Props) {
+  const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ["55%", "90%"], []);
 
@@ -52,12 +54,20 @@ export function HolidayBottomSheet({ visible, date, onClose }: Props) {
       snapPoints={snapPoints}
       enablePanDownToClose
       onChange={handleChange}
-      backgroundStyle={styles.background}
-      handleIndicatorStyle={styles.indicator}
+      backgroundStyle={[
+        styles.background,
+        { backgroundColor: theme.cardBackground },
+      ]}
+      handleIndicatorStyle={[
+        styles.indicator,
+        { backgroundColor: theme.border },
+      ]}
     >
       <BottomSheetScrollView contentContainerStyle={styles.content}>
         {dateLabel ? (
-          <Text style={styles.dateHeader}>{dateLabel}</Text>
+          <Text style={[styles.dateHeader, { color: theme.textPrimary }]}>
+            {dateLabel}
+          </Text>
         ) : null}
         {entry && entry.holidays.length > 0 ? (
           entry.holidays.map((holiday, idx) => (
@@ -65,7 +75,7 @@ export function HolidayBottomSheet({ visible, date, onClose }: Props) {
           ))
         ) : (
           <View style={styles.empty}>
-            <Text style={styles.emptyText}>
+            <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
               No celebrations found for this day.
             </Text>
           </View>
@@ -77,11 +87,9 @@ export function HolidayBottomSheet({ visible, date, onClose }: Props) {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "#FAFAFA",
     borderRadius: 24,
   },
   indicator: {
-    backgroundColor: "#D1D5DB",
     width: 40,
   },
   content: {
@@ -91,7 +99,6 @@ const styles = StyleSheet.create({
   dateHeader: {
     fontSize: 22,
     fontWeight: "700",
-    color: "#1F2937",
     marginBottom: 20,
     marginTop: 8,
   },
@@ -101,6 +108,5 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 15,
-    color: "#6B7280",
   },
 });

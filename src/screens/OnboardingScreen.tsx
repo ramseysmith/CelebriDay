@@ -10,12 +10,14 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NotificationService } from "../services/NotificationService";
+import { useTheme } from "../hooks/useTheme";
 
 interface Props {
   onComplete: () => void;
 }
 
 export function OnboardingScreen({ onComplete }: Props) {
+  const theme = useTheme();
   const heroAnim = useRef(new Animated.Value(0)).current;
   const heroSlide = useRef(new Animated.Value(30)).current;
   const ctaAnim = useRef(new Animated.Value(0)).current;
@@ -71,7 +73,9 @@ export function OnboardingScreen({ onComplete }: Props) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: theme.cardBackground }]}
+    >
       <View style={styles.heroSection}>
         <Animated.View
           style={{
@@ -80,9 +84,13 @@ export function OnboardingScreen({ onComplete }: Props) {
           }}
         >
           <Text style={styles.emoji}>🎉</Text>
-          <Text style={styles.appName}>CelebriDay</Text>
-          <Text style={styles.tagline}>Every day is worth celebrating.</Text>
-          <Text style={styles.description}>
+          <Text style={[styles.appName, { color: theme.textPrimary }]}>
+            CelebriDay
+          </Text>
+          <Text style={[styles.tagline, { color: theme.textSecondary }]}>
+            Every day is worth celebrating.
+          </Text>
+          <Text style={[styles.description, { color: theme.textTertiary }]}>
             Get a fun notification every morning telling you what holiday it is.
           </Text>
         </Animated.View>
@@ -92,7 +100,9 @@ export function OnboardingScreen({ onComplete }: Props) {
         {success ? (
           <View style={styles.successContainer}>
             <Text style={styles.successEmoji}>✅</Text>
-            <Text style={styles.successText}>You're all set!</Text>
+            <Text style={[styles.successText, { color: theme.textPrimary }]}>
+              You're all set!
+            </Text>
           </View>
         ) : (
           <>
@@ -116,10 +126,14 @@ export function OnboardingScreen({ onComplete }: Props) {
               onPress={handleMaybeLater}
               activeOpacity={0.7}
             >
-              <Text style={styles.secondaryButtonText}>Maybe Later</Text>
+              <Text
+                style={[styles.secondaryButtonText, { color: theme.textTertiary }]}
+              >
+                Maybe Later
+              </Text>
             </TouchableOpacity>
 
-            <Text style={styles.footnote}>
+            <Text style={[styles.footnote, { color: theme.textTertiary }]}>
               You can always change this in Settings.
             </Text>
           </>
@@ -132,7 +146,6 @@ export function OnboardingScreen({ onComplete }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
   },
   heroSection: {
     flex: 6,
@@ -148,7 +161,6 @@ const styles = StyleSheet.create({
   appName: {
     fontSize: 40,
     fontWeight: "800",
-    color: "#111827",
     textAlign: "center",
     letterSpacing: -0.5,
     marginBottom: 12,
@@ -156,13 +168,11 @@ const styles = StyleSheet.create({
   tagline: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#374151",
     textAlign: "center",
     marginBottom: 12,
   },
   description: {
     fontSize: 16,
-    color: "#6B7280",
     textAlign: "center",
     lineHeight: 24,
   },
@@ -198,13 +208,11 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   secondaryButtonText: {
-    color: "#9CA3AF",
     fontSize: 16,
     fontWeight: "500",
   },
   footnote: {
     fontSize: 12,
-    color: "#D1D5DB",
     textAlign: "center",
   },
   successContainer: {
@@ -218,6 +226,5 @@ const styles = StyleSheet.create({
   successText: {
     fontSize: 22,
     fontWeight: "700",
-    color: "#111827",
   },
 });

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import {
   View,
   Text,
@@ -13,23 +13,40 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { HolidayService } from "../services/HolidayService";
 import { HolidayCard } from "../components/HolidayCard";
+import { ConfettiOverlay } from "../components/ConfettiOverlay";
 import { Holiday } from "../types/holiday";
 import { usePremium } from "../hooks/usePremium";
 import { useFavorites } from "../hooks/useFavorites";
 import { useSessionAd } from "../hooks/useSessionAd";
+import { useTheme } from "../hooks/useTheme";
 import { RootStackParamList } from "../types/navigation";
 
 type NavProp = NativeStackNavigationProp<RootStackParamList>;
+
+const MAJOR_HOLIDAYS: { month: number; day: number }[] = [
+  { month: 1, day: 1 },   // New Year's Day
+  { month: 2, day: 14 },  // Valentine's Day
+  { month: 3, day: 17 },  // St. Patrick's Day
+  { month: 7, day: 4 },   // Independence Day
+  { month: 10, day: 31 }, // Halloween
+  { month: 12, day: 24 }, // Christmas Eve
+  { month: 12, day: 25 }, // Christmas
+  { month: 12, day: 31 }, // New Year's Eve
+];
+
+const confettiShownThisSession = { value: false };
 
 export function TodayScreen() {
   const navigation = useNavigation<NavProp>();
   const { isPremium } = usePremium();
   const { isFavorite, toggleFavorite } = useFavorites();
+  const theme = useTheme();
   const [refreshing, setRefreshing] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const [bannerDismissed, setBannerDismissed] = useState(false);
   const [premiumBannerDismissed, setPremiumBannerDismissed] = useState(false);
   const [notificationsGranted, setNotificationsGranted] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   useSessionAd();
 
@@ -37,6 +54,19 @@ export function TodayScreen() {
     Notifications.getPermissionsAsync().then(({ status }) => {
       setNotificationsGranted(status === "granted");
     });
+
+    // Check for major holiday confetti
+    if (!confettiShownThisSession.value) {
+      const today = new Date();
+      const isMajor = MAJOR_HOLIDAYS.some(
+        (h) =>
+          h.month === today.getMonth() + 1 && h.day === today.getDate()
+      );
+      if (isMajor) {
+        confettiShownThisSession.value = true;
+        setShowConfetti(true);
+      }
+    }
   }, []);
 
   const today = new Date();
@@ -66,9 +96,22 @@ export function TodayScreen() {
   const renderHeader = () => (
     <View>
       {showNotifBanner && (
-        <View style={styles.banner}>
+        <View
+          style={[
+            styles.banner,
+            {
+              backgroundColor: theme.isDark ? "#1F2937" : "#FFF7ED",
+              borderColor: theme.isDark ? "#374151" : "#FED7AA",
+            },
+          ]}
+        >
           <View style={styles.bannerContent}>
-            <Text style={styles.bannerText}>
+            <Text
+              style={[
+                styles.bannerText,
+                { color: theme.isDark ? "#FCD34D" : "#92400E" },
+              ]}
+            >
               Never miss a celebration! Enable notifications to get daily
               holiday alerts.
             </Text>
@@ -93,14 +136,20 @@ export function TodayScreen() {
               activeOpacity={0.7}
               hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
             >
-              <Text style={styles.bannerDismissText}>✕</Text>
+              <Text style={[styles.bannerDismissText, { color: theme.textTertiary }]}>
+                ✕
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
       )}
       <View style={styles.header}>
-        <Text style={styles.dateLabel}>{dateLabel}</Text>
-        <Text style={styles.subtitle}>Today's Celebrations</Text>
+        <Text style={[styles.dateLabel, { color: theme.textPrimary }]}>
+          {dateLabel}
+        </Text>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          Today's Celebrations
+        </Text>
       </View>
     </View>
   );
@@ -108,9 +157,22 @@ export function TodayScreen() {
   const renderFooter = () => {
     if (!showPremiumBanner) return null;
     return (
-      <View style={styles.premiumBanner}>
+      <View
+        style={[
+          styles.premiumBanner,
+          {
+            backgroundColor: theme.isDark ? "#1F2937" : "#FFF7F4",
+            borderColor: theme.isDark ? "#374151" : "#FECDB0",
+          },
+        ]}
+      >
         <View style={styles.premiumBannerContent}>
-          <Text style={styles.premiumBannerText}>
+          <Text
+            style={[
+              styles.premiumBannerText,
+              { color: theme.isDark ? "#D1D5DB" : "#92400E" },
+            ]}
+          >
             Remove ads and unlock favorites with CelebriDay Premium
           </Text>
           <TouchableOpacity
@@ -126,7 +188,9 @@ export function TodayScreen() {
           activeOpacity={0.7}
           hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
         >
-          <Text style={styles.bannerDismissText}>✕</Text>
+          <Text style={[styles.bannerDismissText, { color: theme.textTertiary }]}>
+            ✕
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -135,66 +199,68 @@ export function TodayScreen() {
   const renderEmpty = () => (
     <View style={styles.emptyState}>
       <Text style={styles.emptyEmoji}>🎉</Text>
-      <Text style={styles.emptyText}>
+      <Text style={[styles.emptyText, { color: theme.textSecondary }]}>
         No celebrations found for today. Check back tomorrow!
       </Text>
     </View>
   );
 
   return (
-    <FlatList
-      key={refreshKey}
-      style={styles.container}
-      contentContainerStyle={styles.content}
-      data={holidays}
-      keyExtractor={(_, idx) => String(idx)}
-      renderItem={({ item, index }) => (
-        <HolidayCard
-          holiday={item}
-          index={index}
-          month={todayMonth}
-          day={todayDay}
-          isFavorited={isFavorite(todayMonth, todayDay, item.name)}
-          onToggleFavorite={() =>
-            toggleFavorite(todayMonth, todayDay, item.name)
-          }
-          onOpenPaywall={() => navigation.navigate("Paywall")}
-        />
+    <View style={[styles.wrapper, { backgroundColor: theme.background }]}>
+      <FlatList
+        key={refreshKey}
+        style={{ flex: 1 }}
+        contentContainerStyle={styles.content}
+        data={holidays}
+        keyExtractor={(_, idx) => String(idx)}
+        renderItem={({ item, index }) => (
+          <HolidayCard
+            holiday={item}
+            index={index}
+            month={todayMonth}
+            day={todayDay}
+            isFavorited={isFavorite(todayMonth, todayDay, item.name)}
+            onToggleFavorite={() =>
+              toggleFavorite(todayMonth, todayDay, item.name)
+            }
+            onOpenPaywall={() => navigation.navigate("Paywall")}
+          />
+        )}
+        ListHeaderComponent={renderHeader}
+        ListFooterComponent={renderFooter}
+        ListEmptyComponent={renderEmpty}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#FF6B35"
+            colors={["#FF6B35"]}
+          />
+        }
+        showsVerticalScrollIndicator={false}
+      />
+      {showConfetti && (
+        <ConfettiOverlay onDone={() => setShowConfetti(false)} />
       )}
-      ListHeaderComponent={renderHeader}
-      ListFooterComponent={renderFooter}
-      ListEmptyComponent={renderEmpty}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-          tintColor="#FF6B35"
-          colors={["#FF6B35"]}
-        />
-      }
-      showsVerticalScrollIndicator={false}
-    />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1,
-    backgroundColor: "#FAFAFA",
   },
   content: {
     paddingHorizontal: 20,
     paddingBottom: 40,
   },
   banner: {
-    backgroundColor: "#FFF7ED",
     borderRadius: 12,
     padding: 14,
     marginTop: 16,
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#FED7AA",
   },
   bannerContent: {
     flex: 1,
@@ -202,7 +268,6 @@ const styles = StyleSheet.create({
   },
   bannerText: {
     fontSize: 13,
-    color: "#92400E",
     lineHeight: 18,
   },
   bannerActions: {
@@ -226,7 +291,6 @@ const styles = StyleSheet.create({
   },
   bannerDismissText: {
     fontSize: 14,
-    color: "#9CA3AF",
   },
   header: {
     paddingTop: 20,
@@ -235,23 +299,19 @@ const styles = StyleSheet.create({
   dateLabel: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#1F2937",
     marginBottom: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: "#6B7280",
     marginBottom: 20,
   },
   premiumBanner: {
-    backgroundColor: "#FFF7F4",
     borderRadius: 12,
     padding: 14,
     marginTop: 8,
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#FECDB0",
   },
   premiumBannerContent: {
     flex: 1,
@@ -259,7 +319,6 @@ const styles = StyleSheet.create({
   },
   premiumBannerText: {
     fontSize: 13,
-    color: "#92400E",
     lineHeight: 18,
     marginBottom: 4,
   },
@@ -279,7 +338,6 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
-    color: "#6B7280",
     textAlign: "center",
     lineHeight: 24,
   },

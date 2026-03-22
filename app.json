@@ -1,22 +1,30 @@
 {
   "expo": {
     "name": "CelebriDay",
-    "slug": "CelebriDay",
+    "slug": "celebriday",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FF6B35"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourname.celebriday",
+      "buildNumber": "1",
+      "icon": "./assets/icon.png",
+      "infoPlist": {
+        "NSUserTrackingUsageDescription": "CelebriDay uses this to show you relevant ads. You can change this anytime in Settings."
+      }
     },
     "android": {
+      "package": "com.yourname.celebriday",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#FF6B35",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -31,7 +39,7 @@
       [
         "expo-tracking-transparency",
         {
-          "userTrackingPermission": "This helps us show you relevant ads and support the free version of CelebriDay."
+          "userTrackingPermission": "CelebriDay uses this to show you relevant ads. You can change this anytime in Settings."
         }
       ],
       "@react-native-community/datetimepicker",

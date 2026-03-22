@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { HolidayService } from "../services/HolidayService";
 import { CalendarDayCell } from "./CalendarDayCell";
 import { HolidayCategory } from "../types/holiday";
+import { useTheme } from "../hooks/useTheme";
 
 const DAY_HEADERS = ["S", "M", "T", "W", "T", "F", "S"];
 
@@ -20,6 +21,7 @@ interface Props {
 }
 
 export function CalendarGrid({ month, year, onDayPress }: Props) {
+  const theme = useTheme();
   const today = new Date();
   const todayMonth = today.getMonth() + 1;
   const todayYear = today.getFullYear();
@@ -31,7 +33,6 @@ export function CalendarGrid({ month, year, onDayPress }: Props) {
 
   const cells: CellData[] = [];
 
-  // Previous month fill
   for (let i = firstDayOfWeek - 1; i >= 0; i--) {
     const d = daysInPrevMonth - i;
     const m = month === 1 ? 12 : month - 1;
@@ -39,12 +40,10 @@ export function CalendarGrid({ month, year, onDayPress }: Props) {
     cells.push({ day: d, isCurrentMonth: false, month: m, year: y });
   }
 
-  // Current month
   for (let d = 1; d <= daysInMonth; d++) {
     cells.push({ day: d, isCurrentMonth: true, month, year });
   }
 
-  // Next month fill to complete the last row
   const remaining = cells.length % 7 === 0 ? 0 : 7 - (cells.length % 7);
   if (remaining > 0) {
     const nextM = month === 12 ? 1 : month + 1;
@@ -54,7 +53,6 @@ export function CalendarGrid({ month, year, onDayPress }: Props) {
     }
   }
 
-  // Chunk into rows of 7
   const rows: CellData[][] = [];
   for (let i = 0; i < cells.length; i += 7) {
     rows.push(cells.slice(i, i + 7));
@@ -65,7 +63,9 @@ export function CalendarGrid({ month, year, onDayPress }: Props) {
       <View style={styles.headerRow}>
         {DAY_HEADERS.map((h, i) => (
           <View key={i} style={styles.headerCell}>
-            <Text style={styles.headerText}>{h}</Text>
+            <Text style={[styles.headerText, { color: theme.textTertiary }]}>
+              {h}
+            </Text>
           </View>
         ))}
       </View>
@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 13,
     fontWeight: "600",
-    color: "#9CA3AF",
   },
   row: {
     flexDirection: "row",

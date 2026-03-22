@@ -1,7 +1,14 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useEffect } from "react";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSequence,
+  withTiming,
+} from "react-native-reanimated";
 import { HolidayCategory } from "../types/holiday";
 import { CATEGORY_COLORS } from "../constants/colors";
+import { useTheme } from "../hooks/useTheme";
 
 interface Props {
   day: number;
@@ -18,25 +25,49 @@ export function CalendarDayCell({
   primaryCategory,
   onPress,
 }: Props) {
+  const theme = useTheme();
   const dotColor = primaryCategory ? CATEGORY_COLORS[primaryCategory] : null;
+
+  const pulseScale = useSharedValue(1);
+
+  useEffect(() => {
+    if (isToday) {
+      pulseScale.value = withSequence(
+        withTiming(1.08, { duration: 500 }),
+        withTiming(1.0, { duration: 500 })
+      );
+    }
+  }, [isToday]);
+
+  const pulseStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: pulseScale.value }],
+  }));
+
+  const dayTextColor = !isCurrentMonth
+    ? theme.isDark
+      ? "#4B5563"
+      : "#D1D5DB"
+    : isToday
+    ? "#FFFFFF"
+    : theme.textPrimary;
 
   return (
     <TouchableOpacity style={styles.cell} onPress={onPress} activeOpacity={0.7}>
-      <View style={[styles.circle, isToday && styles.todayCircle]}>
-        <Text
-          style={[
-            styles.dayText,
-            !isCurrentMonth && styles.outsideMonth,
-            isToday && styles.todayText,
-          ]}
-        >
-          {day}
-        </Text>
-      </View>
+      <Animated.View
+        style={[
+          styles.circle,
+          isToday && styles.todayCircle,
+          pulseStyle,
+        ]}
+      >
+        <Text style={[styles.dayText, { color: dayTextColor }]}>{day}</Text>
+      </Animated.View>
       {dotColor ? (
-        <View style={[styles.dot, { backgroundColor: dotColor }]} />
+        <Animated.View
+          style={[styles.dot, { backgroundColor: dotColor }]}
+        />
       ) : (
-        <View style={styles.dotSpacer} />
+        <Animated.View style={styles.dotSpacer} />
       )}
     </TouchableOpacity>
   );
@@ -62,14 +93,6 @@ const styles = StyleSheet.create({
   dayText: {
     fontSize: 15,
     fontWeight: "500",
-    color: "#1F2937",
-  },
-  outsideMonth: {
-    color: "#D1D5DB",
-  },
-  todayText: {
-    color: "#FFFFFF",
-    fontWeight: "700",
   },
   dot: {
     width: 5,

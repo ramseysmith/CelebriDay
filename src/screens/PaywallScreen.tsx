@@ -10,9 +10,11 @@ import {
   Linking,
   Platform,
 } from "react-native";
+import * as Haptics from "expo-haptics";
 import { useNavigation } from "@react-navigation/native";
 import { SubscriptionService } from "../services/SubscriptionService";
 import { usePremium } from "../hooks/usePremium";
+import { useTheme } from "../hooks/useTheme";
 
 type Plan = "monthly" | "annual";
 
@@ -42,12 +44,14 @@ const FEATURES = [
 export function PaywallScreen() {
   const navigation = useNavigation();
   const { refresh } = usePremium();
+  const theme = useTheme();
   const [selectedPlan, setSelectedPlan] = useState<Plan>("annual");
   const [purchasing, setPurchasing] = useState(false);
   const [restoring, setRestoring] = useState(false);
 
   const handleStartPremium = async () => {
     if (purchasing) return;
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setPurchasing(true);
     try {
       const success =
@@ -97,16 +101,29 @@ export function PaywallScreen() {
     }
   };
 
+  const cardBg = (selected: boolean) => {
+    if (selected) return theme.isDark ? "#2D1A0E" : "#FFF7F4";
+    return theme.isDark ? "#1F2937" : "#FAFAFA";
+  };
+
+  const cardBorder = (selected: boolean) =>
+    selected ? "#FF6B35" : theme.border;
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.cardBackground }]}>
       {/* Close Button */}
       <TouchableOpacity
-        style={styles.closeButton}
+        style={[
+          styles.closeButton,
+          { backgroundColor: theme.isDark ? "#374151" : "#F3F4F6" },
+        ]}
         onPress={() => navigation.goBack()}
         activeOpacity={0.7}
         hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
       >
-        <Text style={styles.closeIcon}>✕</Text>
+        <Text style={[styles.closeIcon, { color: theme.textSecondary }]}>
+          ✕
+        </Text>
       </TouchableOpacity>
 
       <ScrollView
@@ -114,8 +131,10 @@ export function PaywallScreen() {
         showsVerticalScrollIndicator={false}
       >
         {/* Header */}
-        <Text style={styles.title}>CelebriDay Premium ✨</Text>
-        <Text style={styles.subtitle}>
+        <Text style={[styles.title, { color: theme.textPrimary }]}>
+          CelebriDay Premium ✨
+        </Text>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
           Unlock the full celebration experience
         </Text>
 
@@ -125,8 +144,14 @@ export function PaywallScreen() {
             <View key={f.title} style={styles.featureRow}>
               <Text style={styles.featureEmoji}>{f.emoji}</Text>
               <View style={styles.featureText}>
-                <Text style={styles.featureTitle}>{f.title}</Text>
-                <Text style={styles.featureSubtitle}>{f.subtitle}</Text>
+                <Text style={[styles.featureTitle, { color: theme.textPrimary }]}>
+                  {f.title}
+                </Text>
+                <Text
+                  style={[styles.featureSubtitle, { color: theme.textSecondary }]}
+                >
+                  {f.subtitle}
+                </Text>
               </View>
             </View>
           ))}
@@ -138,14 +163,23 @@ export function PaywallScreen() {
           <TouchableOpacity
             style={[
               styles.pricingCard,
-              selectedPlan === "monthly" && styles.pricingCardSelected,
+              {
+                backgroundColor: cardBg(selectedPlan === "monthly"),
+                borderColor: cardBorder(selectedPlan === "monthly"),
+              },
             ]}
             onPress={() => setSelectedPlan("monthly")}
             activeOpacity={0.8}
           >
-            <Text style={styles.pricingLabel}>Monthly</Text>
-            <Text style={styles.pricingAmount}>$0.99</Text>
-            <Text style={styles.pricingPer}>per month</Text>
+            <Text style={[styles.pricingLabel, { color: theme.textTertiary }]}>
+              Monthly
+            </Text>
+            <Text style={[styles.pricingAmount, { color: theme.textPrimary }]}>
+              $0.99
+            </Text>
+            <Text style={[styles.pricingPer, { color: theme.textTertiary }]}>
+              per month
+            </Text>
           </TouchableOpacity>
 
           {/* Annual */}
@@ -153,7 +187,10 @@ export function PaywallScreen() {
             style={[
               styles.pricingCard,
               styles.pricingCardAnnual,
-              selectedPlan === "annual" && styles.pricingCardSelected,
+              {
+                backgroundColor: cardBg(selectedPlan === "annual"),
+                borderColor: cardBorder(selectedPlan === "annual"),
+              },
             ]}
             onPress={() => setSelectedPlan("annual")}
             activeOpacity={0.8}
@@ -161,9 +198,15 @@ export function PaywallScreen() {
             <View style={styles.bestValueBadge}>
               <Text style={styles.bestValueText}>Best Value</Text>
             </View>
-            <Text style={styles.pricingLabel}>Annual</Text>
-            <Text style={styles.pricingAmount}>$4.99</Text>
-            <Text style={styles.pricingPer}>per year</Text>
+            <Text style={[styles.pricingLabel, { color: theme.textTertiary }]}>
+              Annual
+            </Text>
+            <Text style={[styles.pricingAmount, { color: theme.textPrimary }]}>
+              $4.99
+            </Text>
+            <Text style={[styles.pricingPer, { color: theme.textTertiary }]}>
+              per year
+            </Text>
             <Text style={styles.savingsText}>Save 58%</Text>
           </TouchableOpacity>
         </View>
@@ -182,7 +225,7 @@ export function PaywallScreen() {
           )}
         </TouchableOpacity>
 
-        <Text style={styles.ctaDisclaimer}>
+        <Text style={[styles.ctaDisclaimer, { color: theme.textTertiary }]}>
           Cancel anytime. No commitment.
         </Text>
 
@@ -190,32 +233,34 @@ export function PaywallScreen() {
         <View style={styles.footer}>
           <TouchableOpacity onPress={handleRestore} activeOpacity={0.7}>
             {restoring ? (
-              <ActivityIndicator size="small" color="#9CA3AF" />
+              <ActivityIndicator size="small" color={theme.textTertiary} />
             ) : (
-              <Text style={styles.footerLink}>Restore Purchases</Text>
+              <Text style={[styles.footerLink, { color: theme.textTertiary }]}>
+                Restore Purchases
+              </Text>
             )}
           </TouchableOpacity>
 
-          <Text style={styles.footerDot}>·</Text>
+          <Text style={[styles.footerDot, { color: theme.border }]}>·</Text>
 
           <TouchableOpacity
-            onPress={() =>
-              Alert.alert("Terms of Service", "Coming soon.")
-            }
+            onPress={() => Alert.alert("Terms of Service", "Coming soon.")}
             activeOpacity={0.7}
           >
-            <Text style={styles.footerLink}>Terms of Service</Text>
+            <Text style={[styles.footerLink, { color: theme.textTertiary }]}>
+              Terms of Service
+            </Text>
           </TouchableOpacity>
 
-          <Text style={styles.footerDot}>·</Text>
+          <Text style={[styles.footerDot, { color: theme.border }]}>·</Text>
 
           <TouchableOpacity
-            onPress={() =>
-              Alert.alert("Privacy Policy", "Coming soon.")
-            }
+            onPress={() => Alert.alert("Privacy Policy", "Coming soon.")}
             activeOpacity={0.7}
           >
-            <Text style={styles.footerLink}>Privacy Policy</Text>
+            <Text style={[styles.footerLink, { color: theme.textTertiary }]}>
+              Privacy Policy
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -226,7 +271,6 @@ export function PaywallScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
   },
   closeButton: {
     position: "absolute",
@@ -236,13 +280,11 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: "#F3F4F6",
     alignItems: "center",
     justifyContent: "center",
   },
   closeIcon: {
     fontSize: 14,
-    color: "#6B7280",
     fontWeight: "600",
   },
   scroll: {
@@ -254,13 +296,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "800",
-    color: "#111827",
     textAlign: "center",
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: "#6B7280",
     textAlign: "center",
     marginBottom: 32,
     lineHeight: 24,
@@ -285,12 +325,10 @@ const styles = StyleSheet.create({
   featureTitle: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#111827",
     marginBottom: 2,
   },
   featureSubtitle: {
     fontSize: 14,
-    color: "#6B7280",
     lineHeight: 20,
   },
   pricingRow: {
@@ -305,21 +343,14 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: "center",
     borderWidth: 2,
-    borderColor: "#E5E7EB",
-    backgroundColor: "#FAFAFA",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06,
     shadowRadius: 8,
     elevation: 2,
-    position: "relative",
   },
   pricingCardAnnual: {
     transform: [{ scale: 1.02 }],
-  },
-  pricingCardSelected: {
-    borderColor: "#FF6B35",
-    backgroundColor: "#FFF7F4",
   },
   bestValueBadge: {
     backgroundColor: "#FF6B35",
@@ -338,7 +369,6 @@ const styles = StyleSheet.create({
   pricingLabel: {
     fontSize: 13,
     fontWeight: "600",
-    color: "#6B7280",
     marginBottom: 4,
     textTransform: "uppercase",
     letterSpacing: 0.5,
@@ -346,11 +376,9 @@ const styles = StyleSheet.create({
   pricingAmount: {
     fontSize: 26,
     fontWeight: "800",
-    color: "#111827",
   },
   pricingPer: {
     fontSize: 13,
-    color: "#9CA3AF",
     marginTop: 2,
   },
   savingsText: {
@@ -381,7 +409,6 @@ const styles = StyleSheet.create({
   },
   ctaDisclaimer: {
     fontSize: 13,
-    color: "#9CA3AF",
     marginTop: 10,
     marginBottom: 28,
   },
@@ -394,11 +421,9 @@ const styles = StyleSheet.create({
   },
   footerLink: {
     fontSize: 13,
-    color: "#9CA3AF",
     textDecorationLine: "underline",
   },
   footerDot: {
     fontSize: 13,
-    color: "#D1D5DB",
   },
 });

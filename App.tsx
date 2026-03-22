@@ -1,11 +1,12 @@
 import "react-native-gesture-handler";
 import React from "react";
-import { View, ActivityIndicator } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { View } from "react-native";
+import { NavigationContainer, DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
+import * as Haptics from "expo-haptics";
 import { TodayScreen } from "./src/screens/TodayScreen";
 import { CalendarScreen } from "./src/screens/CalendarScreen";
 import { SettingsScreen } from "./src/screens/SettingsScreen";
@@ -13,12 +14,16 @@ import { OnboardingScreen } from "./src/screens/OnboardingScreen";
 import { PaywallScreen } from "./src/screens/PaywallScreen";
 import { PremiumProvider } from "./src/hooks/usePremium";
 import { useAppInit } from "./src/hooks/useAppInit";
+import { useTheme } from "./src/hooks/useTheme";
+import { SkeletonLoader } from "./src/components/SkeletonLoader";
 import { RootStackParamList } from "./src/types/navigation";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function MainTabs() {
+  const theme = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -34,22 +39,22 @@ function MainTabs() {
           return <Ionicons name={iconName} size={24} color={color} />;
         },
         tabBarActiveTintColor: "#FF6B35",
-        tabBarInactiveTintColor: "#9CA3AF",
+        tabBarInactiveTintColor: theme.textTertiary,
         tabBarStyle: {
-          backgroundColor: "#FFFFFF",
-          borderTopColor: "#F3F4F6",
+          backgroundColor: theme.tabBar,
+          borderTopColor: theme.border,
           borderTopWidth: 1,
           paddingBottom: 4,
         },
         headerStyle: {
-          backgroundColor: "#FFFFFF",
+          backgroundColor: theme.tabBar,
           shadowColor: "transparent",
           elevation: 0,
         },
         headerTitleStyle: {
           fontWeight: "700",
           fontSize: 18,
-          color: "#111827",
+          color: theme.textPrimary,
         },
       })}
     >
@@ -57,28 +62,43 @@ function MainTabs() {
         name="Today"
         component={TodayScreen}
         options={{ title: "CelebriDay" }}
+        listeners={{
+          tabPress: () => {
+            Haptics.selectionAsync();
+          },
+        }}
       />
-      <Tab.Screen name="Calendar" component={CalendarScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen
+        name="Calendar"
+        component={CalendarScreen}
+        listeners={{
+          tabPress: () => {
+            Haptics.selectionAsync();
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        listeners={{
+          tabPress: () => {
+            Haptics.selectionAsync();
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 }
 
 export default function App() {
   const { isReady, showOnboarding, completeOnboarding } = useAppInit();
+  const theme = useTheme();
 
   if (!isReady) {
     return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "#FFFFFF",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <ActivityIndicator color="#FF6B35" size="large" />
-      </View>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <SkeletonLoader />
+      </GestureHandlerRootView>
     );
   }
 
@@ -93,7 +113,7 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <PremiumProvider>
-        <NavigationContainer>
+        <NavigationContainer theme={theme.isDark ? DarkTheme : DefaultTheme}>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Main" component={MainTabs} />
             <Stack.Screen

@@ -6,9 +6,11 @@ import {
   PanResponder,
   StyleSheet,
 } from "react-native";
+import * as Haptics from "expo-haptics";
 import { Ionicons } from "@expo/vector-icons";
 import { CalendarGrid } from "../components/CalendarGrid";
 import { HolidayBottomSheet } from "../components/HolidayBottomSheet";
+import { useTheme } from "../hooks/useTheme";
 
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
@@ -16,6 +18,7 @@ const MONTH_NAMES = [
 ];
 
 export function CalendarScreen() {
+  const theme = useTheme();
   const today = new Date();
   const [month, setMonth] = useState(today.getMonth() + 1);
   const [year, setYear] = useState(today.getFullYear());
@@ -45,7 +48,6 @@ export function CalendarScreen() {
     });
   };
 
-  // Use a ref for navigate so PanResponder always sees the latest version
   const navigateRef = useRef({ goToPrevMonth, goToNextMonth });
   navigateRef.current = { goToPrevMonth, goToNextMonth };
 
@@ -61,30 +63,37 @@ export function CalendarScreen() {
   ).current;
 
   const handleDayPress = (m: number, d: number) => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     setSelectedDate({ month: m, day: d });
     setSheetVisible(true);
   };
 
+  const arrowBtnBg = theme.isDark ? "#374151" : "#F3F4F6";
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <View style={styles.inner}>
         <View style={styles.monthHeader}>
           <TouchableOpacity
             onPress={goToPrevMonth}
-            style={styles.arrowBtn}
+            style={[styles.arrowBtn, { backgroundColor: arrowBtnBg }]}
             activeOpacity={0.7}
           >
-            <Ionicons name="chevron-back" size={20} color="#374151" />
+            <Ionicons name="chevron-back" size={20} color={theme.textPrimary} />
           </TouchableOpacity>
-          <Text style={styles.monthTitle}>
+          <Text style={[styles.monthTitle, { color: theme.textPrimary }]}>
             {MONTH_NAMES[month - 1]} {year}
           </Text>
           <TouchableOpacity
             onPress={goToNextMonth}
-            style={styles.arrowBtn}
+            style={[styles.arrowBtn, { backgroundColor: arrowBtnBg }]}
             activeOpacity={0.7}
           >
-            <Ionicons name="chevron-forward" size={20} color="#374151" />
+            <Ionicons
+              name="chevron-forward"
+              size={20}
+              color={theme.textPrimary}
+            />
           </TouchableOpacity>
         </View>
 
@@ -105,7 +114,6 @@ export function CalendarScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FAFAFA",
   },
   inner: {
     paddingHorizontal: 20,
@@ -120,7 +128,6 @@ const styles = StyleSheet.create({
   monthTitle: {
     fontSize: 22,
     fontWeight: "700",
-    color: "#1F2937",
   },
   arrowBtn: {
     width: 40,
@@ -128,6 +135,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 20,
-    backgroundColor: "#F3F4F6",
   },
 });
