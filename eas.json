@@ -9,12 +9,18 @@
       "distribution": "internal",
       "ios": {
         "image": "sdk-55"
+      },
+      "env": {
+        "EXPO_PUBLIC_USE_TEST_ADS": "true"
       }
     },
     "preview": {
       "distribution": "internal",
       "ios": {
         "image": "sdk-55"
+      },
+      "env": {
+        "EXPO_PUBLIC_USE_TEST_ADS": "true"
       }
     },
     "production": {

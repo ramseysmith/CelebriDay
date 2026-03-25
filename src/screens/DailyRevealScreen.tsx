@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback, useState, useRef } from "react";
+import React, { useEffect, useMemo, useCallback, useState } from "react";
 import {
   View,
   Text,
@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Dimensions,
   Platform,
-  ActivityIndicator,
 } from "react-native";
 import Animated, {
   useSharedValue,
@@ -17,7 +16,6 @@ import Animated, {
   withRepeat,
   withSequence,
   Easing,
-  runOnJS,
 } from "react-native-reanimated";
 import * as Haptics from "expo-haptics";
 import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
@@ -27,8 +25,13 @@ import { usePremium } from "../hooks/usePremium";
 
 const { width: W, height: H } = Dimensions.get("window");
 
-const IOS_AD_UNIT_ID = "ca-app-pub-3940256099942544/4411468910";
-const ANDROID_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
+const useTestAds = __DEV__ || process.env.EXPO_PUBLIC_USE_TEST_ADS === "true";
+
+const IOS_AD_UNIT_ID = useTestAds
+  ? "ca-app-pub-3940256099942544/4411468910"
+  : "ca-app-pub-8327362355420246/4588714019";
+const ANDROID_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; // update when Android ad unit is available
+
 const adUnitId = Platform.OS === "ios" ? IOS_AD_UNIT_ID : ANDROID_AD_UNIT_ID;
 
 const CONFETTI_COLORS = [
@@ -119,31 +122,6 @@ export function DailyRevealScreen({ onComplete }: Props) {
 
   const confetti = useMemo(() => generateConfetti(), []);
   const [fired, setFired] = useState(false);
-  const [adDone, setAdDone] = useState(false);
-  const adTriggered = useRef(false);
-
-  // Load and show ad, then unlock tap button
-  useEffect(() => {
-    if (premiumLoading) return;
-    if (adTriggered.current) return;
-    adTriggered.current = true;
-
-    if (isPremium) {
-      setAdDone(true);
-      return;
-    }
-
-    (async () => {
-      try {
-        if (Platform.OS === "ios") {
-          await requestTrackingPermissionsAsync().catch(() => {});
-        }
-        const ad = await AdService.loadInterstitial(adUnitId);
-        await AdService.showAndWaitForClose(ad);
-      } catch {}
-      setAdDone(true);
-    })();
-  }, [premiumLoading, isPremium]);
 
   // Entrance animations
   const dateOpacity = useSharedValue(0);
@@ -156,7 +134,6 @@ export function DailyRevealScreen({ onComplete }: Props) {
   const btnOpacity = useSharedValue(0);
   const btnScale = useSharedValue(0.88);
   const pulse = useSharedValue(1);
-  const screenOpacity = useSharedValue(1);
 
   useEffect(() => {
     dateOpacity.value = withDelay(150, withTiming(1, { duration: 400, easing: Easing.out(Easing.quad) }));
@@ -170,9 +147,8 @@ export function DailyRevealScreen({ onComplete }: Props) {
     btnScale.value = withDelay(880, withSpring(1, { damping: 13, stiffness: 110 }));
   }, []);
 
-  // Start pulse once ad is done and button is ready
+  // Start pulse after button entrance animation
   useEffect(() => {
-    if (!adDone) return;
     const timer = setTimeout(() => {
       pulse.value = withRepeat(
         withSequence(
@@ -182,21 +158,36 @@ export function DailyRevealScreen({ onComplete }: Props) {
         -1,
         false
       );
-    }, 300);
+    }, 1200);
     return () => clearTimeout(timer);
-  }, [adDone]);
+  }, []);
 
   const handleTap = useCallback(() => {
-    if (!adDone || fired) return;
+    if (fired) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setFired(true);
-    screenOpacity.value = withDelay(
-      250,
-      withTiming(0, { duration: 500, easing: Easing.in(Easing.quad) }, (finished) => {
-        if (finished) runOnJS(onComplete)();
-      })
-    );
-  }, [adDone, fired]);
+
+    if (!isPremium && !premiumLoading) {
+      (async () => {
+        try {
+          if (Platform.OS === "ios") {
+            await requestTrackingPermissionsAsync().catch(() => {});
+          }
+          // Load ad and show confetti in parallel; go to home once both are ready
+          const [ad] = await Promise.all([
+            AdService.loadInterstitial(adUnitId),
+            new Promise<void>((resolve) => setTimeout(resolve, 700)),
+          ]);
+          onComplete();
+          await AdService.showAndWaitForClose(ad);
+        } catch {
+          onComplete();
+        }
+      })();
+    } else {
+      setTimeout(() => onComplete(), 700);
+    }
+  }, [fired, isPremium, premiumLoading]);
 
   const dateStyle = useAnimatedStyle(() => ({
     opacity: dateOpacity.value,
@@ -213,12 +204,11 @@ export function DailyRevealScreen({ onComplete }: Props) {
   const subStyle = useAnimatedStyle(() => ({ opacity: subOpacity.value }));
   const btnStyle = useAnimatedStyle(() => ({
     opacity: btnOpacity.value,
-    transform: [{ scale: btnScale.value * (adDone ? pulse.value : 1) }],
+    transform: [{ scale: btnScale.value * pulse.value }],
   }));
-  const screenStyle = useAnimatedStyle(() => ({ opacity: screenOpacity.value }));
 
   return (
-    <Animated.View style={[styles.container, screenStyle]}>
+    <View style={styles.container}>
       <View style={styles.confettiOrigin} pointerEvents="none">
         {confetti.map((p) => (
           <ConfettiPieceView key={p.id} piece={p} fired={fired} />
@@ -243,24 +233,19 @@ export function DailyRevealScreen({ onComplete }: Props) {
         <Pressable
           onPress={handleTap}
           style={styles.btnWrapper}
-          disabled={!adDone || fired}
+          disabled={fired}
         >
           <Animated.View
             style={[
               styles.tapBtn,
               btnStyle,
-              !adDone && styles.tapBtnLoading,
             ]}
           >
-            {!adDone ? (
-              <ActivityIndicator color="#FFFFFF" size="small" />
-            ) : (
-              <Text style={styles.tapBtnText}>Tap to Reveal ✨</Text>
-            )}
+            <Text style={styles.tapBtnText}>Tap to Reveal ✨</Text>
           </Animated.View>
         </Pressable>
       </View>
-    </Animated.View>
+    </View>
   );
 }
 

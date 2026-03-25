@@ -2,15 +2,26 @@ import mobileAds, {
   InterstitialAd,
   AdEventType,
 } from "react-native-google-mobile-ads";
+/**
+ * AdMob test device IDs — devices listed here always receive test ads,
+ * regardless of build environment.
+ */
+const TEST_DEVICE_IDS: string[] = [
+  "ACE862E9-099A-4B0B-A553-7D075641C3CF",
+];
 
 export const AdService = {
   async initialize(): Promise<void> {
     try {
+      await mobileAds().setRequestConfiguration({
+        testDeviceIdentifiers: TEST_DEVICE_IDS,
+      });
       await mobileAds().initialize();
     } catch (e) {
       console.warn("AdService: initialization failed", e);
     }
   },
+
 
   loadInterstitial(adUnitId: string): Promise<InterstitialAd> {
     return new Promise((resolve) => {
