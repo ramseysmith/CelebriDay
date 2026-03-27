@@ -14,6 +14,7 @@ import {
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
+import * as WebBrowser from "expo-web-browser";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useSettings } from "../hooks/useSettings";
@@ -380,7 +381,7 @@ export function SettingsScreen() {
 
         <TouchableOpacity
           style={styles.row}
-          onPress={() => Alert.alert("Privacy Policy", "Coming soon.")}
+          onPress={() => WebBrowser.openBrowserAsync("https://ramseysmith.github.io/CelebriDay/privacy-policy.html")}
           activeOpacity={0.7}
         >
           <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
@@ -393,7 +394,7 @@ export function SettingsScreen() {
 
         <TouchableOpacity
           style={styles.row}
-          onPress={() => Alert.alert("Terms of Service", "Coming soon.")}
+          onPress={() => WebBrowser.openBrowserAsync("https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")}
           activeOpacity={0.7}
         >
           <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>

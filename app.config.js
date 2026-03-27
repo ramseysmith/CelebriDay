@@ -47,6 +47,7 @@ module.exports = {
     },
     plugins: [
       "expo-sharing",
+      "expo-web-browser",
       [
         "expo-tracking-transparency",
         {

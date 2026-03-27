@@ -7,10 +7,9 @@ import {
   ScrollView,
   Alert,
   ActivityIndicator,
-  Linking,
-  Platform,
 } from "react-native";
 import * as Haptics from "expo-haptics";
+import * as WebBrowser from "expo-web-browser";
 import { useNavigation } from "@react-navigation/native";
 import { SubscriptionService } from "../services/SubscriptionService";
 import { usePremium } from "../hooks/usePremium";
@@ -244,7 +243,7 @@ export function PaywallScreen() {
           <Text style={[styles.footerDot, { color: theme.border }]}>·</Text>
 
           <TouchableOpacity
-            onPress={() => Alert.alert("Terms of Service", "Coming soon.")}
+            onPress={() => WebBrowser.openBrowserAsync("https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")}
             activeOpacity={0.7}
           >
             <Text style={[styles.footerLink, { color: theme.textTertiary }]}>
@@ -255,7 +254,7 @@ export function PaywallScreen() {
           <Text style={[styles.footerDot, { color: theme.border }]}>·</Text>
 
           <TouchableOpacity
-            onPress={() => Alert.alert("Privacy Policy", "Coming soon.")}
+            onPress={() => WebBrowser.openBrowserAsync("https://ramseysmith.github.io/CelebriDay/privacy-policy.html")}
             activeOpacity={0.7}
           >
             <Text style={[styles.footerLink, { color: theme.textTertiary }]}>
