@@ -4,7 +4,11 @@ import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
 import { AdService } from "../services/AdService";
 import { usePremium } from "./usePremium";
 
-const IOS_AD_UNIT_ID = "ca-app-pub-3940256099942544/4411468910";
+const useTestAds = __DEV__ || process.env.EXPO_PUBLIC_USE_TEST_ADS === "true";
+
+const IOS_AD_UNIT_ID = useTestAds
+  ? "ca-app-pub-3940256099942544/4411468910"
+  : "ca-app-pub-8327362355420246/4588714019";
 const ANDROID_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
 const adUnitId = Platform.OS === "ios" ? IOS_AD_UNIT_ID : ANDROID_AD_UNIT_ID;
 

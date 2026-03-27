@@ -19,6 +19,7 @@ import { PremiumProvider } from "./src/hooks/usePremium";
 import { FavoritesProvider } from "./src/hooks/useFavorites";
 import { useAppInit } from "./src/hooks/useAppInit";
 import { useTheme } from "./src/hooks/useTheme";
+import { useSessionAd } from "./src/hooks/useSessionAd";
 import AnimatedSplash from "./src/components/AnimatedSplash";
 import { RootStackParamList } from "./src/types/navigation";
 
@@ -89,6 +90,12 @@ function MainTabs() {
   );
 }
 
+/** Fires once per session: loads & shows an interstitial for non-premium users */
+function SessionAdLoader() {
+  useSessionAd();
+  return null;
+}
+
 function AppContent() {
   const { isReady, showOnboarding, completeOnboarding } = useAppInit();
   const [revealDone, setRevealDone] = useState(sessionRevealDone);
@@ -102,6 +109,7 @@ function AppContent() {
 
   return (
     <PremiumProvider>
+      <SessionAdLoader />
       <FavoritesProvider>
         <NavigationContainer theme={theme.isDark ? DarkTheme : DefaultTheme}>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -119,8 +127,7 @@ function AppContent() {
           </Stack.Navigator>
         </NavigationContainer>
 
-        {/* Reveal overlay inside PremiumProvider so usePremium() works.
-            Home screen renders underneath for a seamless transition. */}
+        {/* Reveal overlay — home screen renders underneath for a seamless transition */}
         {!revealDone && (
           <DailyRevealScreen
             onComplete={() => {

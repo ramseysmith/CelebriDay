@@ -18,7 +18,7 @@ module.exports = {
     userInterfaceStyle: "automatic",
     splash: {
       image: "./assets/splash.png",
-      resizeMode: "cover",
+      resizeMode: "contain",
       backgroundColor: "#FF6B35",
     },
     ios: {

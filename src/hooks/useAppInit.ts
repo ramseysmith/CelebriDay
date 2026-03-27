@@ -6,16 +6,11 @@ import { NotificationService } from "../services/NotificationService";
 import { AdService } from "../services/AdService";
 import { SubscriptionService } from "../services/SubscriptionService";
 
-const REVENUECAT_TEST_KEY = "test_hceVjziodnSqHRyLuXTPTFiIZgL";
-const REVENUECAT_IOS_KEY = "PLACEHOLDER_IOS_REVENUECAT_KEY";
+const REVENUECAT_IOS_KEY = "appl_yAntjvqDdAwYWsYqDktDZpwBrHW";
 const REVENUECAT_ANDROID_KEY = "PLACEHOLDER_ANDROID_REVENUECAT_KEY";
 
-// Swap __DEV__ to false and fill in the production keys before submitting
-const REVENUECAT_API_KEY = __DEV__
-  ? REVENUECAT_TEST_KEY
-  : Platform.OS === "ios"
-  ? REVENUECAT_IOS_KEY
-  : REVENUECAT_ANDROID_KEY;
+const REVENUECAT_API_KEY =
+  Platform.OS === "ios" ? REVENUECAT_IOS_KEY : REVENUECAT_ANDROID_KEY;
 
 export function useAppInit() {
   const [isReady, setIsReady] = useState(false);

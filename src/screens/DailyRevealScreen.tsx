@@ -5,7 +5,6 @@ import {
   Pressable,
   StyleSheet,
   Dimensions,
-  Platform,
 } from "react-native";
 import Animated, {
   useSharedValue,
@@ -18,21 +17,9 @@ import Animated, {
   Easing,
 } from "react-native-reanimated";
 import * as Haptics from "expo-haptics";
-import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
 import { HolidayService } from "../services/HolidayService";
-import { AdService } from "../services/AdService";
-import { usePremium } from "../hooks/usePremium";
 
 const { width: W, height: H } = Dimensions.get("window");
-
-const useTestAds = __DEV__ || process.env.EXPO_PUBLIC_USE_TEST_ADS === "true";
-
-const IOS_AD_UNIT_ID = useTestAds
-  ? "ca-app-pub-3940256099942544/4411468910"
-  : "ca-app-pub-8327362355420246/4588714019";
-const ANDROID_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; // update when Android ad unit is available
-
-const adUnitId = Platform.OS === "ios" ? IOS_AD_UNIT_ID : ANDROID_AD_UNIT_ID;
 
 const CONFETTI_COLORS = [
   "#FFE66D", "#4ECDC4", "#A855F7", "#EC4899",
@@ -110,7 +97,6 @@ interface Props {
 }
 
 export function DailyRevealScreen({ onComplete }: Props) {
-  const { isPremium, loading: premiumLoading } = usePremium();
   const todayEntry = HolidayService.getTodaysHolidays();
   const count = todayEntry?.holidays.length ?? 0;
   const today = new Date();
@@ -167,27 +153,9 @@ export function DailyRevealScreen({ onComplete }: Props) {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setFired(true);
 
-    if (!isPremium && !premiumLoading) {
-      (async () => {
-        try {
-          if (Platform.OS === "ios") {
-            await requestTrackingPermissionsAsync().catch(() => {});
-          }
-          // Load ad and show confetti in parallel; go to home once both are ready
-          const [ad] = await Promise.all([
-            AdService.loadInterstitial(adUnitId),
-            new Promise<void>((resolve) => setTimeout(resolve, 700)),
-          ]);
-          onComplete();
-          await AdService.showAndWaitForClose(ad);
-        } catch {
-          onComplete();
-        }
-      })();
-    } else {
-      setTimeout(() => onComplete(), 700);
-    }
-  }, [fired, isPremium, premiumLoading]);
+    // Always navigate to home immediately after a brief confetti moment
+    setTimeout(() => onComplete(), 700);
+  }, [fired]);
 
   const dateStyle = useAnimatedStyle(() => ({
     opacity: dateOpacity.value,
@@ -309,10 +277,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 20,
     elevation: 8,
-  },
-  tapBtnLoading: {
-    opacity: 0.6,
-    shadowOpacity: 0,
   },
   tapBtnText: {
     color: "#FFFFFF",
