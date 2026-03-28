@@ -351,7 +351,7 @@ export function SettingsScreen() {
 
         <TouchableOpacity
           style={styles.row}
-          onPress={() => Alert.alert("Thanks!", "Rate us coming soon.")}
+          onPress={() => Linking.openURL("https://apps.apple.com/us/app/celebriday/id6760971240?action=write-review")}
           activeOpacity={0.7}
         >
           <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>

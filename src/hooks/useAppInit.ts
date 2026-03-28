@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Platform } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notifications from "expo-notifications";
+import * as StoreReview from "expo-store-review";
 import { NotificationService } from "../services/NotificationService";
 import { AdService } from "../services/AdService";
 import { SubscriptionService } from "../services/SubscriptionService";
@@ -41,6 +42,16 @@ export function useAppInit() {
         Notifications.addNotificationResponseReceivedListener(() => {
           // Navigation to Today tab is handled by the tab navigator default behavior
         });
+
+      // Track app opens and prompt for review on the 3rd session
+      const opens = parseInt((await AsyncStorage.getItem("appOpens")) ?? "0", 10) + 1;
+      await AsyncStorage.setItem("appOpens", String(opens));
+      if (opens === 3) {
+        const available = await StoreReview.isAvailableAsync();
+        if (available) {
+          StoreReview.requestReview();
+        }
+      }
 
       setIsReady(true);
     }
