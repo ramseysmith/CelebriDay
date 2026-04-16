@@ -12,7 +12,7 @@ module.exports = {
   expo: {
     name: "CelebriDay",
     slug: "celebriday",
-    version: "1.0.0",
+    version: "1.1.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "automatic",
@@ -24,7 +24,7 @@ module.exports = {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "com.ramseysmith.celebriday",
-      buildNumber: "1",
+      buildNumber: "2",
       icon: "./assets/icon.png",
       infoPlist: {
         NSUserTrackingUsageDescription:

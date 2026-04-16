@@ -11,6 +11,7 @@ import {
   Platform,
   ActivityIndicator,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
@@ -403,6 +404,28 @@ export function SettingsScreen() {
           <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>›</Text>
         </TouchableOpacity>
       </View>
+
+      {__DEV__ && (
+        <>
+          <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
+            DEVELOPER
+          </Text>
+          <View style={[styles.card, { backgroundColor: cardBg }]}>
+            <TouchableOpacity
+              style={styles.row}
+              onPress={async () => {
+                await AsyncStorage.removeItem("celebriday.reviewPrompt.v1");
+                Alert.alert("Dev", "Review prompt state reset.");
+              }}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.rowLabel, { color: "#EF4444" }]}>
+                Reset Review Prompt State
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </>
+      )}
     </ScrollView>
   );
 }

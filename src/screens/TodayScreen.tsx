@@ -18,6 +18,7 @@ import { Holiday } from "../types/holiday";
 import { usePremium } from "../hooks/usePremium";
 import { useFavorites } from "../hooks/useFavorites";
 import { useTheme } from "../hooks/useTheme";
+import { useReviewPrompt } from "../hooks/useReviewPrompt";
 import { RootStackParamList } from "../types/navigation";
 
 type NavProp = NativeStackNavigationProp<RootStackParamList>;
@@ -38,7 +39,7 @@ const confettiShownThisSession = { value: false };
 export function TodayScreen() {
   const navigation = useNavigation<NavProp>();
   const { isPremium } = usePremium();
-  const { isFavorite, toggleFavorite } = useFavorites();
+  const { isFavorite, toggleFavorite, favorites } = useFavorites();
   const theme = useTheme();
   const [refreshing, setRefreshing] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -77,6 +78,16 @@ export function TodayScreen() {
   const holidays: Holiday[] = todayEntry?.holidays ?? [];
   const todayMonth = todayEntry?.month ?? today.getMonth() + 1;
   const todayDay = todayEntry?.day ?? today.getDate();
+
+  const todayHolidayIds = holidays.map((h) => `${todayMonth}-${todayDay}-${h.name}`);
+  const { maybeRequestReview, recordShare } = useReviewPrompt(favorites, todayHolidayIds);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      maybeRequestReview();
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [maybeRequestReview]);
 
   const onRefresh = useCallback(async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -221,6 +232,7 @@ export function TodayScreen() {
               toggleFavorite(todayMonth, todayDay, item.name)
             }
             onOpenPaywall={() => navigation.navigate("Paywall")}
+            onShare={() => recordShare(`${todayMonth}-${todayDay}-${item.name}`)}
           />
         )}
         ListHeaderComponent={renderHeader}
