@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Linking,
   Pressable,
+  Platform,
 } from "react-native";
 import Animated, {
   useSharedValue,
@@ -16,12 +17,16 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import * as Haptics from "expo-haptics";
+import * as Sharing from "expo-sharing";
+import { captureRef } from "react-native-view-shot";
 import { Ionicons } from "@expo/vector-icons";
 import { Holiday } from "../types/holiday";
 import { CATEGORY_COLORS } from "../constants/colors";
 import { CategoryBadge } from "./CategoryBadge";
 import { usePremium } from "../hooks/usePremium";
 import { useTheme } from "../hooks/useTheme";
+import { ShareCard, SHARE_CARD_OUTPUT_SIZE } from "./ShareCard";
+import { APP_STORE_URL } from "../constants/appLinks";
 
 interface Props {
   holiday: Holiday;
@@ -45,6 +50,7 @@ export function HolidayCard({
   const { isPremium } = usePremium();
   const theme = useTheme();
   const color = CATEGORY_COLORS[holiday.category];
+  const shareCardRef = useRef<View>(null);
 
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(24);
@@ -71,8 +77,34 @@ export function HolidayCard({
 
   const handleShare = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    const message = `${holiday.shareText}\n\nDownload CelebriDay: ${APP_STORE_URL}`;
     try {
-      await Share.share({ message: holiday.shareText });
+      let imageUri: string | null = null;
+      if (shareCardRef.current) {
+        try {
+          imageUri = await captureRef(shareCardRef, {
+            format: "png",
+            quality: 1,
+            width: SHARE_CARD_OUTPUT_SIZE,
+            height: SHARE_CARD_OUTPUT_SIZE,
+            result: "tmpfile",
+          });
+        } catch {
+          imageUri = null;
+        }
+      }
+
+      if (imageUri && Platform.OS === "ios") {
+        await Share.share({ url: imageUri, message });
+      } else if (imageUri && (await Sharing.isAvailableAsync())) {
+        await Sharing.shareAsync(imageUri, {
+          mimeType: "image/png",
+          dialogTitle: holiday.name,
+          UTI: "public.png",
+        });
+      } else {
+        await Share.share({ message });
+      }
     } catch {
       // ignore cancelled share
     }
@@ -103,6 +135,9 @@ export function HolidayCard({
 
   return (
     <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} style={{ borderRadius: 20 }}>
+      <View style={styles.offscreen} pointerEvents="none">
+        <ShareCard ref={shareCardRef} emoji={holiday.emoji} name={holiday.name} />
+      </View>
       <Animated.View
         style={[
           styles.card,
@@ -244,5 +279,12 @@ const styles = StyleSheet.create({
   },
   favoriteLabel: {
     color: "#EF4444",
+  },
+  offscreen: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    opacity: 0,
+    zIndex: -1,
   },
 });

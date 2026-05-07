@@ -16,6 +16,7 @@ import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
 import * as WebBrowser from "expo-web-browser";
+import Constants from "expo-constants";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useSettings } from "../hooks/useSettings";
@@ -24,6 +25,12 @@ import { useTheme } from "../hooks/useTheme";
 import { SubscriptionService } from "../services/SubscriptionService";
 import { HolidayService } from "../services/HolidayService";
 import { RootStackParamList } from "../types/navigation";
+import { MORE_APPS } from "../constants/appLinks";
+
+const APP_VERSION =
+  Constants.expoConfig?.version ??
+  (Constants as unknown as { manifest?: { version?: string } }).manifest?.version ??
+  "1.0.0";
 
 type NavProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -339,17 +346,6 @@ export function SettingsScreen() {
         ABOUT
       </Text>
       <View style={[styles.card, { backgroundColor: cardBg }]}>
-        <View style={styles.row}>
-          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
-            Version
-          </Text>
-          <Text style={[styles.rowValue, { color: theme.textTertiary }]}>
-            1.0.0
-          </Text>
-        </View>
-
-        <View style={[styles.separator, { backgroundColor: separatorColor }]} />
-
         <TouchableOpacity
           style={styles.row}
           onPress={() => Linking.openURL("https://apps.apple.com/us/app/celebriday/id6760971240?action=write-review")}
@@ -403,6 +399,58 @@ export function SettingsScreen() {
           </Text>
           <Text style={[styles.rowChevron, { color: theme.textTertiary }]}>›</Text>
         </TouchableOpacity>
+      </View>
+
+      {/* More Apps Section */}
+      <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
+        MORE APPS
+      </Text>
+      <View style={[styles.card, { backgroundColor: cardBg }]}>
+        {MORE_APPS.map((app, idx) => (
+          <React.Fragment key={app.name}>
+            {idx > 0 && (
+              <View
+                style={[styles.separator, { backgroundColor: separatorColor }]}
+              />
+            )}
+            <TouchableOpacity
+              style={styles.appRow}
+              onPress={() => Linking.openURL(app.url)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.appEmoji}>{app.emoji}</Text>
+              <View style={styles.appTextContainer}>
+                <Text
+                  style={[styles.appTitle, { color: theme.textPrimary }]}
+                >
+                  {app.name}
+                </Text>
+                <Text
+                  style={[styles.appSubtitle, { color: theme.textSecondary }]}
+                >
+                  {app.subtitle}
+                </Text>
+              </View>
+              <Text
+                style={[styles.rowChevron, { color: theme.textTertiary }]}
+              >
+                ›
+              </Text>
+            </TouchableOpacity>
+          </React.Fragment>
+        ))}
+      </View>
+
+      {/* Version */}
+      <View style={[styles.card, { backgroundColor: cardBg }]}>
+        <View style={styles.row}>
+          <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
+            Version
+          </Text>
+          <Text style={[styles.rowValue, { color: theme.textTertiary }]}>
+            {APP_VERSION}
+          </Text>
+        </View>
       </View>
 
       {__DEV__ && (
@@ -541,5 +589,27 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#FF6B35",
     marginLeft: 8,
+  },
+  appRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    minHeight: 60,
+  },
+  appEmoji: {
+    fontSize: 28,
+    marginRight: 12,
+  },
+  appTextContainer: {
+    flex: 1,
+  },
+  appTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginBottom: 2,
+  },
+  appSubtitle: {
+    fontSize: 13,
   },
 });
