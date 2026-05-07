@@ -17,8 +17,8 @@ module.exports = {
     icon: "./assets/icon.png",
     userInterfaceStyle: "automatic",
     splash: {
-      image: "./assets/splash.png",
-      resizeMode: "contain",
+      image: "./assets/celebriday-splash-static.png",
+      resizeMode: "cover",
       backgroundColor: "#FF6B35",
     },
     ios: {
@@ -26,6 +26,11 @@ module.exports = {
       bundleIdentifier: "com.ramseysmith.celebriday",
       buildNumber: "2",
       icon: "./assets/icon.png",
+      splash: {
+        image: "./assets/celebriday-splash-static.png",
+        resizeMode: "cover",
+        backgroundColor: "#FF6B35",
+      },
       infoPlist: {
         NSUserTrackingUsageDescription:
           "CelebriDay uses this to show you relevant ads. You can change this anytime in Settings.",
@@ -37,6 +42,11 @@ module.exports = {
       versionCode: 1,
       adaptiveIcon: {
         foregroundImage: "./assets/icon.png",
+        backgroundColor: "#FF6B35",
+      },
+      splash: {
+        image: "./assets/celebriday-splash-static.png",
+        resizeMode: "cover",
         backgroundColor: "#FF6B35",
       },
       predictiveBackGestureEnabled: false,

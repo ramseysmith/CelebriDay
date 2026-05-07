@@ -145,12 +145,6 @@ export default function App() {
   const [splashFinished, setSplashFinished] = useState(false);
   const [appReady, setAppReady] = useState(false);
 
-  // Hide the native static splash immediately — our animated version
-  // takes over seamlessly because both use #FF6B35 as background.
-  useEffect(() => {
-    SplashScreen.hideAsync();
-  }, []);
-
   // Signal appReady after a short tick so the animated splash can mount
   // first. Heavy init (RevenueCat, AdMob, AsyncStorage) happens inside
   // AppContent via useAppInit — the splash holds until isReady anyway.
@@ -163,6 +157,12 @@ export default function App() {
     setSplashFinished(true);
   }, []);
 
+  // Hide the native static splash only after AnimatedSplash has painted —
+  // both use #FF6B35 so the handoff is seamless and there is no white flash.
+  const handleAnimatedSplashReady = useCallback(() => {
+    SplashScreen.hideAsync().catch(() => {});
+  }, []);
+
   return (
     <GestureHandlerRootView style={styles.root}>
       {/* App content renders underneath, invisible until splash exits */}
@@ -172,7 +172,11 @@ export default function App() {
 
       {/* Animated splash sits on top and unmounts when done */}
       {!splashFinished && (
-        <AnimatedSplash isReady={appReady} onFinish={handleSplashFinish} />
+        <AnimatedSplash
+          isReady={appReady}
+          onFinish={handleSplashFinish}
+          onReady={handleAnimatedSplashReady}
+        />
       )}
     </GestureHandlerRootView>
   );

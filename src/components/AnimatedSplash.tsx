@@ -47,6 +47,7 @@ function generateConfetti(): ConfettiPiece[] {
 interface AnimatedSplashProps {
   onFinish: () => void;
   isReady: boolean;
+  onReady?: () => void;
 }
 
 function ConfettiDot({ piece }: { piece: ConfettiPiece }) {
@@ -119,8 +120,12 @@ function ConfettiDot({ piece }: { piece: ConfettiPiece }) {
   );
 }
 
-export default function AnimatedSplash({ onFinish, isReady }: AnimatedSplashProps) {
+export default function AnimatedSplash({ onFinish, isReady, onReady }: AnimatedSplashProps) {
   const confetti = useMemo(() => generateConfetti(), []);
+
+  useEffect(() => {
+    onReady?.();
+  }, []);
 
   // Phase 1: Icon entrance
   const iconScale = useSharedValue(0.5);
