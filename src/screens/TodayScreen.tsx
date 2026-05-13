@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback } from "react";
 import {
   View,
   Text,
@@ -14,8 +14,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { HolidayService } from "../services/HolidayService";
 import { HolidayCard } from "../components/HolidayCard";
 import { ConfettiOverlay } from "../components/ConfettiOverlay";
+import { PremiumBadge } from "../components/PremiumBadge";
 import { Holiday } from "../types/holiday";
-import { usePremium } from "../hooks/usePremium";
 import { useFavorites } from "../hooks/useFavorites";
 import { useTheme } from "../hooks/useTheme";
 import { useReviewPrompt } from "../hooks/useReviewPrompt";
@@ -38,13 +38,11 @@ const confettiShownThisSession = { value: false };
 
 export function TodayScreen() {
   const navigation = useNavigation<NavProp>();
-  const { isPremium } = usePremium();
   const { isFavorite, toggleFavorite, favorites } = useFavorites();
   const theme = useTheme();
   const [refreshing, setRefreshing] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const [bannerDismissed, setBannerDismissed] = useState(false);
-  const [premiumBannerDismissed, setPremiumBannerDismissed] = useState(false);
   const [notificationsGranted, setNotificationsGranted] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
 
@@ -99,7 +97,6 @@ export function TodayScreen() {
   }, []);
 
   const showNotifBanner = !notificationsGranted && !bannerDismissed;
-  const showPremiumBanner = !isPremium && !premiumBannerDismissed;
 
   const renderHeader = () => (
     <View>
@@ -162,48 +159,6 @@ export function TodayScreen() {
     </View>
   );
 
-  const renderFooter = () => {
-    if (!showPremiumBanner) return null;
-    return (
-      <View
-        style={[
-          styles.premiumBanner,
-          {
-            backgroundColor: theme.isDark ? "#1F2937" : "#FFF7F4",
-            borderColor: theme.isDark ? "#374151" : "#FECDB0",
-          },
-        ]}
-      >
-        <View style={styles.premiumBannerContent}>
-          <Text
-            style={[
-              styles.premiumBannerText,
-              { color: theme.isDark ? "#D1D5DB" : "#92400E" },
-            ]}
-          >
-            Remove ads and unlock favorites with CelebriDay Premium
-          </Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Paywall")}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.premiumBannerLink}>Learn More</Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity
-          style={styles.bannerDismiss}
-          onPress={() => setPremiumBannerDismissed(true)}
-          activeOpacity={0.7}
-          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-        >
-          <Text style={[styles.bannerDismissText, { color: theme.textTertiary }]}>
-            ✕
-          </Text>
-        </TouchableOpacity>
-      </View>
-    );
-  };
-
   const renderEmpty = () => (
     <View style={styles.emptyState}>
       <Text style={styles.emptyEmoji}>🎉</Text>
@@ -236,7 +191,6 @@ export function TodayScreen() {
           />
         )}
         ListHeaderComponent={renderHeader}
-        ListFooterComponent={renderFooter}
         ListEmptyComponent={renderEmpty}
         refreshControl={
           <RefreshControl
@@ -251,6 +205,7 @@ export function TodayScreen() {
       {showConfetti && (
         <ConfettiOverlay onDone={() => setShowConfetti(false)} />
       )}
+      <PremiumBadge onPress={() => navigation.navigate("Paywall")} />
     </View>
   );
 }
@@ -313,28 +268,6 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 16,
     marginBottom: 20,
-  },
-  premiumBanner: {
-    borderRadius: 12,
-    padding: 14,
-    marginTop: 8,
-    flexDirection: "row",
-    alignItems: "center",
-    borderWidth: 1,
-  },
-  premiumBannerContent: {
-    flex: 1,
-    marginRight: 8,
-  },
-  premiumBannerText: {
-    fontSize: 13,
-    lineHeight: 18,
-    marginBottom: 4,
-  },
-  premiumBannerLink: {
-    fontSize: 13,
-    fontWeight: "700",
-    color: "#FF6B35",
   },
   emptyState: {
     alignItems: "center",

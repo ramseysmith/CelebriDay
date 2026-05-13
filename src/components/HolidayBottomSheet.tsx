@@ -7,7 +7,9 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { HolidayService } from "../services/HolidayService";
 import { HolidayCard } from "./HolidayCard";
+import { LockedHolidayCard } from "./LockedHolidayCard";
 import { useFavorites } from "../hooks/useFavorites";
+import { usePremium } from "../hooks/usePremium";
 import { useTheme } from "../hooks/useTheme";
 import { RootStackParamList } from "../types/navigation";
 
@@ -21,15 +23,18 @@ const MONTH_NAMES = [
 interface Props {
   visible: boolean;
   date: { month: number; day: number } | null;
+  isPast?: boolean;
   onClose: () => void;
 }
 
-export function HolidayBottomSheet({ visible, date, onClose }: Props) {
+export function HolidayBottomSheet({ visible, date, isPast, onClose }: Props) {
   const navigation = useNavigation<NavProp>();
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { isPremium } = usePremium();
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ["55%", "90%"], []);
+  const showLocked = !!isPast && !isPremium;
 
   useEffect(() => {
     if (visible) {
@@ -78,7 +83,14 @@ export function HolidayBottomSheet({ visible, date, onClose }: Props) {
             {dateLabel}
           </Text>
         ) : null}
-        {entry && entry.holidays.length > 0 ? (
+        {showLocked ? (
+          <LockedHolidayCard
+            onUnlock={() => {
+              sheetRef.current?.close();
+              navigation.navigate("Paywall");
+            }}
+          />
+        ) : entry && entry.holidays.length > 0 ? (
           entry.holidays.map((holiday, idx) => (
             <HolidayCard
               key={idx}
