@@ -30,7 +30,7 @@ export function LockedHolidayCard({ onUnlock }: Props) {
         Premium Feature
       </Text>
       <Text style={[styles.subtext, { color: theme.textSecondary }]}>
-        Unlock past holidays with CelebriDay Premium
+        See upcoming holidays with CelebriDay Premium
       </Text>
       <TouchableOpacity
         style={styles.button}

@@ -23,18 +23,18 @@ const MONTH_NAMES = [
 interface Props {
   visible: boolean;
   date: { month: number; day: number } | null;
-  isPast?: boolean;
+  isFuture?: boolean;
   onClose: () => void;
 }
 
-export function HolidayBottomSheet({ visible, date, isPast, onClose }: Props) {
+export function HolidayBottomSheet({ visible, date, isFuture, onClose }: Props) {
   const navigation = useNavigation<NavProp>();
   const { isFavorite, toggleFavorite } = useFavorites();
   const { isPremium } = usePremium();
   const theme = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ["55%", "90%"], []);
-  const showLocked = !!isPast && !isPremium;
+  const showLocked = !!isFuture && !isPremium;
 
   useEffect(() => {
     if (visible) {

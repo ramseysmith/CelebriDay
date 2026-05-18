@@ -127,14 +127,14 @@ export function CalendarScreen() {
     ? HolidayService.getHolidaysForDate(selectedDate.month, selectedDate.day)
     : null;
 
-  const isSelectedPast = (() => {
+  const isSelectedFuture = (() => {
     if (!selectedDate) return false;
     const startOfToday = new Date();
     startOfToday.setHours(0, 0, 0, 0);
     const selected = new Date(year, selectedDate.month - 1, selectedDate.day);
-    return selected < startOfToday;
+    return selected > startOfToday;
   })();
-  const showLocked = isSelectedPast && !isPremium;
+  const showLocked = isSelectedFuture && !isPremium;
 
   const arrowBtnBg = theme.isDark ? "#374151" : "#F3F4F6";
   const panelBg = theme.isDark ? "#1F2937" : "#FFFFFF";
@@ -239,7 +239,7 @@ export function CalendarScreen() {
         <HolidayBottomSheet
           visible={sheetVisible}
           date={selectedDate}
-          isPast={isSelectedPast}
+          isFuture={isSelectedFuture}
           onClose={() => setSheetVisible(false)}
         />
       )}

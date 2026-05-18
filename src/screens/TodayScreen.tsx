@@ -45,6 +45,11 @@ export function TodayScreen() {
   const [bannerDismissed, setBannerDismissed] = useState(false);
   const [notificationsGranted, setNotificationsGranted] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [collapsedCards, setCollapsedCards] = useState<Record<string, boolean>>({});
+
+  const toggleCard = useCallback((id: string) => {
+    setCollapsedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  }, []);
 
   React.useEffect(() => {
     Notifications.getPermissionsAsync().then(({ status }) => {
@@ -149,9 +154,12 @@ export function TodayScreen() {
         </View>
       )}
       <View style={styles.header}>
-        <Text style={[styles.dateLabel, { color: theme.textPrimary }]}>
-          {dateLabel}
-        </Text>
+        <View style={styles.headerRow}>
+          <Text style={[styles.dateLabel, { color: theme.textPrimary }]}>
+            {dateLabel}
+          </Text>
+          <PremiumBadge onPress={() => navigation.navigate("Paywall")} />
+        </View>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
           Today's Celebrations
         </Text>
@@ -176,20 +184,25 @@ export function TodayScreen() {
         contentContainerStyle={styles.content}
         data={holidays}
         keyExtractor={(_, idx) => String(idx)}
-        renderItem={({ item, index }) => (
-          <HolidayCard
-            holiday={item}
-            index={index}
-            month={todayMonth}
-            day={todayDay}
-            isFavorited={isFavorite(todayMonth, todayDay, item.name)}
-            onToggleFavorite={() =>
-              toggleFavorite(todayMonth, todayDay, item.name)
-            }
-            onOpenPaywall={() => navigation.navigate("Paywall")}
-            onShare={() => recordShare(`${todayMonth}-${todayDay}-${item.name}`)}
-          />
-        )}
+        renderItem={({ item, index }) => {
+          const cardId = `${todayMonth}-${todayDay}-${item.name}`;
+          return (
+            <HolidayCard
+              holiday={item}
+              index={index}
+              month={todayMonth}
+              day={todayDay}
+              isFavorited={isFavorite(todayMonth, todayDay, item.name)}
+              onToggleFavorite={() =>
+                toggleFavorite(todayMonth, todayDay, item.name)
+              }
+              onOpenPaywall={() => navigation.navigate("Paywall")}
+              onShare={() => recordShare(cardId)}
+              collapsed={!!collapsedCards[cardId]}
+              onToggleCollapse={() => toggleCard(cardId)}
+            />
+          );
+        }}
         ListHeaderComponent={renderHeader}
         ListEmptyComponent={renderEmpty}
         refreshControl={
@@ -205,7 +218,6 @@ export function TodayScreen() {
       {showConfetti && (
         <ConfettiOverlay onDone={() => setShowConfetti(false)} />
       )}
-      <PremiumBadge onPress={() => navigation.navigate("Paywall")} />
     </View>
   );
 }
@@ -260,10 +272,17 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 8,
   },
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 4,
+  },
   dateLabel: {
     fontSize: 28,
     fontWeight: "700",
-    marginBottom: 4,
+    flexShrink: 1,
+    marginRight: 12,
   },
   subtitle: {
     fontSize: 16,
