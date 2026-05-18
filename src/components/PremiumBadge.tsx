@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Text, StyleSheet, Pressable, View, LayoutChangeEvent } from "react-native";
 import Animated, {
   useSharedValue,
@@ -18,7 +18,7 @@ interface Props {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-export function PremiumBadge({ onPress }: Props) {
+function PremiumBadgeImpl({ onPress }: Props) {
   const { isPremium } = usePremium();
   const [badgeWidth, setBadgeWidth] = useState(0);
 
@@ -26,8 +26,12 @@ export function PremiumBadge({ onPress }: Props) {
   const opacity = useSharedValue(0);
   const shimmerX = useSharedValue(0);
 
+  const entryStarted = useRef(false);
+  const shimmerStarted = useRef(false);
+
   useEffect(() => {
-    if (isPremium) return;
+    if (isPremium || entryStarted.current) return;
+    entryStarted.current = true;
 
     translateX.value = withDelay(
       200,
@@ -40,7 +44,8 @@ export function PremiumBadge({ onPress }: Props) {
   }, [isPremium]);
 
   useEffect(() => {
-    if (isPremium || badgeWidth <= 0) return;
+    if (isPremium || badgeWidth <= 0 || shimmerStarted.current) return;
+    shimmerStarted.current = true;
 
     const shimmerWidth = badgeWidth * 0.6;
     shimmerX.value = -shimmerWidth;
@@ -112,6 +117,8 @@ export function PremiumBadge({ onPress }: Props) {
     </AnimatedPressable>
   );
 }
+
+export const PremiumBadge = React.memo(PremiumBadgeImpl);
 
 const styles = StyleSheet.create({
   badge: {

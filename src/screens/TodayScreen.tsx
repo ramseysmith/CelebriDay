@@ -51,6 +51,10 @@ export function TodayScreen() {
     setCollapsedCards((prev) => ({ ...prev, [id]: !prev[id] }));
   }, []);
 
+  const handlePremiumPress = useCallback(() => {
+    navigation.navigate("Paywall");
+  }, [navigation]);
+
   React.useEffect(() => {
     Notifications.getPermissionsAsync().then(({ status }) => {
       setNotificationsGranted(status === "granted");
@@ -158,7 +162,7 @@ export function TodayScreen() {
           <Text style={[styles.dateLabel, { color: theme.textPrimary }]}>
             {dateLabel}
           </Text>
-          <PremiumBadge onPress={() => navigation.navigate("Paywall")} />
+          <PremiumBadge onPress={handlePremiumPress} />
         </View>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
           Today's Celebrations
@@ -203,7 +207,7 @@ export function TodayScreen() {
             />
           );
         }}
-        ListHeaderComponent={renderHeader}
+        ListHeaderComponent={renderHeader()}
         ListEmptyComponent={renderEmpty}
         refreshControl={
           <RefreshControl

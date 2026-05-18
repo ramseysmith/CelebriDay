@@ -57,6 +57,7 @@ export function HolidayCard({
   const color = CATEGORY_COLORS[holiday.category];
   const shareCardRef = useRef<View>(null);
   const collapsible = !!onToggleCollapse;
+  const isCollapsed = collapsible && collapsed;
 
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(24);
@@ -184,37 +185,24 @@ export function HolidayCard({
           animatedStyle,
         ]}
       >
-        {collapsible && collapsed ? (
+        {collapsible && (
           <Pressable
             onPress={handleToggleCollapse}
-            style={styles.collapsedRow}
-            hitSlop={{ top: 6, bottom: 6, left: 6, right: 6 }}
+            style={styles.chevronAbs}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
           >
-            <Text style={styles.collapsedEmoji}>{holiday.emoji}</Text>
-            <Text
-              style={[styles.collapsedName, { color: theme.textPrimary }]}
-              numberOfLines={1}
-            >
-              {holiday.name}
-            </Text>
             {renderChevron()}
           </Pressable>
-        ) : (
+        )}
+        <Text style={styles.emoji}>{holiday.emoji}</Text>
+        <Text style={[styles.name, { color: theme.textPrimary }]}>
+          {holiday.name}
+        </Text>
+        <View style={isCollapsed ? styles.collapsedBadgeWrap : undefined}>
+          <CategoryBadge category={holiday.category} />
+        </View>
+        {!isCollapsed && (
           <>
-            {collapsible && (
-              <Pressable
-                onPress={handleToggleCollapse}
-                style={styles.chevronAbs}
-                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-              >
-                {renderChevron()}
-              </Pressable>
-            )}
-            <Text style={styles.emoji}>{holiday.emoji}</Text>
-            <Text style={[styles.name, { color: theme.textPrimary }]}>
-              {holiday.name}
-            </Text>
-            <CategoryBadge category={holiday.category} />
             <Text style={[styles.description, { color: theme.textSecondary }]}>
               {holiday.description}
             </Text>
@@ -288,18 +276,8 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 3,
   },
-  collapsedRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
-  },
-  collapsedEmoji: {
-    fontSize: 22,
-  },
-  collapsedName: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: "700",
+  collapsedBadgeWrap: {
+    marginBottom: -12,
   },
   chevronAbs: {
     position: "absolute",
