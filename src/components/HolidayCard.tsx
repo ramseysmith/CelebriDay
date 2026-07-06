@@ -26,6 +26,7 @@ import { CATEGORY_COLORS } from "../constants/colors";
 import { CategoryBadge } from "./CategoryBadge";
 import { usePremium } from "../hooks/usePremium";
 import { useTheme } from "../hooks/useTheme";
+import { useInterstitialTrigger } from "../hooks/useInterstitialAd";
 import { ShareCard, SHARE_CARD_OUTPUT_SIZE } from "./ShareCard";
 import { APP_LINKS } from "../constants/appLinks";
 
@@ -54,6 +55,7 @@ export function HolidayCard({
 }: Props) {
   const { isPremium } = usePremium();
   const theme = useTheme();
+  const triggerInterstitial = useInterstitialTrigger();
   const color = CATEGORY_COLORS[holiday.category];
   const shareCardRef = useRef<View>(null);
   const collapsible = !!onToggleCollapse;
@@ -132,10 +134,12 @@ export function HolidayCard({
       // ignore cancelled share
     }
     onShare?.();
+    triggerInterstitial();
   };
 
   const handleFavorite = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    triggerInterstitial();
     if (isPremium) {
       onToggleFavorite?.();
     } else {

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer, DarkTheme, DefaultTheme } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
@@ -19,8 +19,9 @@ import { PremiumProvider } from "./src/hooks/usePremium";
 import { FavoritesProvider } from "./src/hooks/useFavorites";
 import { useAppInit } from "./src/hooks/useAppInit";
 import { useTheme } from "./src/hooks/useTheme";
-import { useSessionAd } from "./src/hooks/useSessionAd";
+import { usePreloadInterstitialAd } from "./src/hooks/useInterstitialAd";
 import AnimatedSplash from "./src/components/AnimatedSplash";
+import { BannerAdBar } from "./src/components/BannerAdBar";
 import { RootStackParamList } from "./src/types/navigation";
 
 // Must be called at module level — prevents the native static splash from
@@ -38,6 +39,12 @@ function MainTabs() {
 
   return (
     <Tab.Navigator
+      tabBar={(props) => (
+        <View>
+          <BannerAdBar />
+          <BottomTabBar {...props} />
+        </View>
+      )}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color }) => {
           let iconName: keyof typeof Ionicons.glyphMap;
@@ -90,9 +97,10 @@ function MainTabs() {
   );
 }
 
-/** Fires once per session: loads & shows an interstitial for non-premium users */
-function SessionAdLoader() {
-  useSessionAd();
+/** Preloads an interstitial in the background so it's ready when the user
+ * tries to like or share a holiday — does not show anything on its own. */
+function AdPreloader() {
+  usePreloadInterstitialAd();
   return null;
 }
 
@@ -109,7 +117,7 @@ function AppContent() {
 
   return (
     <PremiumProvider>
-      <SessionAdLoader />
+      <AdPreloader />
       <FavoritesProvider>
         <NavigationContainer theme={theme.isDark ? DarkTheme : DefaultTheme}>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
