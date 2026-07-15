@@ -19,7 +19,7 @@ interface FavoritesContextType {
   favorites: string[];
   isFavorite: (month: number, day: number, name: string) => boolean;
   toggleFavorite: (month: number, day: number, name: string) => Promise<void>;
-  getFavoriteHolidays: () => Array<{ holiday: Holiday; month: number; day: number }>;
+  getFavoriteHolidays: () => { holiday: Holiday; month: number; day: number }[];
 }
 
 const FavoritesContext = createContext<FavoritesContextType>({
@@ -66,11 +66,11 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
     [persist]
   );
 
-  const getFavoriteHolidays = useCallback((): Array<{
+  const getFavoriteHolidays = useCallback((): {
     holiday: Holiday;
     month: number;
     day: number;
-  }> => {
+  }[] => {
     return favorites.flatMap((id) => {
       const dashIdx = id.indexOf("-", id.indexOf("-") + 1);
       const prefix = id.slice(0, dashIdx);
