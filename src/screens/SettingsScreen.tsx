@@ -323,7 +323,7 @@ export function SettingsScreen() {
             <View style={[styles.separator, { backgroundColor: separatorColor }]} />
             <View style={styles.previewContainer}>
               <Text style={[styles.rowLabel, { color: theme.textPrimary }]}>
-                Tomorrow's Notification
+                Tomorrow&apos;s Notification
               </Text>
               <View style={[styles.previewCard, { backgroundColor: previewBg }]}>
                 <Text style={[styles.previewTitle, { color: theme.textPrimary }]}>

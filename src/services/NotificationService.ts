@@ -14,7 +14,7 @@ Notifications.setNotificationHandler({
   }),
 });
 
-const TEASER_TEMPLATES: Array<(holiday: Holiday) => string> = [
+const TEASER_TEMPLATES: ((holiday: Holiday) => string)[] = [
   () => "Tap to see what today is all about. You will not regret it 🎉",
   () => "Today has a holiday most people totally miss. Tap to be in the know.",
   () => "Your daily dose of something worth celebrating is waiting inside.",

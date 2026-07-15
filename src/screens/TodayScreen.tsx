@@ -165,7 +165,7 @@ export function TodayScreen() {
           <PremiumBadge onPress={handlePremiumPress} />
         </View>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Today's Celebrations
+          Today&apos;s Celebrations
         </Text>
       </View>
     </View>
