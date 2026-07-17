@@ -98,7 +98,7 @@ function MainTabs() {
 }
 
 /** Preloads an interstitial in the background so it's ready when the user
- * tries to like or share a holiday — does not show anything on its own. */
+ * tries to share a holiday — does not show anything on its own. */
 function AdPreloader() {
   usePreloadInterstitialAd();
   return null;

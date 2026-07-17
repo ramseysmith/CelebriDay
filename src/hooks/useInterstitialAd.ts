@@ -29,8 +29,8 @@ function preloadInterstitial() {
 
 /**
  * Requests ATT (iOS) and preloads an interstitial in the background so it's
- * ready to show instantly the first time the user tries to like or share a
- * holiday. Does not show anything itself.
+ * ready to show instantly the first time the user tries to share a holiday.
+ * Does not show anything itself.
  */
 export function usePreloadInterstitialAd() {
   const { isPremium, loading: premiumLoading } = usePremium();
@@ -51,8 +51,8 @@ export function usePreloadInterstitialAd() {
 
 /**
  * Returns a function that shows the interstitial ad, at most once per
- * session, and only for non-premium users. Call it from a like/share
- * attempt handler.
+ * session, and only for non-premium users. Call it from a share attempt
+ * handler.
  */
 export function useInterstitialTrigger() {
   const { isPremium, loading: premiumLoading } = usePremium();

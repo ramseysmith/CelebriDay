@@ -139,7 +139,6 @@ export function HolidayCard({
 
   const handleFavorite = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    triggerInterstitial();
     if (isPremium) {
       onToggleFavorite?.();
     } else {
