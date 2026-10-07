@@ -86,7 +86,7 @@ export class NotificationService {
       const month = targetDate.getMonth() + 1;
       const day = targetDate.getDate();
 
-      const entry = HolidayService.getHolidaysForDate(month, day);
+      const entry = HolidayService.getHolidaysForDate(month, day, targetDate.getFullYear());
       if (!entry || entry.holidays.length === 0) continue;
 
       const holiday = entry.holidays[0];

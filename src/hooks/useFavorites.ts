@@ -79,8 +79,11 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
       const month = Number(monthStr);
       const day = Number(dayStr);
       const entry = HolidayService.getHolidaysForDate(month, day);
-      if (!entry) return [];
-      const holiday = entry.holidays.find((h) => h.name === name);
+      // Moving holidays land on a different date each year, so fall back to
+      // a name lookup and keep the date the favorite was saved under.
+      const holiday =
+        entry?.holidays.find((h) => h.name === name) ??
+        HolidayService.getMovingHolidayByName(name);
       if (!holiday) return [];
       return [{ holiday, month, day }];
     });

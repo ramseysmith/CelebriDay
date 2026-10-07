@@ -1,5 +1,6 @@
 import { DayEntry, Holiday, HolidayCategory } from "../types/holiday";
 import holidaysData from "../data/holidays.json";
+import { MOVING_HOLIDAYS, getMovingHolidaysForDate } from "../data/movingHolidays";
 
 const data = holidaysData as DayEntry[];
 
@@ -8,11 +9,24 @@ export class HolidayService {
     const today = new Date();
     const month = today.getMonth() + 1;
     const day = today.getDate();
-    return HolidayService.getHolidaysForDate(month, day);
+    return HolidayService.getHolidaysForDate(month, day, today.getFullYear());
   }
 
-  static getHolidaysForDate(month: number, day: number): DayEntry | undefined {
-    return data.find((entry) => entry.month === month && entry.day === day);
+  // Moving holidays (Thanksgiving, Easter, Leap Day, ...) depend on the year
+  // and are listed first since they are usually the headline of the day.
+  static getHolidaysForDate(
+    month: number,
+    day: number,
+    year: number = new Date().getFullYear()
+  ): DayEntry | undefined {
+    const fixed = data.find((entry) => entry.month === month && entry.day === day);
+    const moving = getMovingHolidaysForDate(month, day, year);
+    if (moving.length === 0) return fixed;
+    return { month, day, holidays: [...moving, ...(fixed?.holidays ?? [])] };
+  }
+
+  static getMovingHolidayByName(name: string): Holiday | undefined {
+    return MOVING_HOLIDAYS.find((m) => m.holiday.name === name)?.holiday;
   }
 
   static getUpcomingHolidays(count: number): DayEntry[] {
@@ -25,7 +39,7 @@ export class HolidayService {
       next.setDate(today.getDate() + i);
       const month = next.getMonth() + 1;
       const day = next.getDate();
-      const entry = HolidayService.getHolidaysForDate(month, day);
+      const entry = HolidayService.getHolidaysForDate(month, day, next.getFullYear());
       if (entry) {
         results.push(entry);
       }

@@ -75,7 +75,7 @@ export function CalendarGrid({ month, year, onDayPress, selectedDay }: Props) {
         <View key={rowIdx} style={styles.row}>
           {row.map((cell, cellIdx) => {
             const entry = cell.isCurrentMonth
-              ? HolidayService.getHolidaysForDate(cell.month, cell.day)
+              ? HolidayService.getHolidaysForDate(cell.month, cell.day, cell.year)
               : null;
             const primaryCategory =
               entry && entry.holidays.length > 0

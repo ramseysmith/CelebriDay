@@ -23,11 +23,12 @@ const MONTH_NAMES = [
 interface Props {
   visible: boolean;
   date: { month: number; day: number } | null;
+  year: number;
   isFuture?: boolean;
   onClose: () => void;
 }
 
-export function HolidayBottomSheet({ visible, date, isFuture, onClose }: Props) {
+export function HolidayBottomSheet({ visible, date, year, isFuture, onClose }: Props) {
   const navigation = useNavigation<NavProp>();
   const { isFavorite, toggleFavorite } = useFavorites();
   const { isPremium } = usePremium();
@@ -55,7 +56,7 @@ export function HolidayBottomSheet({ visible, date, isFuture, onClose }: Props) 
   );
 
   const entry = date
-    ? HolidayService.getHolidaysForDate(date.month, date.day)
+    ? HolidayService.getHolidaysForDate(date.month, date.day, year)
     : null;
   const dateLabel = date
     ? `${MONTH_NAMES[date.month - 1]} ${date.day}`

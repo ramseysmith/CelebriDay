@@ -46,7 +46,7 @@ function getTomorrow() {
   tomorrow.setDate(tomorrow.getDate() + 1);
   const month = tomorrow.getMonth() + 1;
   const day = tomorrow.getDate();
-  return HolidayService.getHolidaysForDate(month, day);
+  return HolidayService.getHolidaysForDate(month, day, tomorrow.getFullYear());
 }
 
 export function SettingsScreen() {

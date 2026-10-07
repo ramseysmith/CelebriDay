@@ -124,7 +124,7 @@ export function CalendarScreen() {
   };
 
   const entry = selectedDate
-    ? HolidayService.getHolidaysForDate(selectedDate.month, selectedDate.day)
+    ? HolidayService.getHolidaysForDate(selectedDate.month, selectedDate.day, year)
     : null;
 
   const isSelectedFuture = (() => {
@@ -239,6 +239,7 @@ export function CalendarScreen() {
         <HolidayBottomSheet
           visible={sheetVisible}
           date={selectedDate}
+          year={year}
           isFuture={isSelectedFuture}
           onClose={() => setSheetVisible(false)}
         />
