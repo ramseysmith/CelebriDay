@@ -1,0 +1,101 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "version": "1.3.0",
+    "copyright": "Graysmith Inc.",
+    "release": {
+      "automaticRelease": true
+    },
+    "info": {
+      "en-US": {
+        "description": "  What holiday is it today?\n                                                                              \n  There is always something to celebrate. CelebriDay delivers a fresh holiday\n  to your phone every single morning, complete with fun facts and everything  \n  you need to share the joy with friends and family.        \n                                                                              \n  From National Pizza Day to World Emoji Day to the wonderfully quirky ones   \n  you never knew existed, there is a celebration waiting for you every day of\n  the year.                                                                   \n                                                            \n  DAILY HOLIDAY NOTIFICATIONS                                                 \n  Wake up to a delightful notification every morning telling you exactly what\n  holiday it is today. Each alert includes a fun fact to brighten your day    \n  before you even get out of bed.                           \n                                                                              \n  BEAUTIFUL HOLIDAY CARDS                                                     \n  Today's holidays appear as vibrant, color coded cards right on your home\n  screen. Every card includes the full holiday name, a description, a fun     \n  fact, and a Share button so you can spread the celebration instantly.\n                                                                              \n  FULL YEAR CALENDAR                                                          \n  Browse all 365 days at a glance. Every single day has its own celebration,\n  organized by category with color coded dots so you can spot your favorites  \n  from across the month. Tap any day to explore its holidays in a beautiful\n  pull up sheet.                                                              \n                                                            \n  365 DAYS OF FUN FACTS                                                       \n  Over 365 unique holidays with a hand picked fun fact for every one. You will\n   never run out of something interesting to bring up at dinner.              \n                                                            \n  CELEBRIDAY PREMIUM                                                          \n  Take your celebrations to the next level.                 \n\n  No ads. Ever. Open the app and go straight to your holidays with zero       \n  interruptions.\n                                                                              \n  Save your favorites. Tap the heart on any holiday card to keep a collection \n  of the ones you love most.\n                                                                              \n  Custom notification time. Choose exactly when your daily alert arrives,     \n  whether that is 6 AM with your coffee or 10 AM at your desk.\n                                                                              \n  Home screen widgets. Coming soon. Today's holiday right where you see it    \n  first.                                          \n                                                                           \n  CelebriDay is free to download. Premium features are available as a monthly \n  or annual subscription. Subscriptions renew automatically and can be        \n  cancelled anytime through your App Store account settings.   \n\n---------------------------------------------------------------\n\nPrivacy Policy: https://ramseysmith.github.io/CelebriDay/privacy-policy.html\nTerms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+        "keywords": [
+          "national day",
+          "what day is it",
+          "fun facts",
+          "trivia",
+          "daily reminder",
+          "calendar",
+          "today",
+          "quirky",
+          "notification"
+        ],
+        "releaseNotes": "Faster, cleaner startup every time you open the app\nSmall polish and stability improvements across the calendar and favorites\nThanks for celebrating with us every day. If CelebriDay puts a smile on your morning, a quick rating really helps us grow.",
+        "marketingUrl": "https://ramseysmith.github.io/CelebriDay/",
+        "promoText": "Every day is a holiday you never knew about. Wake up to a fun new celebration each morning, save your favorites, and never miss a reason to smile.",
+        "supportUrl": "https://ramseysmith.github.io/CelebriDay/support.html",
+        "title": "CelebriDay",
+        "subtitle": "What Holiday is Today?",
+        "privacyPolicyUrl": "https://ramseysmith.github.io/CelebriDay/privacy-policy.html",
+        "screenshots": {
+          "APP_IPAD_PRO_3GEN_129": [
+            "store/apple/screenshot/en-US/APP_IPAD_PRO_3GEN_129/Simulator Screenshot - iPad Pro 13-inch (M4) - 2026-03-22 at 10.38.16.png",
+            "store/apple/screenshot/en-US/APP_IPAD_PRO_3GEN_129/Simulator Screenshot - iPad Pro 13-inch (M4) - 2026-03-22 at 10.38.18.png",
+            "store/apple/screenshot/en-US/APP_IPAD_PRO_3GEN_129/Simulator Screenshot - iPad Pro 13-inch (M4) - 2026-03-22 at 10.39.03.png",
+            "store/apple/screenshot/en-US/APP_IPAD_PRO_3GEN_129/Simulator Screenshot - iPad Pro 13-inch (M4) - 2026-03-22 at 10.39.07.png",
+            "store/apple/screenshot/en-US/APP_IPAD_PRO_3GEN_129/Simulator Screenshot - iPad Pro 13-inch (M4) - 2026-03-22 at 10.39.11.png"
+          ],
+          "APP_IPHONE_67": [
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.41.26.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.41.30.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.41.33.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.41.36.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.41.51.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.41.58.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.42.02.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_67/Simulator Screenshot - iPhone 16 Plus - 2026-03-22 at 14.42.04.png"
+          ],
+          "APP_IPHONE_61": [
+            "store/apple/screenshot/en-US/APP_IPHONE_61/Simulator Screenshot - iPhone 16 Pro - 2026-03-22 at 11.00.14.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_61/Simulator Screenshot - iPhone 16 Pro - 2026-03-22 at 11.00.17.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_61/Simulator Screenshot - iPhone 16 Pro - 2026-03-22 at 11.00.24.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_61/Simulator Screenshot - iPhone 16 Pro - 2026-03-22 at 11.00.39.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_61/Simulator Screenshot - iPhone 16 Pro - 2026-03-22 at 11.02.17.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_61/Simulator Screenshot - iPhone 16 Pro - 2026-03-22 at 11.02.22.png",
+            "store/apple/screenshot/en-US/APP_IPHONE_61/Simulator Screenshot - iPhone 16 Pro - 2026-03-22 at 11.02.26.png"
+          ]
+        }
+      }
+    },
+    "categories": [
+      "LIFESTYLE",
+      "ENTERTAINMENT"
+    ],
+    "advisory": {
+      "ageRatingOverride": "NONE",
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gambling": false,
+      "gamblingSimulated": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "kidsAgeBand": null,
+      "koreaAgeRatingOverride": "NONE",
+      "lootBox": false,
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "unrestrictedWebAccess": false,
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "advertising": true,
+      "ageAssurance": false,
+      "ageRatingOverrideV2": "NONE",
+      "developerAgeRatingInfoUrl": null,
+      "gunsOrOtherWeapons": "NONE",
+      "healthOrWellnessTopics": false,
+      "messagingAndChat": false,
+      "parentalControls": false,
+      "userGeneratedContent": false
+    },
+    "review": {
+      "firstName": "Ramsey",
+      "lastName": "Graysmith",
+      "email": "smith.s.ramsey@gmail.com",
+      "phone": "7208226609",
+      "demoRequired": false
+    }
+  }
+}
